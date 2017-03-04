@@ -1,0 +1,131 @@
+{
+    "_type": "SearchResponse", 
+    "traceId": "3FDF4CD438874361BB6017CD5FA8E4BC", 
+    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=0E68839735FF4F068253AD8CB093C774&CID=12449C18053F608412BC9621046C6146&ID=", 
+    "answers": [
+        {
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
+            "_type": "AppLink/WebResponse", 
+            "answerType": "Web", 
+            "webResults": [
+                {
+                    "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
+                    "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
+                    "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
+                    "shortTitle": "Personal Loans", 
+                    "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
+                }, 
+                {
+                    "name": "Loans - Illinois Lending", 
+                    "shortTitle": "Loans", 
+                    "url": "https://illinoislending.com/loans/", 
+                    "displayUrl": "https://illinoislending.com/loans", 
+                    "snippet": "Checkbook & Installment loans. Installment loans can be repaid through payroll deduction. Checkbook loans are repaid by debiting your personal checking account.", 
+                    "siteNanme": "Illinois Lending"
+                }, 
+                {
+                    "name": "Halifax UK | Loans | Get a Quote, Loan Guides & Apply Online", 
+                    "shortTitle": "Loans", 
+                    "url": "https://www.halifax.co.uk/loans/", 
+                    "displayUrl": "https://www.halifax.co.uk/loans", 
+                    "snippet": "If you\u2019re a Halifax customer, you could apply for a Halifax Online Loan or Clarity Loan online. Find a loan to suit your needs.", 
+                    "siteNanme": "Halifax"
+                }, 
+                {
+                    "url": "http://www.moneysupermarket.com/loans/secured-loans/", 
+                    "snippet": "Find the best secured loans, with low and fixed representative APRs, loans starting from \u00a37,500 for homeowners only. Find out more at MoneySuperMarket.", 
+                    "name": "Secured Loans - Compare Deals On Secured and Homeowner Loans", 
+                    "shortTitle": "Secured Loans", 
+                    "displayUrl": "www.moneysupermarket.com/loans/secured-loans"
+                }, 
+                {
+                    "name": "Installment Loans & Consumer Loans | Sun Loan Company", 
+                    "shortTitle": "Services", 
+                    "url": "https://www.sunloan.com/services/loans", 
+                    "displayUrl": "https://www.sunloan.com/services", 
+                    "snippet": "Installment Loans . Our installment loans are easy and affordable. Our friendly staff will work with you to setup a monthly payment plan that works for you.", 
+                    "siteNanme": "Sun Loan Company"
+                }, 
+                {
+                    "name": "Best Personal Loans - Compare and Apply For Loans Online", 
+                    "shortTitle": "Personal Loans", 
+                    "url": "https://www.bankrate.com/funnel/personal-loans/", 
+                    "displayUrl": "https://www.bankrate.com/funnel/personal-loans", 
+                    "snippet": "Today's personal loan rates - compare and apply for personal loans. It's fast and easy to compare loan rates from reputable banks and lenders.", 
+                    "siteNanme": "Bankrate"
+                }, 
+                {
+                    "name": "Credit Issues | USA.gov", 
+                    "shortTitle": "Credit", 
+                    "url": "https://www.usa.gov/credit", 
+                    "displayUrl": "https://www.usa.gov/credit", 
+                    "snippet": "Home Equity Loans. A home equity loan is a form of credit where your home is used as collateral to borrow money. It's typically used to pay for major expenses ...", 
+                    "siteNanme": "USA.gov"
+                }, 
+                {
+                    "name": "Bank of America \u2014 Banking, Credit Cards, Mortgages and ...", 
+                    "shortTitle": "Mortgages And", 
+                    "url": "https://www.bankofamerica.com/mobile/banking.go", 
+                    "displayUrl": "https://www.bankofamerica.com", 
+                    "snippet": "Welcome to Bank of America, the nation's leading financial institution and home for all of your personal financial needs.", 
+                    "siteNanme": "Bank of America"
+                }, 
+                {
+                    "url": "http://www.benefits.va.gov/homeloans/", 
+                    "snippet": "Benefits. Purchase Loans help you purchase a home at a competitive interest rate often without requiring a downpayment or private mortgage insurance.", 
+                    "name": "Home Loans - Veterans Benefits Administration Home", 
+                    "shortTitle": "Home Loans Home", 
+                    "displayUrl": "www.benefits.va.gov/homeloans"
+                }, 
+                {
+                    "url": "https://www.credit.com/debt/", 
+                    "snippet": "4 Things You Need to Know About Home Equity Loans; How to Refinance Your Home Loan With Bad Credit; Paying Off Your Student Loans: Forgiveness Programs & Beyond; Blog;", 
+                    "name": "Managing Debt Learning Center Articles - Credit.com", 
+                    "shortTitle": "Debt", 
+                    "displayUrl": "https://www.credit.com/debt"
+                }, 
+                {
+                    "name": "Apply for Cash Loans Online with TitleMax | Same Day Title ...", 
+                    "shortTitle": "Title Loans And Car Title Pawns", 
+                    "url": "https://www.titlemax.com/", 
+                    "displayUrl": "https://www.titlemax.com", 
+                    "snippet": "Apply for a cash loan online with your vehicle title. TitleMax provides title loans & title pawns with instant approval, even if you have bad credit.", 
+                    "siteNanme": "TitleMax"
+                }, 
+                {
+                    "url": "https://www.usa.gov/benefits-grants-loans", 
+                    "snippet": "Government Benefits, Grants, and Loans. Learn about government programs that provide financial help for individuals and organizations. Affordable Housing", 
+                    "name": "Government Benefits, Grants, and Loans | USA.gov", 
+                    "shortTitle": "Grants", 
+                    "displayUrl": "https://www.usa.gov/benefits-grants-loans"
+                }, 
+                {
+                    "name": "Great Rates. Great Benefits l SoFi", 
+                    "shortTitle": "Great Rates. Great Benefits l SoFi", 
+                    "url": "https://www.sofi.com/", 
+                    "displayUrl": "https://www.sofi.com", 
+                    "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
+                    "siteNanme": "SoFi"
+                }
+            ]
+        }, 
+        {
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
+            "_type": "AppLink/WebResponse", 
+            "answerType": "Web", 
+            "webResults": [
+                {
+                    "name": "FHA Loan Refinance and Home Purchase Loans at FHA.com", 
+                    "shortTitle": "Loans For Home Owners", 
+                    "url": "https://www.fha.com/", 
+                    "displayUrl": "https://www.fha.com", 
+                    "snippet": "An FHA refinance mortgage allows for the refinance of a home with a low down payment. FHA loans are also great for the first time home buyer.", 
+                    "siteNanme": "FHA"
+                }
+            ]
+        }
+    ], 
+    "version": "4.0", 
+    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=0E68839735FF4F068253AD8CB093C774&CID=12449C18053F608412BC9621046C6146&Type=Event.CPT&DATA=0", 
+    "impressionGuid": "0E68839735FF4F068253AD8CB093C774"
+}
