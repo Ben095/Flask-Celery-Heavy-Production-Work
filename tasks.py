@@ -392,8 +392,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-@celery.task()
-#@app.route('/outreach/<query>')
+#@celery.task()
+@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -428,7 +428,8 @@ def OutReacherDesk(query):
                 actualItem = LoadAsJson['answers'][0]['webResults']
                 appendArr.append(actualItem)
             try:
-                biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
+                biggerArr.append(''.join(appendArr))
+                #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
             except:
                 pass
             rearr = []
@@ -693,6 +694,9 @@ def GenerateResult(name):
     else:
         return "Query is still being processed! Please wait! status:" + str(res.ready())
 
+
+
+
 @app.route('/outreach/results')
 def FinalResults():
     with app.app_context():
@@ -883,8 +887,8 @@ def taskResults(task_id):
 
 
 
-
-@app.route('/outreach/query/<site>')
+@celery.task
+#@app.route('/outreach/query/<site>')
 def site(site):
     try:
             rearr = []
@@ -1119,11 +1123,13 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return jsonify(results=rearr)
+            return rearr
             
 
     except:
         raise
+
+
 
 @app.route('/outreach/backend/<query>')
 def backendWorker(query):
