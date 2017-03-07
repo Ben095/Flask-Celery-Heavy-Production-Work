@@ -429,6 +429,7 @@ def OutReacherDesk(query):
                 appendArr.append(actualItem)
             try:
                 #in(appendArr))
+    #MINOR CHANGE
                 for items in appendArr:
                     biggerArr.append(items)
                 #asshoel
@@ -438,7 +439,7 @@ def OutReacherDesk(query):
             rearr = []
             print len(biggerArr)
             d = cycle(m_dictionary.iteritems())
-            for items in biggerArr[:2]:
+            for items in biggerArr:
                 eachQuery = items
                 domainArray = []
                 eachPageWhoisResult = []
