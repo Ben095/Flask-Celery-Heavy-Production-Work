@@ -431,7 +431,7 @@ def OutReacherDesk(query):
                 #in(appendArr))
                 for items in appendArr:
                     biggerArr.append(items)
-
+                #asshoel
                 #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
             except:
                 pass
