@@ -976,8 +976,8 @@ def site(site):
             bingDictionary['total_shares'] = total_shares
             
             try:
-                response = requests.get('http://'+site).text
-                print response
+                response = requests.get('http://'+site).text.encode('ascii','ignore')
+                #print response
             except:
                 raise
                 #pass
