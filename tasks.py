@@ -392,8 +392,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-#@celery.task()
-@app.route('/outreach/<query>')
+@celery.task()
+#@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -887,8 +887,8 @@ def taskResults(task_id):
 
 
 
-@celery.task
-#@app.route('/outreach/query/<site>')
+#@celery.task
+@app.route('/outreach/query/<site>')
 def site(site):
     try:
             rearr = []
@@ -1123,7 +1123,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return rearr
+            return jsonify(results=rearr)
             
 
     except:
