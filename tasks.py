@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+#namechange
+#ASDASDASDASDASD
+# ASDASDASDASDS
 # from py_bing_search import PyBingWebSearch
 from urlparse import urlparse
 import sys
@@ -389,8 +392,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-#@celery.task()
-@app.route('/outreach/<query>')
+@celery.task()
+#@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -411,7 +414,7 @@ def OutReacherDesk(query):
                 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X)AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0'
 
             }
-            arr = ['1','11', '23', '37', '51', '65', '79']
+            arr = ['0', '23', '37', '51', '65', '79']
             appendArr = []  
             biggerArr = []
            # query = 'loans'
@@ -424,12 +427,15 @@ def OutReacherDesk(query):
                     json.dump(LoadAsJson,outfile,indent=4)
                 actualItem = LoadAsJson['answers'][0]['webResults']
                 appendArr.append(actualItem)
-
-            for miniPages in appendArr:
-                biggerArr.append(miniPages)
-           # biggerArr.append(''.join(appendArr))
-            with open('actual_results.json','wb') as outfile:
-                json.dump(biggerArr,outfile,indent=4)
+            try:
+                #in(appendArr))
+    #MINOR CHANGE
+                for items in appendArr:
+                    biggerArr.append(items)
+                #asshoel
+                #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
+            except:
+                pass
             rearr = []
             print len(biggerArr)
             d = cycle(m_dictionary.iteritems())
@@ -543,7 +549,7 @@ def OutReacherDesk(query):
                     extractedPhone = phoneRegex.findall(str(soup))
                     all_phone_numbers_array = []
                     for phone_numbers in extractedPhone:
-                        all_phone_numbers_array.append(phone_numbers)
+                        all_phone_numbers_array.append(phone_numbers[0])
                     bingDictionary['phone_numbers'] = all_phone_numbers_array
                     for link in soup.find_all("link", {"type" : "application/rss+xml"}):
                         href = link.get('href')
@@ -663,175 +669,7 @@ def OutReacherDesk(query):
                     bingDictionary['whoisData'] = miniArray
                     rearr.append(bingDictionary)
 
-            output = StringIO.StringIO()
-            workbook = xlsxwriter.Workbook(output)
-           # workbook = xlsxwriter.Workboowk('output.xlsx')
-            worksheet = workbook.add_worksheet()
-            worksheet.set_column(1, 1, 15)
-            bold = workbook.add_format({'bold': 1})
-            worksheet.write('A1', 'DA', bold)
-            worksheet.write('B1', 'MozRank', bold)
-            worksheet.write('C1', 'PA', bold)
-            worksheet.write('D1', 'RSS URLS', bold)
-            worksheet.write('E1', 'Contact Emails', bold)
-            worksheet.write('F1', 'facebook likes', bold)
-            worksheet.write('G1', 'facebook url', bold)
-            worksheet.write('H1', 'google followers', bold)
-            worksheet.write('I1', 'google plus url', bold)
-            worksheet.write('J1','meta_title',bold)
-            worksheet.write('K1', 'Contact Phone', bold)
-            worksheet.write('L1', 'prospect_url', bold)
-            worksheet.write('M1', 'root_domain', bold)
-            worksheet.write('N1', 'social_shares', bold)
-            worksheet.write('O1', 'twitter_followers', bold)
-            worksheet.write('P1', 'twitter_url', bold)
-            worksheet.write('Q1', 'whois_domain_name', bold)
-            worksheet.write('R1', 'whois_city_name', bold)
-            worksheet.write('S1', 'whois_country_code', bold)
-            worksheet.write('T1', 'whois_email_address', bold)
-            worksheet.write('U1', 'whois_full_name', bold)
-            worksheet.write('V1', 'whois_phone_number', bold)
-            worksheet.write('W1', 'facebook_shares', bold)
-            worksheet.write('X1', 'google_plus_shares', bold)
-            worksheet.write('Y1', 'linkedin_shares', bold)
-            worksheet.write('Z1', 'total_shares', bold)
-            worksheet.write('AA1', 'Contact Form', bold)
-            row = 1
-            col = 0
-            #res = AsyncResult(task_id)
-            #if "True" in str(res.ready()):
-                #result_arr = res.get()
-                #get_results = str(result_arr)
-            loadAsJson = rearr
-            for each_items in loadAsJson:
-                try:
-                    worksheet.write_string(row,col,str(each_items['DA']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+1,str(each_items['MozRank']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+2,str(each_items['PA']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+3,str(each_items['RSS_URL'][0]))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+4,','.join(each_items['emails']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+5,str(each_items['facebook_page_likes']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+6,str(each_items['facebook_page_url']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+7,str(each_items['google_followers']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+8,str(each_items['google_plus_url']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+9,str(each_items['meta_title']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+10,','.join(each_items['phone_numbers']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+11,str(each_items['prospect_url']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+12,str(each_items['root_domain']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+13,str(each_items['social_shares']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+14,str(each_items['twitter_followers']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+15,str(each_items['twitter_page_url']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+16,str(each_items['whoisData'][0]['domain_name']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+17,str(each_items['whoisData'][0]['whois_city_name']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+18,str(each_items['whoisData'][0]['whois_country_code']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+19,str(each_items['whoisData'][0]['whois_email_address']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+20,str(each_items['whoisData'][0]['whois_full_name']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row,col+21,str(each_items['whoisData'][0]['whois_phone_number']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row, col+22, str(each_items['facebook_shares']))
-                except:
-                    pass
-                try:
-                    worksheet.write_string(row, col+23, str(each_items['google_plus_shares']))
-                except:
-                    pass
-
-                try:
-                    worksheet.write_string(row, col+24, str(each_items['linkedin_shares']))
-                except:
-                    pass
-                try:
-                    #total_amount_shares = int(each_items['facebook_shares']) + int(each_items['google_plus_shares']) + int(each_items['linkedin_shares'])
-                    worksheet.write_string(row, col+25, str(each_items['total_shares']))
-                except:
-                    pass
-                try:
-                    url = each_items['contact_url']
-                    if "//" in url:
-                        split_url = url.split('http')
-                        actual_url = split_url[-1].replace('://','').replace('swww','www')
-                        first_replace = actual_url.replace('//','/')
-                        second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
-                        worksheet.write_string(row, col+26, str(second_replace))
-
-                    
-                except:
-                    pass
-                row +=1
-
-
-
-            workbook.close()
-            output.seek(0)
-            response = make_response(output.read())
-            response.headers['Content-Disposition'] = "attachment; filename=outreach_output.csv"
-            return response
-                #return jsonify(results=rearr)
+            return rearr
             
 
         except:
@@ -859,6 +697,9 @@ def GenerateResult(name):
         return res.get()
     else:
         return "Query is still being processed! Please wait! status:" + str(res.ready())
+
+
+
 
 @app.route('/outreach/results')
 def FinalResults():
@@ -931,11 +772,11 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+3,','.join(each_items['RSS_URL']))
+                    worksheet.write_string(row,col+3,str(each_items['RSS_URL'][0]))
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+4,','.join(each_items['emails']))
+                    worksheet.write_string(row,col+4,str(each_items['emails'][0]))
                 except:
                     pass
                 try:
@@ -959,7 +800,7 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+10,','.join(each_items['phone_numbers']))
+                    worksheet.write_string(row,col+10,str(each_items['phone_numbers'][0]))
                 except:
                     pass
                 try:
@@ -1050,7 +891,7 @@ def taskResults(task_id):
 
 
 
-
+#@celery.task
 @app.route('/outreach/query/<site>')
 def site(site):
     try:
@@ -1139,8 +980,8 @@ def site(site):
             bingDictionary['total_shares'] = total_shares
             
             try:
-                response = requests.get('http://'+site).text
-                print response
+                response = requests.get('http://'+site).text.encode('ascii','ignore')
+                #print response
             except:
                 raise
                 #pass
@@ -1291,6 +1132,8 @@ def site(site):
 
     except:
         raise
+
+
 
 @app.route('/outreach/backend/<query>')
 def backendWorker(query):
