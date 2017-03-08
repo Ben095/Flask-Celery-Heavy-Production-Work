@@ -392,8 +392,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-@celery.task()
-#@app.route('/outreach/<query>')
+#@celery.task()
+@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -414,7 +414,7 @@ def OutReacherDesk(query):
                 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X)AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0'
 
             }
-            arr = ['0', '23', '37', '51', '65', '79']
+            arr = ['1', '23', '37', '51', '65', '79']
             appendArr = []  
             biggerArr = []
            # query = 'loans'
@@ -437,9 +437,11 @@ def OutReacherDesk(query):
             except:
                 pass
             rearr = []
+            with open('output_inspect.json','wb') as outfile:
+                json.dump(biggerArr,outfile,indent=4)
             print len(biggerArr)
             d = cycle(m_dictionary.iteritems())
-            for items in biggerArr:
+            for items in biggerArr[:2]:
                 eachQuery = items
                 domainArray = []
                 eachPageWhoisResult = []
@@ -1150,4 +1152,4 @@ def backendWorker(query):
     
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=7000)

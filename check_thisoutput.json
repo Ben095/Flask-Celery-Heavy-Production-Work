@@ -1,131 +1,146 @@
 {
     "_type": "SearchResponse", 
-    "traceId": "3FDF4CD438874361BB6017CD5FA8E4BC", 
-    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=0E68839735FF4F068253AD8CB093C774&CID=12449C18053F608412BC9621046C6146&ID=", 
+    "traceId": "63BD468E7FD940ED85F8449BD33CBA60", 
+    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=A87EC89BEB7744628810D5FFDEFB7022&CID=3298261C15C163A71B692C2314926203&ID=", 
     "answers": [
         {
-            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=skinxl.com&first=93", 
             "_type": "AppLink/WebResponse", 
             "answerType": "Web", 
             "webResults": [
                 {
-                    "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
-                    "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
-                    "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
-                    "shortTitle": "Personal Loans", 
-                    "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
+                    "url": "http://acnow.net/skinol.com", 
+                    "snippet": "skinkl.com: skinel.com: skino.com: skinoi.com: skino1.com: skinok.com: skinoo.com: skinop.com: skinom.com: skinolcom: skinol.om: skinol.vom: skinol.dom: skinol.fom ...", 
+                    "name": "www.skinol.com - acnow.net", 
+                    "shortTitle": "Skinol.Com", 
+                    "displayUrl": "acnow.net/skinol.com"
                 }, 
                 {
-                    "name": "Loans - Illinois Lending", 
-                    "shortTitle": "Loans", 
-                    "url": "https://illinoislending.com/loans/", 
-                    "displayUrl": "https://illinoislending.com/loans", 
-                    "snippet": "Checkbook & Installment loans. Installment loans can be repaid through payroll deduction. Checkbook loans are repaid by debiting your personal checking account.", 
-                    "siteNanme": "Illinois Lending"
+                    "url": "http://allegro.pl/skin-xl-rewolucyjna-kuracja-odmladzajaca-30-dni-i5768044132.html", 
+                    "snippet": "Kup teraz na allegro.pl za 119,00 z\u0142 - SKIN XL - REWOLUCYJNA KURACJA ODM\u0141ADZAJ\u0104CA 30 DNI (5768044132). Allegro.pl - Rado\u015b\u0107 zakup\u00f3w i bezpiecze\u0144stwo dzi\u0119ki ...", 
+                    "name": "SKIN XL - REWOLUCYJNA KURACJA ODM\u0141ADZAJ\u0104CA 30 DNI ...", 
+                    "shortTitle": "SKIN XL", 
+                    "displayUrl": "allegro.pl/skin-xl-rewolucyjna-kuracja-odmladzajaca-30-dni-i..."
                 }, 
                 {
-                    "name": "Halifax UK | Loans | Get a Quote, Loan Guides & Apply Online", 
-                    "shortTitle": "Loans", 
-                    "url": "https://www.halifax.co.uk/loans/", 
-                    "displayUrl": "https://www.halifax.co.uk/loans", 
-                    "snippet": "If you\u2019re a Halifax customer, you could apply for a Halifax Online Loan or Clarity Loan online. Find a loan to suit your needs.", 
-                    "siteNanme": "Halifax"
+                    "url": "http://slimxl.pl/", 
+                    "snippet": "Porady, Artyku\u0142y, Informacje, doskona\u0142y Portal! R\u00f3\u017cne rodzaje diet, opisy, \u0142adna figura. Zobacz.", 
+                    "name": "SlimXL - Odchudzanie sylwetka Jak Schudn\u0105\u0107", 
+                    "shortTitle": "Odchudzanie Sylwetka Jak Schudn\u0105\u0107", 
+                    "displayUrl": "slimxl.pl"
                 }, 
                 {
-                    "url": "http://www.moneysupermarket.com/loans/secured-loans/", 
-                    "snippet": "Find the best secured loans, with low and fixed representative APRs, loans starting from \u00a37,500 for homeowners only. Find out more at MoneySuperMarket.", 
-                    "name": "Secured Loans - Compare Deals On Secured and Homeowner Loans", 
-                    "shortTitle": "Secured Loans", 
-                    "displayUrl": "www.moneysupermarket.com/loans/secured-loans"
+                    "url": "https://www.instagram.com/wynonapmc/", 
+                    "snippet": "Wynona Pauline Masscom and Psychology \ud83c\udf93 www.skinxl.com/wynona. 98 posts; 430 followers; 318 following", 
+                    "name": "Wynona Pauline (@wynonapmc) \u2022 Instagram photos and videos", 
+                    "shortTitle": "Wynonapmc", 
+                    "displayUrl": "https://www.instagram.com/wynonapmc"
                 }, 
                 {
-                    "name": "Installment Loans & Consumer Loans | Sun Loan Company", 
-                    "shortTitle": "Services", 
-                    "url": "https://www.sunloan.com/services/loans", 
-                    "displayUrl": "https://www.sunloan.com/services", 
-                    "snippet": "Installment Loans . Our installment loans are easy and affordable. Our friendly staff will work with you to setup a monthly payment plan that works for you.", 
-                    "siteNanme": "Sun Loan Company"
+                    "url": "https://www.facebook.com/MY-PICKS-367777106890850/", 
+                    "snippet": "MY PICKS. 2 likes \u00b7 1 talking about this. Products, Sales, and services http://bigj.ws", 
+                    "name": "MY PICKS | Facebook", 
+                    "shortTitle": "MY PICKS", 
+                    "displayUrl": "https://www.facebook.com/MY-PICKS-367777106890850"
                 }, 
                 {
-                    "name": "Best Personal Loans - Compare and Apply For Loans Online", 
-                    "shortTitle": "Personal Loans", 
-                    "url": "https://www.bankrate.com/funnel/personal-loans/", 
-                    "displayUrl": "https://www.bankrate.com/funnel/personal-loans", 
-                    "snippet": "Today's personal loan rates - compare and apply for personal loans. It's fast and easy to compare loan rates from reputable banks and lenders.", 
-                    "siteNanme": "Bankrate"
+                    "url": "http://www.deepfriedfruit.com.au/2016/09/day-2520-skinxl-volumizing-lip-plumper.html", 
+                    "snippet": "Day 2520 - SkinXL Volumizing Lip Plumper - Product Review Could your lips do with some plumping? Visit the Skin XL Lip Plumper online store:", 
+                    "name": "Deep Fried Fruit: Day 2520 - SkinXL Volumizing Lip Plumper ...", 
+                    "shortTitle": "Day 2520 \u2013 SkinXL Volumizing Lip", 
+                    "displayUrl": "www.deepfriedfruit.com.au/2016/09/day-2520-skinxl-volumizing-lip..."
                 }, 
                 {
-                    "name": "Credit Issues | USA.gov", 
-                    "shortTitle": "Credit", 
-                    "url": "https://www.usa.gov/credit", 
-                    "displayUrl": "https://www.usa.gov/credit", 
-                    "snippet": "Home Equity Loans. A home equity loan is a form of credit where your home is used as collateral to borrow money. It's typically used to pay for major expenses ...", 
-                    "siteNanme": "USA.gov"
+                    "url": "https://experts.shopify.com/danchristiefreelancer", 
+                    "snippet": "SkinXL - Lip Plumper We Are Islanders - High End Fashion Careers Press & Media Enterprise Sitemap. Online store Sell online Features Examples Website ...", 
+                    "name": "New South Wales Web Setup Expert | DanChristieDesigns on ...", 
+                    "shortTitle": "Shopify Experts", 
+                    "displayUrl": "https://experts.shopify.com/danchristiefreelancer"
                 }, 
                 {
-                    "name": "Bank of America \u2014 Banking, Credit Cards, Mortgages and ...", 
-                    "shortTitle": "Mortgages And", 
-                    "url": "https://www.bankofamerica.com/mobile/banking.go", 
-                    "displayUrl": "https://www.bankofamerica.com", 
-                    "snippet": "Welcome to Bank of America, the nation's leading financial institution and home for all of your personal financial needs.", 
-                    "siteNanme": "Bank of America"
+                    "url": "https://www.aliexpress.com/store/product/2016-Hot-Selling-Lady-Chest-Support-Belt-Band-Posture-Corrective-Brace-Body-Shaper-Strap-Best-Deal/1929321_32643831567.html", 
+                    "snippet": "SkinXL; Please select a Color Shipping: to. Estimated Delivery Time: days. Please select the country you want to ship from. Services: Quantity: piece () ...", 
+                    "name": "Aliexpress.com : Buy 2016 Hot Selling Lady Chest Support ...", 
+                    "shortTitle": "2016 Hot Selling Lady Chest Support Belt ... - Aliexpress.Com", 
+                    "displayUrl": "https://www.aliexpress.com/store/product/2016-Hot-Selling-Lady..."
                 }, 
                 {
-                    "url": "http://www.benefits.va.gov/homeloans/", 
-                    "snippet": "Benefits. Purchase Loans help you purchase a home at a competitive interest rate often without requiring a downpayment or private mortgage insurance.", 
-                    "name": "Home Loans - Veterans Benefits Administration Home", 
-                    "shortTitle": "Home Loans Home", 
-                    "displayUrl": "www.benefits.va.gov/homeloans"
+                    "name": "Kylie Jenner (@KYLiE_18JENNER) | Twitter", 
+                    "shortTitle": "Kylie Jenner (@KYLiE_18JENNER)", 
+                    "url": "https://mobile.twitter.com/KYLiE_18JENNER", 
+                    "displayUrl": "https://mobile.twitter.com/KYLiE_18JENNER", 
+                    "snippet": "... , SkinXL and 89 others. Unmute @proyectonetflx Mute @proyectonetflx Follow Following Unfollow Blocked Unblock Pending Cancel . Proyecto Netflix ...", 
+                    "formattedFacts": [
+                        {
+                            "items": [
+                                {
+                                    "text": "190"
+                                }
+                            ], 
+                            "label": "FOLLOWERS"
+                        }, 
+                        {
+                            "items": [
+                                {
+                                    "text": "713"
+                                }
+                            ], 
+                            "label": "TWEETS"
+                        }
+                    ]
                 }, 
                 {
-                    "url": "https://www.credit.com/debt/", 
-                    "snippet": "4 Things You Need to Know About Home Equity Loans; How to Refinance Your Home Loan With Bad Credit; Paying Off Your Student Loans: Forgiveness Programs & Beyond; Blog;", 
-                    "name": "Managing Debt Learning Center Articles - Credit.com", 
-                    "shortTitle": "Debt", 
-                    "displayUrl": "https://www.credit.com/debt"
+                    "url": "https://www.bestpricenutrition.com/allmax-nutrition-tribx-90-750mg-90-caps-1.html", 
+                    "snippet": "Allmax Nutrition TribX 90 (750mg) TribX 90 is a natural testosterone support safe for both men and women to help add lean body mass, build muscle, and increase ...", 
+                    "name": "TribX90 Tribulus Terrestris by Allmax Nutrition ...", 
+                    "shortTitle": "TribX90 Tribulus Terrestris by Allmax Nutrition", 
+                    "displayUrl": "https://www.bestpricenutrition.com/allmax-nutrition-tribx-90-750mg..."
                 }, 
                 {
-                    "name": "Apply for Cash Loans Online with TitleMax | Same Day Title ...", 
-                    "shortTitle": "Title Loans And Car Title Pawns", 
-                    "url": "https://www.titlemax.com/", 
-                    "displayUrl": "https://www.titlemax.com", 
-                    "snippet": "Apply for a cash loan online with your vehicle title. TitleMax provides title loans & title pawns with instant approval, even if you have bad credit.", 
-                    "siteNanme": "TitleMax"
+                    "url": "http://archiwum.allegro.pl/oferta/skinxl-200mg-kwas-hialuronowy-30-tabletek-i5676902639.html", 
+                    "snippet": "Informacje o SKINXL 200mg KWAS HIALURONOWY 30 tabletek - 5676902639 w archiwum allegro. Data zako\u0144czenia 2015-10-05 - cena 30,49 z\u0142", 
+                    "name": "SKINXL 200mg KWAS HIALURONOWY 30 tabletek", 
+                    "shortTitle": "5676902639", 
+                    "displayUrl": "archiwum.allegro.pl/oferta/skinxl-200mg-kwas-hialuronowy-30-table..."
                 }, 
                 {
-                    "url": "https://www.usa.gov/benefits-grants-loans", 
-                    "snippet": "Government Benefits, Grants, and Loans. Learn about government programs that provide financial help for individuals and organizations. Affordable Housing", 
-                    "name": "Government Benefits, Grants, and Loans | USA.gov", 
-                    "shortTitle": "Grants", 
-                    "displayUrl": "https://www.usa.gov/benefits-grants-loans"
+                    "url": "https://issuu.com/a4mworld.asia/docs/skin_ageing_therapeutics", 
+                    "snippet": "... ageing, aesthetics & regenerative medicine (ucsi) diploma in dermatology (wales) diploma in aesthetics (usa) http://www.skinkl.com/ ...", 
+                    "name": "Skin ageing therapeutics by A4MWorld.Asia - issuu", 
+                    "shortTitle": "Skin Ageing Therapeutics", 
+                    "displayUrl": "https://issuu.com/a4mworld.asia/docs/skin_ageing_therapeutics"
                 }, 
                 {
-                    "name": "Great Rates. Great Benefits l SoFi", 
-                    "shortTitle": "Great Rates. Great Benefits l SoFi", 
-                    "url": "https://www.sofi.com/", 
-                    "displayUrl": "https://www.sofi.com", 
-                    "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
-                    "siteNanme": "SoFi"
+                    "url": "https://mobile.twitter.com/hashtag/lipplumper?src=hash", 
+                    "snippet": "http:// skinxl.com/melissa pic.twitter.com/9RzIKHsreg. 0 replies 0 retweets 0 likes. Reply. Retweet. Retweeted. Like. Liked. More. Copy link to Tweet; Embed Tweet;", 
+                    "name": "#lipplumper hashtag on Twitter", 
+                    "shortTitle": "#Lipplumper", 
+                    "displayUrl": "https://mobile.twitter.com/hashtag/lipplumper?src=hash"
                 }
             ]
         }, 
         {
-            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=skinxl.com&first=93", 
             "_type": "AppLink/WebResponse", 
             "answerType": "Web", 
             "webResults": [
                 {
-                    "name": "FHA Loan Refinance and Home Purchase Loans at FHA.com", 
-                    "shortTitle": "Loans For Home Owners", 
-                    "url": "https://www.fha.com/", 
-                    "displayUrl": "https://www.fha.com", 
-                    "snippet": "An FHA refinance mortgage allows for the refinance of a home with a low down payment. FHA loans are also great for the first time home buyer.", 
-                    "siteNanme": "FHA"
+                    "url": "http://teliadomains.com/skinol.com", 
+                    "snippet": "... skinll.com skinml.com skinnl.com skinol.com skinql.com skinrl.com skinsl.com skintl.com skinul.com skinvl.com skinxl.com skinyl.com skinzl.com skino ...", 
+                    "name": "skinol.com :: Keyword search", 
+                    "shortTitle": "Skinol.Com", 
+                    "displayUrl": "teliadomains.com/skinol.com"
                 }
             ]
         }
     ], 
+    "queryContext": {
+        "alteredQuery": "skinkl.com", 
+        "originalQuery": "skinxl.com", 
+        "alterationOverrideQuery": "+skinxl.com", 
+        "adultIntent": false
+    }, 
     "version": "4.0", 
-    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=0E68839735FF4F068253AD8CB093C774&CID=12449C18053F608412BC9621046C6146&Type=Event.CPT&DATA=0", 
-    "impressionGuid": "0E68839735FF4F068253AD8CB093C774"
+    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=A87EC89BEB7744628810D5FFDEFB7022&CID=3298261C15C163A71B692C2314926203&Type=Event.CPT&DATA=0", 
+    "impressionGuid": "A87EC89BEB7744628810D5FFDEFB7022"
 }
