@@ -441,7 +441,7 @@ def OutReacherDesk(query):
                 json.dump(biggerArr,outfile,indent=4)
             print len(biggerArr)
             d = cycle(m_dictionary.iteritems())
-            for items in biggerArr[:2]:
+            for items in biggerArr:
                 eachQuery = items
                 domainArray = []
                 eachPageWhoisResult = []
