@@ -392,8 +392,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-#@celery.task()
-@app.route('/outreach/<query>')
+@celery.task()
+#@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
