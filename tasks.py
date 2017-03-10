@@ -660,9 +660,10 @@ def OutReacherDesk(query):
                     bingDictionary['contact_url'] = "No url found!"
                     email_arr = []
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
-                    seed_url = "http://{}/".format(domain)
+                    final_domain = domain.replace('/','')
+                    seed_url = "http://{}/".format(final_domain)
                     maxpages = 20
-                    crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+                    crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
                     for emails in emails_found:
