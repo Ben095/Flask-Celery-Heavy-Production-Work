@@ -62,6 +62,91 @@ except ImportError:
     import StringIO
 
 import lepl.apps.rfc3696
+import urllib
+import socket
+from bs4 import BeautifulSoup
+import re
+from urlparse import urljoin, urlparse
+from collections import deque
+import argparse
+
+
+socket.setdefaulttimeout(10)
+def get_page(url):
+    try:
+        #print "Requesting url [%s]" % url
+        f = urllib.urlopen(url)
+        page = f.read()
+        f.close()
+        return page
+    except:
+        return ""
+    return ""
+
+def parse_page(page):
+    return BeautifulSoup(page)
+
+
+def get_all_valid_links(parsed_page, base_url, domain): 
+    links = set()
+
+    # Find all links
+    for anchor in parsed_page.find_all('a'):
+        anchor_link = anchor.get('href')
+
+        # Only proceed if href was found in anchor tag
+        if anchor_link:
+            # Uses urljoin to take care of turning
+            # relative URLs into absolute ones
+            absolute_link = urljoin(base_url, anchor_link)
+
+            parsed_uri = urlparse(absolute_link)
+            anchor_netloc = parsed_uri.netloc
+
+            # Only add to list links from same domain
+            if anchor_netloc == domain:
+                links.add(absolute_link)
+
+    return links
+
+def get_all_emails(page_contents):
+    emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", page_contents, re.I)
+
+    return emails
+
+def crawl_site(seed, domain, max_pages=10):
+    to_crawl = deque([seed])
+    crawled = set()
+    emails_found = set()
+
+    while len(to_crawl) and (len(crawled) < max_pages):
+        url = to_crawl.popleft()
+        crawled.add(url)
+        
+        content = get_page(url)
+
+        if content:
+            # Parse page
+            parsed_page = parse_page(content)
+
+            # Extract all emails from page contents and add to list of emails found
+            emails_found.update(get_all_emails(parsed_page.get_text()))
+
+            # Extract valid links and append to crawling queue
+            page_links = get_all_valid_links(parsed_page, url, domain)
+
+            for link in page_links:
+                # Only add links that have not been seen yet
+                if (not link in crawled) and (not link in to_crawl):
+                    to_crawl.append(link)
+    
+    return (crawled, emails_found)
+
+def print_set(set_values):
+    for item in set_values:
+        print item
+
+
 
 def make_celery(app):
     celery = Celery(app.import_name, backend='amqp',
@@ -574,23 +659,15 @@ def OutReacherDesk(query):
                     bingDictionary['google_plus_url'] = "No url found!"
                     bingDictionary['contact_url'] = "No url found!"
                     email_arr = []
-                    emails = re.search(r'[\w\.-]+@[\w\.-]+', str(soup))
-                    #emails = re.search(r"^[a-zA-Z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$",str(soup))
-                    if emails:
-                        if "." in emails.group()[-1]:
-                            new_emails = emails.group()[:-1]
-                            email_validator = lepl.apps.rfc3696.Email()
-                            if not email_validator(new_emails):
-                                pass
-                            else:
-                                email_arr.append(new_emails)
-                        else:               
-                            email_string = emails.group()
-                            email_validator = lepl.apps.rfc3696.Email()
-                            if not email_validator(email_string):
-                                pass
-                            else:
-                                email_arr.append(email_string)
+                    domai
+                    domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
+                    seed_url = "http://{}/".format(domain)
+                    maxpages = 20
+                    crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+                    print "Found these email addresses:"
+                    email_arr = []
+                    for emails in emails_found:
+                        email_arr.append(emails)
                     bingDictionary['emails'] = email_arr
                     try:
                         for contact_urls in all_hrefs_arr:
@@ -778,7 +855,7 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+4,str(each_items['emails'][0]))
+                    worksheet.write_string(row,col+4,','.join(str(each_items['emails'])))
                 except:
                     pass
                 try:
@@ -1028,24 +1105,24 @@ def site(site):
             bingDictionary['google_plus_url'] = "No url found!"
             bingDictionary['contact_url'] = "No url found!"
             email_arr = []
-            emails = re.search(r'[\w\.-]+@[\w\.-]+', str(soup))
-            #emails = re.search(r"^[a-zA-Z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$",str(soup))
-            if emails:
-                if "." in emails.group()[-1]:
-                    new_emails = emails.group()[:-1]
-                    email_validator = lepl.apps.rfc3696.Email()
-                    if not email_validator(new_emails):
-                        pass
-                    else:
-                        email_arr.append(new_emails)
-                else:               
-                    email_string = emails.group()
-                    email_validator = lepl.apps.rfc3696.Email()
-                    if not email_validator(email_string):
-                        pass
-                    else:
-                        email_arr.append(email_string)
-            bingDictionary['emails'] = email_arr
+            # emails = re.search(r'[\w\.-]+@[\w\.-]+', str(soup))
+            # #emails = re.search(r"^[a-zA-Z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$",str(soup))
+            # if emails:
+            #     if "." in emails.group()[-1]:
+            #         new_emails = emails.group()[:-1]
+            #         email_validator = lepl.apps.rfc3696.Email()
+            #         if not email_validator(new_emails):
+            #             pass
+            #         else:
+            #             email_arr.append(new_emails)
+            #     else:               
+            #         email_string = emails.group()
+            #         email_validator = lepl.apps.rfc3696.Email()
+            #         if not email_validator(email_string):
+            #             pass
+            #         else:
+            #             email_arr.append(email_string)
+            # bingDictionary['emails'] = email_arr
             try:
                 for contact_urls in all_hrefs_arr:
                     if "contact" in contact_urls:
