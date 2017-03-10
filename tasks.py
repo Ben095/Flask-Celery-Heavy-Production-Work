@@ -854,7 +854,7 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+4,','.join(str(each_items['emails'])))
+                    worksheet.write_string(row,col+4,str(each_items['emails']))
                 except:
                     pass
                 try:
