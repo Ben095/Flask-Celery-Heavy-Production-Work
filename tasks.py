@@ -974,6 +974,16 @@ def taskResults(task_id):
 @app.route('/outreach/query/<site>')
 def site(site):
     try:
+            #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
+            domain = site
+            seed_url = "http://{}/".format(domain)
+            maxpages = 20
+            crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+            print "Found these email addresses:"
+            email_arr = []
+            for emails in emails_found:
+                email_arr.append(emails)
+            bingDictionary['emails'] = email_arr
             rearr = []
             m_dictionary = {}
             m_dictionary['member-79ea116cb0'] = '43053334ef958fa5668a8afd8018195b'
