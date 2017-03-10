@@ -659,7 +659,6 @@ def OutReacherDesk(query):
                     bingDictionary['google_plus_url'] = "No url found!"
                     bingDictionary['contact_url'] = "No url found!"
                     email_arr = []
-                    domai
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     seed_url = "http://{}/".format(domain)
                     maxpages = 20
