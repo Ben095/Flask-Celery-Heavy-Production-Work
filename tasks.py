@@ -975,15 +975,7 @@ def taskResults(task_id):
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
-            domain = site
-            seed_url = "http://{}/".format(domain)
-            maxpages = 20
-            crawled, emails_found = crawl_site(seed_url, domain, maxpages)
-            print "Found these email addresses:"
-            email_arr = []
-            for emails in emails_found:
-                email_arr.append(emails)
-            bingDictionary['emails'] = email_arr
+            
             rearr = []
             m_dictionary = {}
             m_dictionary['member-79ea116cb0'] = '43053334ef958fa5668a8afd8018195b'
@@ -997,6 +989,15 @@ def site(site):
             m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
             m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
             bingDictionary = {}
+            domain = site
+            seed_url = "http://{}/".format(domain)
+            maxpages = 20
+            crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+            print "Found these email addresses:"
+            email_arr = []
+            for emails in emails_found:
+                email_arr.append(emails)
+            bingDictionary['emails'] = email_arr
             try:
                 defined = d.next()
                 client = Mozscape('member-79ea116cb0','43053334ef958fa5668a8afd8018195b')
