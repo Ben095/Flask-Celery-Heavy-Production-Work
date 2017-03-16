@@ -84,6 +84,7 @@ def get_page(url):
     return ""
 
 def parse_page(page):
+    #print BeautifulSoup(page)
     return BeautifulSoup(page)
 
 
@@ -111,7 +112,7 @@ def get_all_valid_links(parsed_page, base_url, domain):
 
 def get_all_emails(page_contents):
     emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", page_contents, re.I)
-
+    print "EMAILS HERE",emails
     return emails
 
 def crawl_site(seed, domain, max_pages=10):
@@ -128,7 +129,7 @@ def crawl_site(seed, domain, max_pages=10):
         if content:
             # Parse page
             parsed_page = parse_page(content)
-
+            #print parsed_page.get_text()
             # Extract all emails from page contents and add to list of emails found
             emails_found.update(get_all_emails(parsed_page.get_text()))
 
@@ -477,8 +478,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-@celery.task()
-#@app.route('/outreach/<query>')
+#@celery.task()
+@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -667,7 +668,14 @@ def OutReacherDesk(query):
                     print "Found these email addresses:"
                     email_arr = []
                     for emails in emails_found:
-                        email_arr.append(emails)
+                        print emails
+                        email_validator = lepl.apps.rfc3696.Email()
+                        if not email_validator(emails):
+                            pass
+                        else:
+                            print "EMAILS HERE", emails
+                            email_arr.append(emails)
+                           # email_arr.append(emails.encode('ascii','ignore'))
                     bingDictionary['emails'] = email_arr
                     try:
                         for contact_urls in all_hrefs_arr:
@@ -975,6 +983,8 @@ def taskResults(task_id):
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
+            meta_title_arr = []
+            
             
             rearr = []
             m_dictionary = {}
@@ -989,30 +999,52 @@ def site(site):
             m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
             m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
             bingDictionary = {}
+            response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+site)
+            json_loader = json.loads(response.text)
+            data_loads = json_loader['data']
+            authorities = data_loads['authority']
+            domain_authority = authorities['domain_authority']
+            page_authority = authorities['page_authority']
+            links = data_loads['page']['inbound_links']
+            bingDictionary['PA'] = page_authority
+            bingDictionary['DA'] = domain_authority
+            bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
             maxpages = 20
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             print "Found these email addresses:"
-            email_arr = []
+          #  email_arr = []
+           # email_arr = []
+            valid_email_arr = []
             for emails in emails_found:
-                email_arr.append(emails)
-            bingDictionary['emails'] = email_arr
-            try:
-                defined = d.next()
-                client = Mozscape('member-79ea116cb0','43053334ef958fa5668a8afd8018195b')
+                print emails
+                email_validator = lepl.apps.rfc3696.Email()
+                if not email_validator(emails):
+                    pass
+                else:
+                    print "EMAILS HERE", emails
+                    valid_email_arr.append(emails.encode('ascii','ignore'))
+                   # email_arr.append(emails.encode('ascii','ignore'))
+            bingDictionary['emails'] = valid_email_arr
+            # for emails in emails_found:
+            #     email_arr.append(emails)
+            # bingDictionary['emails'] = email_arr
+            # try:
+            #     defined = d.next()
+            #     client = Mozscape('member-79ea116cb0','43053334ef958fa5668a8afd8018195b')
 
-                mozscape_dictionary = {}
-                metrics = client.urlMetrics(str(site))
-                bingDictionary['PA'] = metrics['upa']
-                bingDictionary['DA'] = metrics['pda']
-                bingDictionary['MozRank'] = metrics['ut']
-                bingDictionary['Links'] = metrics['uid']
-            except: 
-                bingDictionary['PA'] = 0
-                bingDictionary['DA'] = 0
-                bingDictionary['MozRank'] = 0
-                bingDictionary['Links'] = 0
+            #     mozscape_dictionary = {}
+            #     metrics = client.urlMetrics(str(site))
+            #     bingDictionary['PA'] = metrics['upa']
+            #     bingDictionary['DA'] = metrics['pda']
+            #     bingDictionary['MozRank'] = metrics['ut']
+            #     bingDictionary['Links'] = metrics['uid']
+            # except: 
+            #     bingDictionary['PA'] = 0
+            #     bingDictionary['DA'] = 0
+            #     bingDictionary['MozRank'] = 0
+            #     bingDictionary['Links'] = 0
             try:
                 if "https://" in str(site):
                     response = requests.get('http://graph.facebook.com/?id='+str(site))
@@ -1090,6 +1122,15 @@ def site(site):
                                 )                                     
                                 ''', re.VERBOSE)
             RSS_ARR = []
+            main_tags = soup.findAll('img')
+            meta_title_arr = []
+            for alt in main_tags:
+                alt = alt.get('alt')
+                if alt is None:
+                    pass
+                else:
+                    meta_title_arr.append(alt)
+            bingDictionary['meta_title'] = meta_title_arr[0]
             extractedPhone = phoneRegex.findall(str(soup))
             all_phone_numbers_array = []
             for phone_numbers in extractedPhone:
@@ -1140,6 +1181,8 @@ def site(site):
                         bingDictionary['contact_url'] = site + contact_urls
             except:
                 pass
+
+
             try:
                 for first_items in all_hrefs_arr:
                     if "facebook.com" in first_items:
@@ -1240,4 +1283,4 @@ def backendWorker(query):
     
 
 if __name__ == '__main__':
-    app.run(port=7000)
+    app.run()
