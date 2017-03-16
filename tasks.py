@@ -1130,7 +1130,10 @@ def site(site):
                     pass
                 else:
                     meta_title_arr.append(alt)
-            bingDictionary['meta_title'] = meta_title_arr[0]
+            try:
+                bingDictionary['meta_title'] = meta_title_arr[0]
+            except:
+                bingDictionary['meta_title'] = None
             extractedPhone = phoneRegex.findall(str(soup))
             all_phone_numbers_array = []
             for phone_numbers in extractedPhone:
