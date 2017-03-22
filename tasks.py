@@ -478,8 +478,8 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-#@celery.task()
-@app.route('/outreach/<query>')
+@celery.task()
+#@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
@@ -1000,7 +1000,10 @@ def site(site):
             m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
             bingDictionary = {}
             response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+site)
-            json_loader = json.loads(response.text)
+            try:
+                json_loader = json.loads(response.text)
+            except:
+                pass
             data_loads = json_loader['data']
             authorities = data_loads['authority']
             domain_authority = authorities['domain_authority']
