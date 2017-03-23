@@ -138,17 +138,19 @@ def crawl_site(seed, domain, max_pages=10):
           #  print all_hrefs_arr
         except:
             pass
-        try:
-            for first_items in all_hrefs_arr:
+        #
+        for first_items in all_hrefs_arr:
+            bingDictionary['facebook_page_url'] = first_items
+            try:
                 if "facebook.com" in first_items:
                     response = requests.get(first_items).text
                     soup = BeautifulSoup(response)
                     likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
                     bingDictionary['facebook_page_likes'] = likes
-                    bingDictionary['facebook_page_url'] = first_items
+            except:
+                pass 
                   #  emails_found.append(bingDictionary)
-        except:
-            pass
+      
         try:
             for contact_urls in all_hrefs_arr:
                 if "contact" in contact_urls:
@@ -727,7 +729,7 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 30
+                    maxpages = 1
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
@@ -1042,8 +1044,8 @@ def taskResults(task_id):
 
 
 
-@celery.task()
-#@app.route('/outreach/query/<site>')
+#@celery.task()
+@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -1079,20 +1081,20 @@ def site(site):
             bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 30
-            email_arr = []
+            maxpages = 1
+            email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
-            for emails in email_arr:
-                print emails
+            for emails in emails_arr:
                 email_validator = lepl.apps.rfc3696.Email()
                 if not email_validator(emails):
+                    print 'no valid'
                     pass
                 else:
                     print "EMAILS HERE", emails
-                    email_arr.append(emails)
+                    email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
-            bingDictionary['emails'] = email_arr
+            bingDictionary['emails'] = email_arrz
             
             for new_social_dictionary in emails_found:
                 
@@ -1358,7 +1360,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return rearr
+            return jsonify(results=rearr)
             
 
     except:
