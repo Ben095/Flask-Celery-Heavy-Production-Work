@@ -729,7 +729,7 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 1
+                    maxpages = 30
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
@@ -1081,7 +1081,7 @@ def site(site):
             bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 1
+            maxpages = 30
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -1360,7 +1360,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return jsonify(results=rearr)
+            return rearr
             
 
     except:
