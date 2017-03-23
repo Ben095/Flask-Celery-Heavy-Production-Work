@@ -127,7 +127,13 @@ def crawl_site(seed, domain, max_pages=10):
         url = to_crawl.popleft()
         crawled.add(url)
         
-
+        bingDictionary['facebook_page_url'] = None
+        bingDictionary['facebook_page_likes'] = None
+        bingDictionary['contact_url'] = None
+        bingDictionary['twitter_followers'] = None
+        bingDictionary['twitter_page_url'] = None
+        bingDictionary['googleplus_followers'] = None
+        bingDictionary['google_plus_url'] = None
         content = get_page(url)
         jacker = get_page(url)
         soup = BeautifulSoup(jacker)
@@ -140,13 +146,15 @@ def crawl_site(seed, domain, max_pages=10):
             pass
         #
         for first_items in all_hrefs_arr:
-            bingDictionary['facebook_page_url'] = first_items
+            
             try:
                 if "facebook.com" in first_items:
                     response = requests.get(first_items).text
                     soup = BeautifulSoup(response)
                     likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
                     bingDictionary['facebook_page_likes'] = likes
+                    bingDictionary['facebook_page_url'] = first_items
+                    #print bingDictionary
             except:
                 pass 
                   #  emails_found.append(bingDictionary)
@@ -729,7 +737,7 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 30
+                    maxpages = 1
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
@@ -744,9 +752,9 @@ def OutReacherDesk(query):
                             email_arr.append(emails)
                            # email_arr.append(emails.encode('ascii','ignore'))
                     bingDictionary['emails'] = email_arr
-                    
+                    print 'EMAILS ARR',emails_founds
                     for new_social_dictionary in emails_found:
-                        
+                        print "SOCIALS HERE", new_social_dictionary
                         try:
                             bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
                         except:
@@ -1081,7 +1089,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 30
+            maxpages = 1
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -1095,34 +1103,40 @@ def site(site):
                     email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
             bingDictionary['emails'] = email_arrz
-            
-            for new_social_dictionary in emails_found:
-                
-                try:
-                    bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
-                except:
-                    bingDictionary['facebook_page_likes'] = None
-                try:
-                    bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
-                except:
-                    bingDictionary['facebook_page_url'] = None
-                try:
-                    bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
-                except:
-                    bingDictionary['twitter_followers'] = None
-                try:
-                    bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
-                except:
-                    bingDictionary['twitter_page_url'] = None
+            bingDictionary['facebook_page_likes'] = emails_found[0]['facebook_page_likes']
+            bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
+            bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
+            bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
+            bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
+            bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
 
-                try:
-                    bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
-                except:
-                    bingDictionary['google_plus_followers'] = None
-                try:
-                    bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
-                except:
-                    bingDictionary['google_plus_url'] = None
+            # for new_social_dictionary in emails_found[0]:
+            #     print "SOCIALS HERE", new_social_dictionary
+            #     try:
+            #         bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
+            #     except:
+            #         bingDictionary['facebook_page_likes'] = None
+            #     try:
+            #         bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
+            #     except:
+            #         bingDictionary['facebook_page_url'] = None
+            #     try:
+            #         bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
+            #     except:
+            #         bingDictionary['twitter_followers'] = None
+            #     try:
+            #         bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
+            #     except:
+            #         bingDictionary['twitter_page_url'] = None
+
+            #     try:
+            #         bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
+            #     except:
+            #         bingDictionary['google_plus_followers'] = None
+            #     try:
+            #         bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
+            #     except:
+            #         bingDictionary['google_plus_url'] = None
 
             try:
                 if "https://" in str(site):
