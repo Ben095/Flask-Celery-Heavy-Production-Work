@@ -134,6 +134,7 @@ def crawl_site(seed, domain, max_pages=10):
         bingDictionary['twitter_page_url'] = None
         bingDictionary['googleplus_followers'] = None
         bingDictionary['google_plus_url'] = None
+        bingDictionary['contact_url'] = None
         content = get_page(url)
         jacker = get_page(url)
         soup = BeautifulSoup(jacker)
@@ -145,19 +146,20 @@ def crawl_site(seed, domain, max_pages=10):
         except:
             pass
         #
-        for first_items in all_hrefs_arr:
-            
-            try:
+        try:
+            for first_items in all_hrefs_arr:
                 if "facebook.com" in first_items:
-                    response = requests.get(first_items).text
-                    soup = BeautifulSoup(response)
-                    likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
-                    bingDictionary['facebook_page_likes'] = likes
                     bingDictionary['facebook_page_url'] = first_items
-                    #print bingDictionary
-            except:
-                pass 
-                  #  emails_found.append(bingDictionary)
+                    try:
+                        response = requests.get(first_items).text
+                        soup = BeautifulSoup(response)
+                        likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
+                        bingDictionary['facebook_page_likes'] = likes
+                    except:
+                        pass
+                   # emails_found.append(bingDictionary)
+        except:
+            pass
       
         try:
             for contact_urls in all_hrefs_arr:
