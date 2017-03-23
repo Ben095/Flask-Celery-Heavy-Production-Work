@@ -1124,24 +1124,6 @@ def site(site):
                 except:
                     bingDictionary['google_plus_url'] = None
 
-            # for emails in emails_found:
-            #     email_arr.append(emails)
-            # bingDictionary['emails'] = email_arr
-            # try:
-            #     defined = d.next()
-            #     client = Mozscape('member-79ea116cb0','43053334ef958fa5668a8afd8018195b')
-
-            #     mozscape_dictionary = {}
-            #     metrics = client.urlMetrics(str(site))
-            #     bingDictionary['PA'] = metrics['upa']
-            #     bingDictionary['DA'] = metrics['pda']
-            #     bingDictionary['MozRank'] = metrics['ut']
-            #     bingDictionary['Links'] = metrics['uid']
-            # except: 
-            #     bingDictionary['PA'] = 0
-            #     bingDictionary['DA'] = 0
-            #     bingDictionary['MozRank'] = 0
-            #     bingDictionary['Links'] = 0
             try:
                 if "https://" in str(site):
                     response = requests.get('http://graph.facebook.com/?id='+str(site))
@@ -1249,74 +1231,7 @@ def site(site):
 
                 except:
                     pass
-            bingDictionary['facebook_page_url'] = "No url found!"
-            bingDictionary['facebook_page_likes'] = 0
-            bingDictionary['twitter_page_url'] = "No url found!"
-            bingDictionary['twitter_followers'] = 0
-            bingDictionary['google_plus_followers'] = 0
-            bingDictionary['google_plus_url'] = "No url found!"
-            bingDictionary['contact_url'] = "No url found!"
-            email_arr = []
-            # emails = re.search(r'[\w\.-]+@[\w\.-]+', str(soup))
-            # #emails = re.search(r"^[a-zA-Z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$",str(soup))
-            # if emails:
-            #     if "." in emails.group()[-1]:
-            #         new_emails = emails.group()[:-1]
-            #         email_validator = lepl.apps.rfc3696.Email()
-            #         if not email_validator(new_emails):
-            #             pass
-            #         else:
-            #             email_arr.append(new_emails)
-            #     else:               
-            #         email_string = emails.group()
-            #         email_validator = lepl.apps.rfc3696.Email()
-            #         if not email_validator(email_string):
-            #             pass
-            #         else:
-            #             email_arr.append(email_string)
-            # bingDictionary['emails'] = email_arr
-            try:
-                for contact_urls in all_hrefs_arr:
-                    if "contact" in contact_urls:
-                        bingDictionary['contact_url'] = site + contact_urls
-            except:
-                pass
-
-
-            try:
-                for first_items in all_hrefs_arr:
-                    if "facebook.com" in first_items:
-                        response = requests.get(first_items).text
-                        soup = BeautifulSoup(response)
-                        likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
-                        bingDictionary['facebook_page_likes'] = likes
-                        bingDictionary['facebook_page_url'] = first_items
-            except:
-                pass
-
-            try:
-                for second_items in all_hrefs_arr:
-                    if "twitter.com" in second_items:
-                        
-                        response = requests.get(second_items).text
-                        soup = BeautifulSoup(response)
-                        twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
-
-                        bingDictionary['twitter_followers'] = twitter_followers
-                        bingDictionary['twitter_page_url'] = second_items
-            except:
-                pass
-
-            try:
-                for third_items in all_hrefs_arr:
-                    if "plus.google.com" in third_items:
-                        response = requests.get(third_items).text
-                        soup = BeautifulSoup(response)
-                        googleplus_followers = soup.find('div',attrs={'class':"C98T8d GseqId b12n5"}).text.split('-')[0].replace('followers','')
-                        bingDictionary['google_plus_followers'] = googleplus_followers
-                        bingDictionary['google_plus_url'] = third_items
-            except:
-                pass
+         
 
             formatDomain = str(site).replace(
                                 'http://', '').replace('https://', '')
