@@ -115,33 +115,97 @@ def get_all_emails(page_contents):
     print "EMAILS HERE",emails
     return emails
 
-def crawl_site(seed, domain, max_pages=10):
+def crawl_site(seed, domain, max_pages=1):
     to_crawl = deque([seed])
+   # crawled = []
     crawled = set()
-    emails_found = set()
-
+    #emails_found = set()
+    emails_found = []
+    all_hrefs_arr = []
+    bingDictionary = {}
     while len(to_crawl) and (len(crawled) < max_pages):
         url = to_crawl.popleft()
         crawled.add(url)
         
+
         content = get_page(url)
+        jacker = get_page(url)
+        soup = BeautifulSoup(jacker)
+        try:
+            a_link = soup.findAll('a')
+            for hrefs in a_link:
+                all_hrefs_arr.append(hrefs['href'])
+          #  print all_hrefs_arr
+        except:
+            pass
+        try:
+            for first_items in all_hrefs_arr:
+                if "facebook.com" in first_items:
+                    response = requests.get(first_items).text
+                    soup = BeautifulSoup(response)
+                    likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
+                    bingDictionary['facebook_page_likes'] = likes
+                    bingDictionary['facebook_page_url'] = first_items
+                  #  emails_found.append(bingDictionary)
+        except:
+            pass
+        try:
+            for contact_urls in all_hrefs_arr:
+                if "contact" in contact_urls:
+                    bingDictionary['contact_url'] = bingDictionary['root_domain'] + contact_urls
+        except:
+            pass
+
+        try:
+            for second_items in all_hrefs_arr:
+                if "twitter.com" in second_items:
+                    
+                    response = requests.get(second_items).text
+                    soup = BeautifulSoup(response)
+                    twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
+
+                    bingDictionary['twitter_followers'] = twitter_followers
+                    bingDictionary['twitter_page_url'] = second_items
+                  #  emails_found.append(bingDictionary)
+        except:
+            pass
+
+        try:
+            for third_items in all_hrefs_arr:
+                if "plus.google.com" in third_items:
+                    response = requests.get(third_items).text
+                    soup = BeautifulSoup(response)
+                    googleplus_followers = soup.find('div',attrs={'class':"C98T8d GseqId b12n5"}).text.split('-')[0].replace('followers','')
+                    bingDictionary['google_plus_followers'] = googleplus_followers
+                    bingDictionary['google_plus_url'] = third_items
+                    #emails.append(bingDictionary)
+        except:
+            pass
+
+        emails_found.append(bingDictionary)
 
         if content:
             # Parse page
             parsed_page = parse_page(content)
+            #print parsed_page(content)
             #print parsed_page.get_text()
             # Extract all emails from page contents and add to list of emails found
-            emails_found.update(get_all_emails(parsed_page.get_text()))
+            emails_found.append(get_all_emails(parsed_page.get_text()))
+           # emails_found.update(get_all_emails(parsed_page.get_text()))
 
             # Extract valid links and append to crawling queue
             page_links = get_all_valid_links(parsed_page, url, domain)
-
-            for link in page_links:
-                # Only add links that have not been seen yet
-                if (not link in crawled) and (not link in to_crawl):
-                    to_crawl.append(link)
+            try:
+                for link in page_links:
+                    # Only add links that have not been seen yet
+                    if (not link in crawled) and (not link in to_crawl):
+                        to_crawl.append(link)
+            except:
+                pass
     
     return (crawled, emails_found)
+
+
 
 def print_set(set_values):
     for item in set_values:
@@ -663,11 +727,12 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 20
+                    maxpages = 1
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
-                    for emails in emails_found:
+                    emails_arr = emails_found[-1]
+                    for emails in email_arr:
                         print emails
                         email_validator = lepl.apps.rfc3696.Email()
                         if not email_validator(emails):
@@ -677,46 +742,35 @@ def OutReacherDesk(query):
                             email_arr.append(emails)
                            # email_arr.append(emails.encode('ascii','ignore'))
                     bingDictionary['emails'] = email_arr
-                    try:
-                        for contact_urls in all_hrefs_arr:
-                            if "contact" in contact_urls:
-                                bingDictionary['contact_url'] = bingDictionary['root_domain'] + contact_urls
-                    except:
-                        pass
-                    try:
-                        for first_items in all_hrefs_arr:
-                            if "facebook.com" in first_items:
-                                response = requests.get(first_items).text
-                                soup = BeautifulSoup(response)
-                                likes = soup.find('span',attrs={'class':'_52id _50f5 _50f7'}).text.replace('likes','')
-                                bingDictionary['facebook_page_likes'] = likes
-                                bingDictionary['facebook_page_url'] = first_items
-                    except:
-                        pass
+                    
+                    for new_social_dictionary in emails_found:
+                        
+                        try:
+                            bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
+                        except:
+                            bingDictionary['facebook_page_likes'] = None
+                        try:
+                            bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
+                        except:
+                            bingDictionary['facebook_page_url'] = None
+                        try:
+                            bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
+                        except:
+                            bingDictionary['twitter_followers'] = None
+                        try:
+                            bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
+                        except:
+                            bingDictionary['twitter_page_url'] = None
 
-                    try:
-                        for second_items in all_hrefs_arr:
-                            if "twitter.com" in second_items:
-                                
-                                response = requests.get(second_items).text
-                                soup = BeautifulSoup(response)
-                                twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
+                        try:
+                            bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
+                        except:
+                            bingDictionary['google_plus_followers'] = None
+                        try:
+                            bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
+                        except:
+                            bingDictionary['google_plus_url'] = None
 
-                                bingDictionary['twitter_followers'] = twitter_followers
-                                bingDictionary['twitter_page_url'] = second_items
-                    except:
-                        pass
-
-                    try:
-                        for third_items in all_hrefs_arr:
-                            if "plus.google.com" in third_items:
-                                response = requests.get(third_items).text
-                                soup = BeautifulSoup(response)
-                                googleplus_followers = soup.find('div',attrs={'class':"C98T8d GseqId b12n5"}).text.split('-')[0].replace('followers','')
-                                bingDictionary['google_plus_followers'] = googleplus_followers
-                                bingDictionary['google_plus_url'] = third_items
-                    except:
-                        pass
 
                     formatDomain = str(domain).replace(
                                         'http://', '').replace('https://', '')
@@ -1014,22 +1068,49 @@ def site(site):
             bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 20
+            maxpages = 1
+            email_arr = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
-            print "Found these email addresses:"
-          #  email_arr = []
-           # email_arr = []
-            valid_email_arr = []
-            for emails in emails_found:
+            emails_arr = emails_found[-1]
+            for emails in email_arr:
                 print emails
                 email_validator = lepl.apps.rfc3696.Email()
                 if not email_validator(emails):
                     pass
                 else:
                     print "EMAILS HERE", emails
-                    valid_email_arr.append(emails.encode('ascii','ignore'))
+                    email_arr.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
-            bingDictionary['emails'] = valid_email_arr
+            bingDictionary['emails'] = email_arr
+            
+            for new_social_dictionary in emails_found:
+                
+                try:
+                    bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
+                except:
+                    bingDictionary['facebook_page_likes'] = None
+                try:
+                    bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
+                except:
+                    bingDictionary['facebook_page_url'] = None
+                try:
+                    bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
+                except:
+                    bingDictionary['twitter_followers'] = None
+                try:
+                    bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
+                except:
+                    bingDictionary['twitter_page_url'] = None
+
+                try:
+                    bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
+                except:
+                    bingDictionary['google_plus_followers'] = None
+                try:
+                    bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
+                except:
+                    bingDictionary['google_plus_url'] = None
+
             # for emails in emails_found:
             #     email_arr.append(emails)
             # bingDictionary['emails'] = email_arr
