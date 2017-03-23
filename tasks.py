@@ -1069,16 +1069,16 @@ def site(site):
             try:
                 json_loader = json.loads(response.text)
                 data_loads = json_loader['data']
+                #data_loads = json_loader['data']
+                authorities = data_loads['authority']
+                domain_authority = authorities['domain_authority']
+                page_authority = authorities['page_authority']
+                links = data_loads['page']['inbound_links']
+                bingDictionary['PA'] = page_authority
+                bingDictionary['DA'] = domain_authority
+                bingDictionary['links'] = links
             except:
                 pass
-            #data_loads = json_loader['data']
-            authorities = data_loads['authority']
-            domain_authority = authorities['domain_authority']
-            page_authority = authorities['page_authority']
-            links = data_loads['page']['inbound_links']
-            bingDictionary['PA'] = page_authority
-            bingDictionary['DA'] = domain_authority
-            bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
             maxpages = 30
