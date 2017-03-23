@@ -1066,9 +1066,10 @@ def site(site):
             response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+site)
             try:
                 json_loader = json.loads(response.text)
+                data_loads = json_loader['data']
             except:
                 pass
-            data_loads = json_loader['data']
+            #data_loads = json_loader['data']
             authorities = data_loads['authority']
             domain_authority = authorities['domain_authority']
             page_authority = authorities['page_authority']
