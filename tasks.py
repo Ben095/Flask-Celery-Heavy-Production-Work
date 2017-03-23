@@ -115,7 +115,7 @@ def get_all_emails(page_contents):
     print "EMAILS HERE",emails
     return emails
 
-def crawl_site(seed, domain, max_pages=1):
+def crawl_site(seed, domain, max_pages=10):
     to_crawl = deque([seed])
    # crawled = []
     crawled = set()
@@ -727,7 +727,7 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 1
+                    maxpages = 30
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
@@ -1068,7 +1068,7 @@ def site(site):
             bingDictionary['links'] = links
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 1
+            maxpages = 30
             email_arr = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
