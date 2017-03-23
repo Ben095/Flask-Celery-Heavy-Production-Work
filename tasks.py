@@ -856,6 +856,16 @@ def FinalResults():
 
         return jsonify(results=arr)
 
+@app.route('/celery/<task_id>/result')
+def celeryTaskResult(task_id):
+    res = AsyncResult(task_id)
+    if "True" in str(res.ready()):
+        result_arr = res.get()
+        return jsonify(results=result_arr)
+    else:
+        return "Task is not yet ready!"
+
+
 @app.route('/outreach/<task_id>/result')
 def taskResults(task_id):
     with app.app_context():
@@ -1032,8 +1042,8 @@ def taskResults(task_id):
 
 
 
-#@celery.task
-@app.route('/outreach/query/<site>')
+@celery.task()
+#@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -1347,7 +1357,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return jsonify(results=rearr)
+            return rearr
             
 
     except:
@@ -1366,7 +1376,16 @@ def backendWorker(query):
         db.session.commit()
         return "Added to queue!"
 
-
+@app.route('/outreach/celery/<query>')
+def individualWorker(query):
+    with app.app_context():
+        convert_to_str = str(query)
+        outreach = site.delay(query)
+        task_id = outreach.task_id
+        user = Result(task_id=task_id, username='Jack', search_name=query)
+        db.session.add(user)
+        db.session.commit()
+        return "Added to queue"
     
 
 if __name__ == '__main__':
