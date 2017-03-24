@@ -120,7 +120,7 @@ def get_access_token():
     new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
     return new_access_token
 
-    
+
 def crawl_site(seed, domain, max_pages=10):
     to_crawl = deque([seed])
    # crawled = []
@@ -373,9 +373,7 @@ def igFunction(name):
 ##make a function that calls InstagramResult -> 
 ## 
 
-@app.route('/emil/beats')
-def emilBeats():
-    
+
 @celery.task()
 #@app.route('/instagram/<name>')
 def InstagramMain(name):
