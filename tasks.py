@@ -849,7 +849,7 @@ def site(site):
                 raise
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 60
+            maxpages = 20
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -1044,8 +1044,8 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
-           # return rearr
             return rearr
+            #return jsonify(results=rearr)
 
     except:
         raise
@@ -1213,7 +1213,7 @@ def OutReacherDesk(query):
                     email_arrz = []
                     domain = bingDictionary['root_domain']
                     seed_url = "http://{}/".format(domain)
-                    maxpages = 60
+                    maxpages = 20
                     crawled, emails_found = crawl_site(seed_url, domain, maxpages)
                     emails_arr = emails_found[-1]
                     for emails in emails_arr:
@@ -1287,7 +1287,7 @@ def OutReacherDesk(query):
                     bingDictionary['whoisData'] = miniArray
                     rearr.append(bingDictionary)
 
-            return jsonify(results=rearr)
+            return rearr
             
 
         except:
