@@ -166,7 +166,7 @@ def crawl_site(seed, domain, max_pages=60):
         try:
             for contact_urls in all_hrefs_arr:
                 if "contact" in contact_urls:
-                    bingDictionary['contact_url'] = bingDictionary['root_domain'] + contact_urls
+                    bingDictionary['contact_url'] =  contact_urls
         except:
             pass
 
@@ -831,7 +831,9 @@ def site(site):
             m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
             m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
             bingDictionary = {}
-            response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+site)
+            moz_url = site.replace('www.','')
+            print moz_url
+            response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+moz_url)
             try:
                 json_loader = json.loads(response.text)
                 data_loads = json_loader['data']
@@ -844,7 +846,7 @@ def site(site):
                 bingDictionary['DA'] = domain_authority
                 bingDictionary['links'] = links
             except:
-                pass
+                raise
             domain = site
             seed_url = "http://{}/".format(domain)
             maxpages = 60
@@ -862,6 +864,8 @@ def site(site):
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
             print token
+            bingDictionary['emails'] = email_arrz
+            print "EMAIL ARRAY", email_arrz
             first_items  = emails_found[0]['facebook_page_url']
             print "HI"
             try:
@@ -881,13 +885,27 @@ def site(site):
                 #pass
 
 
-            bingDictionary['emails'] = email_arrz
             bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
             bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
             bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
-            bingDictionary['contact_url'] = emails_found[0]['contact_url']
+            try:
+                try:
+                    url = emails_found[0]['contact_url']
+                    if "//" in url:
+                        split_url = url.split('http')
+                        actual_url = split_url[-1].replace('://','').replace('swww','www')
+                        first_replace = actual_url.replace('//','/')
+                        second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
+                        bingDictionary['contact_url'] = second_replace
+
+                    
+                except:
+                    pass
+                
+            except:
+                bingDictionary['contact_url'] = emails_found['contact_url']
 
 
             try:
@@ -988,8 +1006,9 @@ def site(site):
                                 'http://', '').replace('https://', '')
             fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
             print  "GETS HERE???"
-            print "http://104.131.43.184/whois/'"+str(site)
-            response = requests.get('http://104.131.43.184/whois/'+str(site)).text
+            whoissite = str(site).replace('www.','')
+            print "http://104.131.43.184/whois/'"+str(whoissite)
+            response = requests.get('http://104.131.43.184/whois/'+str(whoissite)).text
             #print response
             try:
                 loadAsJson = json.loads(response)
