@@ -171,13 +171,15 @@ def crawl_site(seed, domain, max_pages=10):
         try:
             for second_items in all_hrefs_arr:
                 if "twitter.com" in second_items:
-                    
+                    try:
+                        bingDictionary['twitter_page_url'] = second_items
+                    except:
+                        pass
+
                     response = requests.get(second_items).text
                     soup = BeautifulSoup(response)
                     twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
-
                     bingDictionary['twitter_followers'] = twitter_followers
-                    bingDictionary['twitter_page_url'] = second_items
                   #  emails_found.append(bingDictionary)
         except:
             pass
@@ -833,7 +835,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 4
+            maxpages = 30
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
