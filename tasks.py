@@ -1292,8 +1292,8 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
-
-            return jsonify(results=rearr)
+            return rearr
+           # return jsonify(results=rearr)
             
 
     except:
