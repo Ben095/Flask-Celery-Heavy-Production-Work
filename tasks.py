@@ -1032,8 +1032,8 @@ def site(site):
         raise
 
 
-#celery.task()
-@app.route('/outreach/<query>')
+@celery.task()
+#@app.route('/outreach/<query>')
 def OutReacherDesk(query):
     with app.app_context():
         try:
