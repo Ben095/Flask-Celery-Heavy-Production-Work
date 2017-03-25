@@ -129,6 +129,7 @@ def crawl_site(seed, domain, max_pages=10):
     emails_found = []
     all_hrefs_arr = []
     bingDictionary = {}
+    RSS_ARR = []
     while len(to_crawl) and (len(crawled) < max_pages):
         url = to_crawl.popleft()
         crawled.add(url)
@@ -140,10 +141,14 @@ def crawl_site(seed, domain, max_pages=10):
         bingDictionary['twitter_page_url'] = None
         bingDictionary['googleplus_followers'] = None
         bingDictionary['google_plus_url'] = None
-        bingDictionary['contact_url'] = None
+        bingDictionary['RSS_URL'] = None
         content = get_page(url)
         jacker = get_page(url)
         soup = BeautifulSoup(jacker)
+        for link in soup.find_all("link", {"type" : "application/rss+xml"}):
+            href = link.get('href')
+            RSS_ARR.append(href)
+        bingDictionary['RSS_URL'] = RSS_ARR
         try:
             a_link = soup.findAll('a')
             for hrefs in a_link:
@@ -1140,6 +1145,7 @@ def site(site):
             bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
+            bingDictionary['contact_url'] = emails_found[0]['contact_url']
 
 
             try:
