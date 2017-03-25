@@ -827,8 +827,7 @@ def taskResults(task_id):
             return "Query is not yet done processing please wait! status" + str(res.ready())
 
 
-
-#@celery.task()
+@celery.task()
 #@app.route('/outreach/query/<site>')
 def site(site):
     try:
