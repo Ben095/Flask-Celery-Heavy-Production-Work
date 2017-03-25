@@ -827,8 +827,8 @@ def taskResults(task_id):
             return "Query is not yet done processing please wait! status" + str(res.ready())
 
 
-@celery.task()
-#@app.route('/outreach/query/<site>')
+#@celery.task()
+@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -866,7 +866,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 25
+            maxpages = 10
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -908,24 +908,23 @@ def site(site):
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
             bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
+            url = emails_found[0]['contact_url']
             try:
-                try:
-                    url = emails_found[0]['contact_url']
-                    if "//" in url:
-                        split_url = url.split('http')
-                        actual_url = split_url[-1].replace('://','').replace('swww','www')
-                        first_replace = actual_url.replace('//','/')
-                        second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
-                        bingDictionary['contact_url'] = second_replace
-
-
-                    
-                except:
-                    pass
-                
+                if "//" in url:
+                    split_url = url.split('http')
+                    actual_url = split_url[-1].replace('://','').replace('swww','www')
+                    first_replace = actual_url.replace('//','/')
+                    second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
+                    bingDictionary['contact_url'] = second_replace
+                else:
+                    bingDictionary['contact_url'] = site + str(emails_found[0]['contact_url'])
             except:
-                bingDictionary['contact_url'] = emails_found['contact_url']
-
+                bingDictionary['contact_url'] = emails_found[0]['contact_url']
+                pass
+       
+            print "YOOO"
+            print bingDictionary['contact_url']
+            #bingDictionary['contact_url'] = emails_found[0]['contact_url']
             try:
                 if "http:" in bingDictionary['contact_url']:
                     response = requests.get(bingDictionary['contact_url']).text
@@ -933,15 +932,16 @@ def site(site):
                     emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
                     for each_emails in emails:
                         print "EACH EMAILS HERE", each_emails
+
                         email_arrz.append(each_emails)
                 else:
-                    response = requests.get('https://'+bingDictionary['contact_url']).text
+                    response = requests.get('http://'+bingDictionary['contact_url']).text
                     soup = BeautifulSoup(response)
                     emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
                     for each_emails in emails:
                         print "EACH EMAILS HERE", each_emails
-                        email_arrz.append(each_emails)
 
+                        email_arrz.append(each_emails)
             except:
                 pass
             bingDictionary['emails'] = email_arrz
@@ -1067,7 +1067,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
            # return rearr
-            return rearr
+            return jsonify(results=rearr)
 
     except:
         raise
@@ -1235,7 +1235,7 @@ def OutReacherDesk(query):
                     email_arrz = []
                     domain = bingDictionary['root_domain']
                     seed_url = "http://{}/".format(domain)
-                    maxpages = 20
+                    maxpages = 10
                     crawled, emails_found = crawl_site(seed_url, domain, maxpages)
                     emails_arr = emails_found[-1]
                     for emails in emails_arr:
