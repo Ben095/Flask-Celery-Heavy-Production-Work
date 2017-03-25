@@ -124,20 +124,21 @@ def crawl_site(seed, domain, max_pages=60):
     #emails_found = set()
     emails_found = []
     all_hrefs_arr = []
-    bingDictionary = {}
     RSS_ARR = []
+    bingDictionary = {}
+    bingDictionary['facebook_page_url'] = None
+    bingDictionary['facebook_page_likes'] = None
+    bingDictionary['contact_url'] = None
+    bingDictionary['twitter_followers'] = None
+    bingDictionary['twitter_page_url'] = None
+    bingDictionary['googleplus_followers'] = None
+    bingDictionary['google_plus_url'] = None
+    bingDictionary['RSS_URL'] = None
+    all_phone_numbers_array = []
     while len(to_crawl) and (len(crawled) < max_pages):
         url = to_crawl.popleft()
         crawled.add(url)
         print max_pages
-        bingDictionary['facebook_page_url'] = None
-        bingDictionary['facebook_page_likes'] = None
-        bingDictionary['contact_url'] = None
-        bingDictionary['twitter_followers'] = None
-        bingDictionary['twitter_page_url'] = None
-        bingDictionary['googleplus_followers'] = None
-        bingDictionary['google_plus_url'] = None
-        bingDictionary['RSS_URL'] = None
         content = get_page(url)
         #print content
         jacker = get_page(url)
@@ -146,7 +147,24 @@ def crawl_site(seed, domain, max_pages=60):
         for link in soup.find_all("link", {"type" : "application/rss+xml"}):
             href = link.get('href')
             RSS_ARR.append(href)
+        phoneRegex = re.compile(r'''
+                                        # 415-555-0000, 555-9999, (415) 555-0000, 555-000 ext 12345, ext. 12345 x12345
+                                        (
+                                        ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
+                                        (/s|-)                              #first seperator
+                                        \d\d\d                              #first 3 digits
+                                        -                                   #second seperator
+                                        \d\d\d\d                            #last 4 digits
+                                        (((ext(\.)?\s) |x)                  #extension word-part (optional)
+                                        (\d{2,5}))?                         #extension number-part (optional)
+                                        )                                     
+                                        ''', re.VERBOSE)
         bingDictionary['RSS_URL'] = RSS_ARR
+        extractedPhone = phoneRegex.findall(str(soup))
+        all_phone_numbers_array = []
+        for phone_numbers in extractedPhone:
+            all_phone_numbers_array.append(phone_numbers[0])
+        bingDictionary['phone_numbers'] = all_phone_numbers_array  
         try:
             a_link = soup.findAll('a')
             for hrefs in a_link:
@@ -810,7 +828,7 @@ def taskResults(task_id):
 
 
 
-@celery.task()
+#@celery.task()
 #@app.route('/outreach/query/<site>')
 def site(site):
     try:
@@ -849,7 +867,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 20
+            maxpages = 25
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -890,6 +908,7 @@ def site(site):
             bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
+            bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
             try:
                 try:
                     url = emails_found[0]['contact_url']
@@ -899,24 +918,6 @@ def site(site):
                         first_replace = actual_url.replace('//','/')
                         second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                         bingDictionary['contact_url'] = second_replace
-                        try:
-                            if "http:" in bingDictionary['contact_url']:
-                                response = requests.get(bingDictionary['contact_url']).text
-                                soup = BeautifulSoup(response)
-                                emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
-                                for each_emails in emails:
-                                    print "EACH EMAILS HERE", each_emails
-                                    email_arrz.append(each_emails)
-                            else:
-                                response = requests.get('https://'+bingDictionary['contact_url']).text
-                                soup = BeautifulSoup(response)
-                                emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
-                                for each_emails in emails:
-                                    print "EACH EMAILS HERE", each_emails
-                                    email_arrz.append(each_emails)
-
-                        except:
-                            pass
 
 
                     
@@ -925,6 +926,25 @@ def site(site):
                 
             except:
                 bingDictionary['contact_url'] = emails_found['contact_url']
+
+            try:
+                if "http:" in bingDictionary['contact_url']:
+                    response = requests.get(bingDictionary['contact_url']).text
+                    soup = BeautifulSoup(response)
+                    emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+                    for each_emails in emails:
+                        print "EACH EMAILS HERE", each_emails
+                        email_arrz.append(each_emails)
+                else:
+                    response = requests.get('https://'+bingDictionary['contact_url']).text
+                    soup = BeautifulSoup(response)
+                    emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+                    for each_emails in emails:
+                        print "EACH EMAILS HERE", each_emails
+                        email_arrz.append(each_emails)
+
+            except:
+                pass
             bingDictionary['emails'] = email_arrz
 
             try:
@@ -991,19 +1011,8 @@ def site(site):
                 #pass
                 #response = requests.get(bingDictionary['root_domain'], verify=False).text
             soup = BeautifulSoup(response)
-            phoneRegex = re.compile(r'''
-                                # 415-555-0000, 555-9999, (415) 555-0000, 555-000 ext 12345, ext. 12345 x12345
-                                (
-                                ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
-                                (/s|-)                              #first seperator
-                                \d\d\d                              #first 3 digits
-                                -                                   #second seperator
-                                \d\d\d\d                            #last 4 digits
-                                (((ext(\.)?\s) |x)                  #extension word-part (optional)
-                                (\d{2,5}))?                         #extension number-part (optional)
-                                )                                     
-                                ''', re.VERBOSE)
-            RSS_ARR = []
+            
+           # RSS_ARR = []
             main_tags = soup.findAll('img')
             meta_title_arr = []
             for alt in main_tags:
@@ -1015,12 +1024,7 @@ def site(site):
             try:
                 bingDictionary['meta_title'] = meta_title_arr[0]
             except:
-                bingDictionary['meta_title'] = None
-            extractedPhone = phoneRegex.findall(str(soup))
-            all_phone_numbers_array = []
-            for phone_numbers in extractedPhone:
-                all_phone_numbers_array.append(phone_numbers[0])
-            bingDictionary['phone_numbers'] = all_phone_numbers_array     
+                bingDictionary['meta_title'] = None   
             formatDomain = str(site).replace(
                                 'http://', '').replace('https://', '')
             fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
