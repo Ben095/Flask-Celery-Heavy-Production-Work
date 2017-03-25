@@ -156,19 +156,6 @@ def crawl_site(seed, domain, max_pages=10):
             for first_items in all_hrefs_arr:
                 if "facebook.com" in first_items:
                     bingDictionary['facebook_page_url'] = first_items
-                    try:
-                        token = get_access_token()
-                        #str = 'https://www.facebook.com/mymakeupbrushset/'
-                        split_first = first_items.split('.com/')
-                        facebook_group_name = split_first[-1].replace('/','')
-                        response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
-                        jsonLoads = json.loads(response)
-                        arr = jsonLoads['data']
-                        first_item_in_query = arr[0]['id']
-                        response = requests.get('https://graph.facebook.com/v2.8/mymakeupbrushset/?fields=fan_count&access_token='+token).json()
-                        bingDictionary['facebook_page_likes'] = response['fan_count']
-                    except:
-                        pass
                    # emails_found.append(bingDictionary)
         except:
             pass
@@ -753,7 +740,7 @@ def OutReacherDesk(query):
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     final_domain = domain.replace('/','')
                     seed_url = "http://{}/".format(final_domain)
-                    maxpages = 30
+                    maxpages = 1
                     crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
                     print "Found these email addresses:"
                     email_arr = []
@@ -771,6 +758,22 @@ def OutReacherDesk(query):
                     print 'EMAILS ARR',emails_founds
                     for new_social_dictionary in emails_found:
                         print "SOCIALS HERE", new_social_dictionary
+                        token = get_access_token()
+                        #str = 'https://www.facebook.com/mymakeupbrushset/'
+                        first_items  = new_social_dictionary['facebook_page_url']
+                        split_first = first_items.split('.com/')
+
+                        facebook_group_name = split_first[-1].replace('/','')
+                        response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
+                        jsonLoads = json.loads(response)
+                        arr = jsonLoads['data']
+                        first_item_in_query = arr[0]['id']
+                        response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
+                        try:
+                            bingDictionary['facebook_page_likes'] = response['fan_count']
+                        except:
+                            bingDictionary['facebook_page_likes'] = None
+                  
                         try:
                             bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
                         except:
@@ -1118,41 +1121,26 @@ def site(site):
                     print "EMAILS HERE", emails
                     email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
+            token = get_access_token()
+            first_items  = emails_found[0]['facebook_page_url']
+            split_first = first_items.split('.com/')
+
+            facebook_group_name = split_first[-1].replace('/','')
+            response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
+            jsonLoads = json.loads(response)
+            arr = jsonLoads['data']
+            print arr
+            first_item_in_query = arr[0]['id']
+            response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
+            print response
+            bingDictionary['facebook_page_likes'] = response['fan_count']
             bingDictionary['emails'] = email_arrz
-            bingDictionary['facebook_page_likes'] = emails_found[0]['facebook_page_likes']
             bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
             bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
             bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
 
-            # for new_social_dictionary in emails_found[0]:
-            #     print "SOCIALS HERE", new_social_dictionary
-            #     try:
-            #         bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
-            #     except:
-            #         bingDictionary['facebook_page_likes'] = None
-            #     try:
-            #         bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
-            #     except:
-            #         bingDictionary['facebook_page_url'] = None
-            #     try:
-            #         bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
-            #     except:
-            #         bingDictionary['twitter_followers'] = None
-            #     try:
-            #         bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
-            #     except:
-            #         bingDictionary['twitter_page_url'] = None
-
-            #     try:
-            #         bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
-            #     except:
-            #         bingDictionary['google_plus_followers'] = None
-            #     try:
-            #         bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
-            #     except:
-            #         bingDictionary['google_plus_url'] = None
 
             try:
                 if "https://" in str(site):
@@ -1305,7 +1293,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
 
-            return rearr
+            return jsonify(results=rearr)
             
 
     except:
