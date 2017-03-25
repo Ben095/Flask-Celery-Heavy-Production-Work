@@ -1310,8 +1310,8 @@ def youtube(keyword):
 def YoutubeWorker(keyword):
     with app.app_context():
         convert_to_str = str(keyword)
-        youtube = youtube.delay(convert_to_str)
-        task_id = youtube.task_id
+        youtube_task_id = youtube.delay(convert_to_str)
+        task_id = youtube_task_id.task_id
         user = Result(task_id=task_id, username='Jack', search_name=convert_to_str)
         db.session.add(user)
         db.session.commit()
