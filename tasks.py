@@ -864,7 +864,7 @@ def site(site):
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
             print token
-            bingDictionary['emails'] = email_arrz
+
             print "EMAIL ARRAY", email_arrz
             first_items  = emails_found[0]['facebook_page_url']
             print "HI"
@@ -899,6 +899,15 @@ def site(site):
                         first_replace = actual_url.replace('//','/')
                         second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                         bingDictionary['contact_url'] = second_replace
+                        try:
+                            response = requests.get(bingDictionary['contact_url']).text
+                            soup = BeautifulSoup(response)
+                            emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+                            for each_emails in emails:
+                                email_arrz.append(each_emails)
+                        except:
+                            pass
+
 
                     
                 except:
@@ -906,7 +915,7 @@ def site(site):
                 
             except:
                 bingDictionary['contact_url'] = emails_found['contact_url']
-
+            bingDictionary['emails'] = email_arrz
 
             try:
                 if "https://" in str(site):
