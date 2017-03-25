@@ -865,7 +865,7 @@ def site(site):
                 print response
                 bingDictionary['facebook_page_likes'] = response['fan_count']
             except:
-                raise
+                pass
                 #pass
 
 
