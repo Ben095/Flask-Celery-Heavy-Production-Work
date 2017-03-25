@@ -1,7 +1,7 @@
 {
     "_type": "SearchResponse", 
-    "traceId": "BAA2BA6CBD9A49FAADE6E5142B74DE5C", 
-    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=BB961F41B74C45D2991B78CB76FF4BDB&CID=30B711F710E46C3601A31BB611B76D5C&ID=", 
+    "traceId": "82B09E6B439F41189CED3B8FB78172CF", 
+    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=2606705577EA43CA995A816F7B425110&CID=35D5C856ADB16DF61E34C206ACE26C52&ID=", 
     "answers": [
         {
             "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
@@ -9,12 +9,27 @@
             "answerType": "Web", 
             "webResults": [
                 {
-                    "name": "Credit Issues | USA.gov", 
-                    "shortTitle": "Credit", 
-                    "url": "https://www.usa.gov/credit", 
-                    "displayUrl": "https://www.usa.gov/credit", 
-                    "snippet": "Home Equity Loans. A home equity loan is a form of credit where your home is used as collateral to borrow money. It's typically used to pay for major expenses ...", 
-                    "siteNanme": "USA.gov"
+                    "snippet": "Home Loans and Today's Rates from Bank of America Find competitive home loan rates and get the knowledge you need to help you make informed decisions. home loan, home ...", 
+                    "name": "Home Loans and Today's Rates from Bank of America", 
+                    "shortTitle": "Mortgage", 
+                    "url": "https://www.bankofamerica.com/mortgage/", 
+                    "displayUrl": "https://www.bankofamerica.com/mortgage", 
+                    "thumbnailId": "OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd", 
+                    "thumbnailUrl": "https://www.bing.com/th?id=OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd"
+                }, 
+                {
+                    "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
+                    "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
+                    "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
+                    "shortTitle": "Personal Loans", 
+                    "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
+                }, 
+                {
+                    "url": "http://www.loanspaydayok.com/", 
+                    "snippet": "Online Payday loans up to $1000. A short, 3 minute application, and instant decision! Bad credit OK. Installment loans up to $3K still available - apply now.", 
+                    "name": "Online Payday Loans | Payday Advance | Personal Loans For ...", 
+                    "shortTitle": "Personal Loans For", 
+                    "displayUrl": "www.loanspaydayok.com"
                 }, 
                 {
                     "name": "Business Banking | Savings | Checking | Loans | Zions Bank", 
@@ -25,44 +40,12 @@
                     "siteNanme": "Zions Bank"
                 }, 
                 {
-                    "name": "Loans - Illinois Lending", 
-                    "shortTitle": "Loans", 
-                    "url": "https://illinoislending.com/loans/", 
-                    "displayUrl": "https://illinoislending.com/loans", 
-                    "snippet": "Checkbook & Installment loans. Installment loans can be repaid through payroll deduction. Checkbook loans are repaid by debiting your personal checking account.", 
-                    "siteNanme": "Illinois Lending"
-                }, 
-                {
-                    "name": "Home Loans Home - Veterans Benefits Administration Home", 
-                    "shortTitle": "Home Loans Home", 
-                    "url": "http://www.benefits.va.gov/homeloans/", 
-                    "displayUrl": "www.benefits.va.gov/homeloans", 
-                    "snippet": "About Home Loans. VA helps Servicemembers, Veterans, and eligible surviving spouses become homeowners. As part of our mission to serve you, we provide a home loan ...", 
-                    "siteNanme": "Veterans Benefits Administration"
-                }, 
-                {
-                    "name": "Great Rates. Great Benefits l SoFi", 
-                    "shortTitle": "Great Rates. Great Benefits l SoFi", 
-                    "url": "https://www.sofi.com/", 
-                    "displayUrl": "https://www.sofi.com", 
-                    "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
-                    "siteNanme": "SoFi"
-                }, 
-                {
-                    "name": "Mortgage Loan Rates & Advice Since 1995 | MortgageLoan", 
-                    "shortTitle": "Mortgage Calculator \u00a9 ML", 
-                    "url": "https://www.mortgageloan.com/", 
-                    "displayUrl": "https://www.mortgageloan.com", 
-                    "snippet": "Mortgage Loans, Mortgage Rates & Beyond MortgageLoan.com is a groundbreaking news and information service for consumers seeking information about home mortgages and ...", 
-                    "siteNanme": "MortgageLoan.com"
-                }, 
-                {
-                    "name": "Military Loans - Fast & Easy to Apply - Pioneer Military ...", 
-                    "shortTitle": "Fast & Easy to Apply - Military Loans", 
-                    "url": "https://www.pioneermilitaryloans.com/", 
-                    "displayUrl": "https://www.pioneermilitaryloans.com", 
-                    "snippet": "Pioneer Military Loans helps military get $500 - $10,000 with fixed payments. Click here to apply in minutes.", 
-                    "siteNanme": "Pioneer Military Loans"
+                    "name": "Online Installment Loans ~ Not Payday Loans | Spotloan", 
+                    "shortTitle": "Get up to $800 on The Spot!", 
+                    "url": "https://www.spotloan.com/", 
+                    "displayUrl": "https://www.spotloan.com", 
+                    "snippet": "Spotloan is a better way to borrow extra cash. It\u2019s not a payday loan. It\u2019s an installment loan, which means you pay down the principal with each on time payment.", 
+                    "siteNanme": "Spotloan"
                 }, 
                 {
                     "name": "Halifax UK | Loans | Get a Quote, Loan Guides & Apply Online", 
@@ -73,43 +56,59 @@
                     "siteNanme": "Halifax"
                 }, 
                 {
-                    "name": "How to Repay Your Loans | Federal Student Aid", 
-                    "shortTitle": "Repaying Student Loans", 
-                    "url": "https://studentaid.ed.gov/repay-loans", 
-                    "displayUrl": "https://studentaid.ed.gov/repay", 
-                    "snippet": "Manage repayment of your federal student loans. Learn about making payments, repayment plans, servicers, consolidation, deferment, forgiveness, and default.", 
-                    "siteNanme": "Federal Student Aid"
+                    "name": "Military Loans - Fast & Easy to Apply - Pioneer Military ...", 
+                    "shortTitle": "Fast & Easy to Apply - Military Loans", 
+                    "url": "https://www.pioneermilitaryloans.com/", 
+                    "displayUrl": "https://www.pioneermilitaryloans.com", 
+                    "snippet": "Pioneer Military Loans helps military get $500 - $10,000 with fixed payments. Click here to apply in minutes.", 
+                    "siteNanme": "Pioneer Military Loans"
                 }, 
                 {
-                    "name": "Apply for Installment Loan | Sun Loan Company", 
-                    "shortTitle": "Apply For Installment Loan", 
-                    "url": "https://www.sunloan.com/", 
-                    "displayUrl": "https://www.sunloan.com", 
-                    "snippet": "We offer our customers the most convenient installment loans, quick loans, and monthly payment loans. See how Sun Loan Company can provide you easy loans today.", 
-                    "siteNanme": "Sun Loan"
+                    "name": "Loans - Woodforest National Bank", 
+                    "shortTitle": "Loans", 
+                    "url": "http://www.woodforest.com/Personal-Banking/Products/Loans", 
+                    "displayUrl": "www.woodforest.com/Personal-Banking/Products/Loans", 
+                    "snippet": "Woodforest National Bank would like to help finance your needs. We offer a variety of competitive consumer loan products including:", 
+                    "siteNanme": "Woodforest National Bank"
                 }, 
                 {
-                    "url": "https://www.usa.gov/benefits-grants-loans", 
-                    "snippet": "Government Benefits, Grants, and Loans. Learn about government programs that provide financial help for individuals and organizations. Affordable Housing", 
-                    "name": "Government Benefits, Grants, and Loans | USA.gov", 
-                    "shortTitle": "Grants", 
-                    "displayUrl": "https://www.usa.gov/benefits-grants-loans"
+                    "name": "Mortgage Loan Rates & Advice Since 1995 | MortgageLoan", 
+                    "shortTitle": "Mortgage Calculator \u00a9 ML", 
+                    "url": "https://www.mortgageloan.com/", 
+                    "displayUrl": "https://www.mortgageloan.com", 
+                    "snippet": "Mortgage Loans, Mortgage Rates & Beyond MortgageLoan.com is a groundbreaking news and information service for consumers seeking information about home mortgages and ...", 
+                    "siteNanme": "MortgageLoan.com"
                 }, 
                 {
-                    "name": "Small Business Loans and Business Credit Insights from On ...", 
-                    "shortTitle": "Business Loans And Small Business Loans ... - On Deck Capital", 
-                    "url": "https://www.ondeck.com/", 
-                    "displayUrl": "https://www.ondeck.com", 
-                    "snippet": "OnDeck is the largest online small business lender in the U.S. issuing over $5 billion dollars in loans and trusted by over 50,000 small businesses providing them ...", 
-                    "siteNanme": "OnDeck"
+                    "name": "Managing Debt Learning Center Articles - Credit.com", 
+                    "shortTitle": "Debt Consolidation", 
+                    "url": "https://www.credit.com/debt/", 
+                    "displayUrl": "https://www.credit.com/debt", 
+                    "snippet": "4 Things You Need to Know About Home Equity Loans; How to Refinance Your Home Loan With Bad Credit; Paying Off Your Student Loans: Forgiveness Programs & Beyond; Blog;", 
+                    "siteNanme": "Credit.com"
                 }, 
                 {
-                    "name": "SunTrust Bank | Personal, Mortgage & Small Business Banking", 
-                    "shortTitle": "Mortgage & Small Business Banking", 
-                    "url": "https://m.suntrust.com/b/", 
-                    "displayUrl": "https://m.suntrust.com/b", 
-                    "snippet": "Banking services and products from SunTrust Bank including checking and savings accounts, credit cards, mortgages, wealth management and retirement, business and ...", 
-                    "siteNanme": "SunTrust"
+                    "url": "https://www.nerdwallet.com/personal-loans", 
+                    "snippet": "See average personal loan rates and compare unsecured personal loans from $1,000 to $100,000. See online loans for borrowers with credit scores from 580 to 700 or higher.", 
+                    "name": "Personal Loans for Good, Average and Bad Credit", 
+                    "shortTitle": "Personal Loans", 
+                    "displayUrl": "https://www.nerdwallet.com/personal-loans"
+                }, 
+                {
+                    "name": "Great Rates. Great Benefits l SoFi", 
+                    "shortTitle": "Great Rates. Great Benefits l SoFi", 
+                    "url": "https://www.sofi.com/", 
+                    "displayUrl": "https://www.sofi.com", 
+                    "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
+                    "siteNanme": "SoFi"
+                }, 
+                {
+                    "name": "Home Loans Home - Veterans Benefits Administration Home", 
+                    "shortTitle": "Home Loans Home", 
+                    "url": "http://www.benefits.va.gov/homeloans/", 
+                    "displayUrl": "www.benefits.va.gov/homeloans", 
+                    "snippet": "About Home Loans. VA helps Servicemembers, Veterans, and eligible surviving spouses become homeowners. As part of our mission to serve you, we provide a home loan ...", 
+                    "siteNanme": "Veterans Benefits Administration"
                 }
             ]
         }, 
@@ -119,17 +118,17 @@
             "answerType": "Web", 
             "webResults": [
                 {
-                    "name": "Personal Loans | Online Loans - Avant", 
-                    "shortTitle": "Online Loans - Personal Loans", 
-                    "url": "https://www.avant.com/", 
-                    "displayUrl": "https://www.avant.com", 
-                    "snippet": "Change the way you borrow with personal loans from Avant. Applying at Avant is quick, easy and does not affect your FICO score", 
-                    "siteNanme": "Avant"
+                    "name": "Title Loans Online, Car Title Loans | 1800 LoanMart", 
+                    "shortTitle": "1800 LoanMart - Auto Title Loans", 
+                    "url": "https://www.800loanmart.com/", 
+                    "displayUrl": "https://www.800loanmart.com", 
+                    "snippet": "800LoanMart is the trusted car title loan industry leader with over 150,000 customers served since 2002 by our dedicated team. Loanmart is there for you 7 days a week.", 
+                    "siteNanme": "LoanMart"
                 }
             ]
         }
     ], 
     "version": "4.0", 
-    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=BB961F41B74C45D2991B78CB76FF4BDB&CID=30B711F710E46C3601A31BB611B76D5C&Type=Event.CPT&DATA=0", 
-    "impressionGuid": "BB961F41B74C45D2991B78CB76FF4BDB"
+    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=2606705577EA43CA995A816F7B425110&CID=35D5C856ADB16DF61E34C206ACE26C52&Type=Event.CPT&DATA=0", 
+    "impressionGuid": "2606705577EA43CA995A816F7B425110"
 }

@@ -14,6 +14,11 @@ class Result(db.Model):
     search_name  = db.Column(db.String(500))
 
 
+class Token(db.Model):
+	__tablename__ = 'Token'
+	id = db.Column(db.Integer,primary_key=True)
+	fb_token = db.Column(db.String(500))
+
 class InstagramResult(db.Model):
 	__tablename__ = 'InstagramResult'
 	id = db.Column(db.Integer,primary_key=True)

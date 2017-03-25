@@ -115,10 +115,6 @@ def get_all_emails(page_contents):
     print "EMAILS HERE",emails
     return emails
 
-def get_access_token():
-    response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token=EAAZAoe8xotnUBAJ8MnAjytCg3z9B2LUXsb9G83nZAb5hSZCFibGffZCgVg3OB9uF1jihzlE56uGOu9GWw7Dwm0A4iQwGYwCmZA2ocHVPsEKdZCJbuZCfNbw2WyqakzraSGcTNd8nsZB56bKkM1TWFXEX85mjgZBiF2ZAi549ZAAYyPhQRLrnZBTJ6vmKEgiDalpL5e4ZD').text
-    new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
-    return new_access_token
 
 
 def crawl_site(seed, domain, max_pages=10):
@@ -256,9 +252,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-from models import*
+#from models import InstagramResult, Result, Token
 from InstagramAPI import InstagramAPI
-
+#from models import token
 class RetryHTTPAdapter(HTTPAdapter):
 
     SECONDS_BETWEEN_RETRIES = 5
@@ -278,7 +274,7 @@ class RetryHTTPAdapter(HTTPAdapter):
 s = requests.Session()
 s.mount('http://', RetryHTTPAdapter(retry_time=180))
 s.mount('https://', RetryHTTPAdapter(retry_time=180))
-
+from models import*
 def igFunction(name):
     try:
         excelArr = []
@@ -560,296 +556,20 @@ def InstagramMain(name):
         except:
             raise
             #return "TRHEW ERROR OH NO!!!!"
-@celery.task()
-#@app.route('/outreach/<query>')
-def OutReacherDesk(query):
-    with app.app_context():
-        try:
-
-            m_dictionary = {}
-            m_dictionary['member-79ea116cb0'] = '43053334ef958fa5668a8afd8018195b'
-            m_dictionary['member-89df24f83c'] = '0d08685d31a8f724047decff5e445861'
-            m_dictionary['member-aad6e04a94'] = '8a08a4f2477b3eda0a7b3afa8eb6faaf'
-            m_dictionary['member-1e51eae111'] = '4f1deaa49d0f4ec8f36778b80a58dba5'
-            m_dictionary['member-c1d37816b1'] = '47501159d505413721caac9687818f68'
-            m_dictionary['member-700eebf334'] = '0e7136b3468cd832f6dda555aa917661'
-            m_dictionary['member-774cfbde7e'] = '481981b24f4a4f08d7c7dc9d5038428f'
-            m_dictionary['member-34c9052fba'] = '999d2d727bfc11256421c42c529331de'
-            m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
-            m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
-
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X)AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0'
-
-            }
-            arr = ['1', '23', '37', '51', '65', '79']
-            appendArr = []  
-            biggerArr = []
-           # query = 'loans'
-            for i in arr:
-                response = requests.get('https://c.bingapis.com/api/custom/opal/otherpage/search?q=' + str(
-                    query) + '&first=' + str(i) + '&rnoreward=1', headers=headers).text
-                LoadAsJson = json.loads(response)
-                print LoadAsJson
-                with open('check_thisoutput.json','wb') as outfile:
-                    json.dump(LoadAsJson,outfile,indent=4)
-                actualItem = LoadAsJson['answers'][0]['webResults']
-                appendArr.append(actualItem)
-            try:
-                #in(appendArr))
-    #MINOR CHANGE
-                for items in appendArr:
-                    biggerArr.append(items)
-                #asshoel
-                #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
-            except:
-                pass
-            rearr = []
-            with open('output_inspect.json','wb') as outfile:
-                json.dump(biggerArr,outfile,indent=4)
-            print len(biggerArr)
-            d = cycle(m_dictionary.iteritems())
-            for items in biggerArr:
-                eachQuery = items
-                domainArray = []
-                eachPageWhoisResult = []
-                async_list = []
-                url_list = []
-                for eachQueryString in eachQuery:
-                    bingDictionary = {}
-
-                    bingDictionary['prospect_url'] = eachQueryString[
-                        'displayUrl']
-                    try:
-                        defined = d.next()
-                        client = Mozscape(str(defined[0]),str(defined[1]))
-
-                        mozscape_dictionary = {}
-                        metrics = client.urlMetrics(str(bingDictionary['prospect_url']))
-                        bingDictionary['PA'] = metrics['upa']
-                        bingDictionary['DA'] = metrics['pda']
-                        bingDictionary['MozRank'] = metrics['ut']
-                        bingDictionary['Links'] = metrics['uid']
-                    except: 
-                        bingDictionary['PA'] = 0
-                        bingDictionary['DA'] = 0
-                        bingDictionary['MozRank'] = 0
-                        bingDictionary['Links'] = 0
-                        pass
-                    try:
-                        if "https://" in str(bingDictionary['prospect_url']):
-                            response = requests.get('http://graph.facebook.com/?id='+str(eachQueryString['displayUrl']))
-                            print 'Facebookgraph takes time'
-                            loadAsJson = json.loads(response.text)
-                           # print loadAsJson
-                            bingDictionary['facebook_shares'] = loadAsJson['share']['share_count']
-                        else:
-                            print 'http://graph.facebook.com/?id=https://'+str(eachQueryString['displayUrl'])
-                            response = requests.get('http://graph.facebook.com/?id=https://'+str(eachQueryString['displayUrl']))
-                            print 'Facebookgraph takes time'
-                            loadAsJson = json.loads(response.text)
-                            bingDictionary['facebook_shares'] = loadAsJson['share']['share_count']
-
-                    except:
-                        bingDictionary['facebook_shares'] = 0
-                    try:
-                        if "https://" in str(bingDictionary['prospect_url']):
-                            response = requests.get('https://plusone.google.com/_/+1/fastbutton?url='+str(bingDictionary['prospect_url'])).text
-                            soup = BeautifulSoup(response)
-                       
-                            follow_count = soup.find('div',attrs={'id':'aggregateCount'}).text
-                            bingDictionary['google_plus_shares'] = follow_count
-                        else:
-                            response = requests.get('https://plusone.google.com/_/+1/fastbutton?url=https://'+str(bingDictionary['prospect_url'])).text
-                            soup = BeautifulSoup(response)
-                            follow_count = soup.find('div',attrs={'id':'aggregateCount'}).text
-                            bingDictionary['google_plus_shares'] = follow_count
-                    except:
-                        bingDictionary['google_plus_shares'] = 0
-
-                    try:
-                       response = requests.get('https://www.linkedin.com/countserv/count/share?url=https://'+str(bingDictionary['prospect_url'])).text
-                       #print response
-                       convert_to_dict = response.replace('IN.Tags.Share.handleCount(','').replace(");",'')
-                       loadAsJson = json.loads(convert_to_dict)
-                       bingDictionary['linkedin_shares'] = loadAsJson['count']
-                    except:
-                       # raise
-                       bingDictionary['linkedin_shares'] = 0
-                    facebook_total = str(bingDictionary['facebook_shares']).replace('k','000')
-                    google_plus_shares_total = str(bingDictionary['google_plus_shares']).replace('k','000')
-                    linkedin_shares_total = str(bingDictionary['linkedin_shares']).replace('k','000')
-                    if "." in facebook_total:
-                        facebook_total = facebook_total.replace('000','00')
-                    if "." in google_plus_shares_total:
-                        google_plus_shares_total = facebook_total.replace('000','00')
-                    if "." in linkedin_shares_total:
-                        linkedin_shares_total = facebook_total.replace('000','00')
-
-                    try:
-                        total_shares = int(facebook_total) + int(google_plus_shares_total) + int(linkedin_shares_total)
-                        print total_shares
-                    except:
-                        total_amount_shares = int(facebook_total.replace('.','') + int(google_plus_shares_total.replace('.','') + int(linkedin_shares_total.replace('.',''))))
-                    bingDictionary['total_shares'] = total_shares
-                    bingDictionary['meta_title'] = eachQueryString[
-                                        'shortTitle'].encode('ascii', 'ignore')
-                    url = urlparse(eachQueryString['url'])
-                    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=url)
-                    bingDictionary['root_domain'] = domain
-                    try:
-                        response = requests.get(bingDictionary['root_domain']).text
-                    except:
-                        pass
-                        #response = requests.get(bingDictionary['root_domain'], verify=False).text
-                    soup = BeautifulSoup(response)
-                    phoneRegex = re.compile(r'''
-                                        # 415-555-0000, 555-9999, (415) 555-0000, 555-000 ext 12345, ext. 12345 x12345
-                                        (
-                                        ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
-                                        (/s|-)                              #first seperator
-                                        \d\d\d                              #first 3 digits
-                                        -                                   #second seperator
-                                        \d\d\d\d                            #last 4 digits
-                                        (((ext(\.)?\s) |x)                  #extension word-part (optional)
-                                        (\d{2,5}))?                         #extension number-part (optional)
-                                        )                                     
-                                        ''', re.VERBOSE)
-                    RSS_ARR = []
-                    extractedPhone = phoneRegex.findall(str(soup))
-                    all_phone_numbers_array = []
-                    for phone_numbers in extractedPhone:
-                        all_phone_numbers_array.append(phone_numbers[0])
-                    bingDictionary['phone_numbers'] = all_phone_numbers_array
-                    for link in soup.find_all("link", {"type" : "application/rss+xml"}):
-                        href = link.get('href')
-                        RSS_ARR.append(href)
-                    bingDictionary['RSS_URL'] = RSS_ARR
-                    a = soup.findAll('a')
-
-                    all_hrefs_arr = []
-                    for items in a:
-                        try:
-                            all_hrefs_arr.append(items['href'])
-
-                        except:
-                            pass
-                    bingDictionary['facebook_page_url'] = "No url found!"
-                    bingDictionary['facebook_page_likes'] = 0
-                    bingDictionary['twitter_page_url'] = "No url found!"
-                    bingDictionary['twitter_followers'] = 0
-                    bingDictionary['google_plus_followers'] = 0
-                    bingDictionary['google_plus_url'] = "No url found!"
-                    bingDictionary['contact_url'] = "No url found!"
-                    email_arr = []
-                    domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
-                    final_domain = domain.replace('/','')
-                    seed_url = "http://{}/".format(final_domain)
-                    maxpages = 1
-                    crawled, emails_found = crawl_site(seed_url, final_domain, maxpages)
-                    print "Found these email addresses:"
-                    email_arr = []
-                    emails_arr = emails_found[-1]
-                    for emails in email_arr:
-                        print emails
-                        email_validator = lepl.apps.rfc3696.Email()
-                        if not email_validator(emails):
-                            pass
-                        else:
-                            print "EMAILS HERE", emails
-                            email_arr.append(emails)
-                           # email_arr.append(emails.encode('ascii','ignore'))
-                    bingDictionary['emails'] = email_arr
-                    print 'EMAILS ARR',emails_founds
-                    for new_social_dictionary in emails_found:
-                        print "SOCIALS HERE", new_social_dictionary
-                        token = get_access_token()
-                        #str = 'https://www.facebook.com/mymakeupbrushset/'
-                        first_items  = new_social_dictionary['facebook_page_url']
-                        split_first = first_items.split('.com/')
-
-                        facebook_group_name = split_first[-1].replace('/','')
-                        response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
-                        jsonLoads = json.loads(response)
-                        arr = jsonLoads['data']
-                        first_item_in_query = arr[0]['id']
-                        response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
-                        try:
-                            bingDictionary['facebook_page_likes'] = response['fan_count']
-                        except:
-                            bingDictionary['facebook_page_likes'] = None
-                  
-                        try:
-                            bingDictionary['facebook_page_likes'] = new_social_dictionary['facebook_page_likes']
-                        except:
-                            bingDictionary['facebook_page_likes'] = None
-                        try:
-                            bingDictionary['facebook_page_url'] = new_social_dictionary['facebook_page_url']
-                        except:
-                            bingDictionary['facebook_page_url'] = None
-                        try:
-                            bingDictionary['twitter_followers'] = new_social_dictionary['twitter_followers']
-                        except:
-                            bingDictionary['twitter_followers'] = None
-                        try:
-                            bingDictionary['twitter_page_url'] = new_social_dictionary['twitter_page_url']
-                        except:
-                            bingDictionary['twitter_page_url'] = None
-
-                        try:
-                            bingDictionary['google_plus_followers'] = new_social_dictionary['google_plus_followers']
-                        except:
-                            bingDictionary['google_plus_followers'] = None
-                        try:
-                            bingDictionary['google_plus_url'] = new_social_dictionary['google_plus_url']
-                        except:
-                            bingDictionary['google_plus_url'] = None
 
 
-                    formatDomain = str(domain).replace(
-                                        'http://', '').replace('https://', '')
-                    fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
-                    response = requests.get('http://104.131.43.184/whois/'+str(fixedDomain)).text
-                    try:
-                        loadAsJson = json.loads(response)
-                    except:
-                        pass
-                    miniArray = []
-                    whoisDictionary = {}
-                    try:
-                        whoisDictionary['domain_name'] = loadAsJson['domain_name']
-                    except:
-                        whoisDictionary['domain_name'] = "None"
-                    try:
-                        whoisDictionary['whois_full_name'] = loadAsJson['registrant']['name']
-                    except:
-                        whoisDictionary['whois_full_name'] = "None"
-                    try:
-                        whoisDictionary['whois_city_name'] = loadAsJson['registrant']['city_name']
-                    except:
-                        whoisDictionary['whois_city_name'] = "None"
-                    try:
-                        whoisDictionary['whois_country_code'] = loadAsJson['registrant']['country_code']
-                    except:
-                        whoisDictionary['whois_country_code'] = "None"
-                    try:
-                        whoisDictionary['whois_email_address'] = loadAsJson['registrant']['email']
-                    except:
-                        whoisDictionary['whois_email_address']="None"
-                    try:
-                        whoisDictionary['whois_phone_number'] = loadAsJson['registrant']['phone_number']
-                    except:
-                        whoisDictionary['whois_phone_number'] = "None"
-                    miniArray.append(whoisDictionary)
-                    bingDictionary['whoisData'] = miniArray
-                    rearr.append(bingDictionary)
+def get_access_token():
+    result = Token.query.all()[-1].fb_token
+    response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+result).text
+    new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
+    store_token = Token(fb_token=new_access_token)
+    db.session.add(store_token)
+    db.session.commit()
+    return str(new_access_token)
 
-            return rearr
-            
 
-        except:
-            raise
 
+#get_access_token()
 
 @app.route('/instagram/backend/<name>')
 def igbackendWorker(name):
@@ -1113,7 +833,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 30
+            maxpages = 4
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -1127,18 +847,24 @@ def site(site):
                     email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
+            print token
             first_items  = emails_found[0]['facebook_page_url']
+            print "HI"
             try:
                 split_first = first_items.split('.com/')
                 facebook_group_name = split_first[-1].replace('/','')
+                print facebook_group_name
                 response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
                 jsonLoads = json.loads(response)
+                print jsonLoads
                 arr = jsonLoads['data']
                 first_item_in_query = arr[0]['id']
                 response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
+                print response
                 bingDictionary['facebook_page_likes'] = response['fan_count']
             except:
-                pass
+                raise
+                #pass
 
 
             bingDictionary['emails'] = email_arrz
@@ -1243,22 +969,7 @@ def site(site):
             all_phone_numbers_array = []
             for phone_numbers in extractedPhone:
                 all_phone_numbers_array.append(phone_numbers[0])
-            bingDictionary['phone_numbers'] = all_phone_numbers_array
-            for link in soup.find_all("link", {"type" : "application/rss+xml"}):
-                href = link.get('href')
-                RSS_ARR.append(href)
-            bingDictionary['RSS_URL'] = RSS_ARR
-            a = soup.findAll('a')
-
-            all_hrefs_arr = []
-            for items in a:
-                try:
-                    all_hrefs_arr.append(items['href'])
-
-                except:
-                    pass
-         
-
+            bingDictionary['phone_numbers'] = all_phone_numbers_array     
             formatDomain = str(site).replace(
                                 'http://', '').replace('https://', '')
             fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
@@ -1300,15 +1011,255 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
+           # return rearr
             return rearr
-           # return jsonify(results=rearr)
             
 
     except:
         raise
 
 
+#celery.task()
+@app.route('/outreach/<query>')
+def OutReacherDesk(query):
+    with app.app_context():
+        try:
 
+            m_dictionary = {}
+            m_dictionary['member-79ea116cb0'] = '43053334ef958fa5668a8afd8018195b'
+            m_dictionary['member-89df24f83c'] = '0d08685d31a8f724047decff5e445861'
+            m_dictionary['member-aad6e04a94'] = '8a08a4f2477b3eda0a7b3afa8eb6faaf'
+            m_dictionary['member-1e51eae111'] = '4f1deaa49d0f4ec8f36778b80a58dba5'
+            m_dictionary['member-c1d37816b1'] = '47501159d505413721caac9687818f68'
+            m_dictionary['member-700eebf334'] = '0e7136b3468cd832f6dda555aa917661'
+            m_dictionary['member-774cfbde7e'] = '481981b24f4a4f08d7c7dc9d5038428f'
+            m_dictionary['member-34c9052fba'] = '999d2d727bfc11256421c42c529331de'
+            m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
+            m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
+
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X)AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0'
+
+            }
+            arr = ['1', '23', '37', '51', '65', '79']
+            appendArr = []  
+            biggerArr = []
+           # query = 'loans'
+            for i in arr:
+                response = requests.get('https://c.bingapis.com/api/custom/opal/otherpage/search?q=' + str(
+                    query) + '&first=' + str(i) + '&rnoreward=1', headers=headers).text
+                LoadAsJson = json.loads(response)
+                print LoadAsJson
+                with open('check_thisoutput.json','wb') as outfile:
+                    json.dump(LoadAsJson,outfile,indent=4)
+                actualItem = LoadAsJson['answers'][0]['webResults']
+                appendArr.append(actualItem)
+            try:
+                #in(appendArr))
+    #MINOR CHANGE
+                for items in appendArr:
+                    biggerArr.append(items)
+                #asshoel
+                #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
+            except:
+                pass
+            rearr = []
+            with open('output_inspect.json','wb') as outfile:
+                json.dump(biggerArr,outfile,indent=4)
+            print len(biggerArr)
+            d = cycle(m_dictionary.iteritems())
+            for items in biggerArr:
+                eachQuery = items
+                domainArray = []
+                eachPageWhoisResult = []
+                async_list = []
+                url_list = []
+                for eachQueryString in eachQuery:
+                    bingDictionary = {}
+
+                    bingDictionary['prospect_url'] = eachQueryString[
+                        'displayUrl']
+                    try:
+                        if "https://" in str(bingDictionary['prospect_url']):
+                            response = requests.get('http://graph.facebook.com/?id='+str(eachQueryString['displayUrl']))
+                            print 'Facebookgraph takes time'
+                            loadAsJson = json.loads(response.text)
+                           # print loadAsJson
+                            bingDictionary['facebook_shares'] = loadAsJson['share']['share_count']
+                        else:
+                            print 'http://graph.facebook.com/?id=https://'+str(eachQueryString['displayUrl'])
+                            response = requests.get('http://graph.facebook.com/?id=https://'+str(eachQueryString['displayUrl']))
+                            print 'Facebookgraph takes time'
+                            loadAsJson = json.loads(response.text)
+                            bingDictionary['facebook_shares'] = loadAsJson['share']['share_count']
+
+                    except:
+                        bingDictionary['facebook_shares'] = 0
+                    try:
+                        if "https://" in str(bingDictionary['prospect_url']):
+                            response = requests.get('https://plusone.google.com/_/+1/fastbutton?url='+str(bingDictionary['prospect_url'])).text
+                            soup = BeautifulSoup(response)
+                       
+                            follow_count = soup.find('div',attrs={'id':'aggregateCount'}).text
+                            bingDictionary['google_plus_shares'] = follow_count
+                        else:
+                            response = requests.get('https://plusone.google.com/_/+1/fastbutton?url=https://'+str(bingDictionary['prospect_url'])).text
+                            soup = BeautifulSoup(response)
+                            follow_count = soup.find('div',attrs={'id':'aggregateCount'}).text
+                            bingDictionary['google_plus_shares'] = follow_count
+                    except:
+                        bingDictionary['google_plus_shares'] = 0
+
+                    try:
+                       response = requests.get('https://www.linkedin.com/countserv/count/share?url=https://'+str(bingDictionary['prospect_url'])).text
+                       #print response
+                       convert_to_dict = response.replace('IN.Tags.Share.handleCount(','').replace(");",'')
+                       loadAsJson = json.loads(convert_to_dict)
+                       bingDictionary['linkedin_shares'] = loadAsJson['count']
+                    except:
+                       # raise
+                       bingDictionary['linkedin_shares'] = 0
+                    facebook_total = str(bingDictionary['facebook_shares']).replace('k','000')
+                    google_plus_shares_total = str(bingDictionary['google_plus_shares']).replace('k','000')
+                    linkedin_shares_total = str(bingDictionary['linkedin_shares']).replace('k','000')
+                    if "." in facebook_total:
+                        facebook_total = facebook_total.replace('000','00')
+                    if "." in google_plus_shares_total:
+                        google_plus_shares_total = facebook_total.replace('000','00')
+                    if "." in linkedin_shares_total:
+                        linkedin_shares_total = facebook_total.replace('000','00')
+
+                    try:
+                        total_shares = int(facebook_total) + int(google_plus_shares_total) + int(linkedin_shares_total)
+                        print total_shares
+                    except:
+                        total_amount_shares = int(facebook_total.replace('.','') + int(google_plus_shares_total.replace('.','') + int(linkedin_shares_total.replace('.',''))))
+                    bingDictionary['total_shares'] = total_shares
+                    bingDictionary['meta_title'] = eachQueryString[
+                                        'shortTitle'].encode('ascii', 'ignore')
+                    url = urlparse(eachQueryString['url'])
+                    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=url)
+                    bingDictionary['root_domain'] = domain
+                    response1 = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+bingDictionary['root_domain'])
+                    try:
+                        json_loader = json.loads(response1.text)
+                        data_loads = json_loader['data']
+                        #data_loads = json_loader['data']
+                        authorities = data_loads['authority']
+                        domain_authority = authorities['domain_authority']
+                        page_authority = authorities['page_authority']
+                        links = data_loads['page']['inbound_links']
+                        bingDictionary['PA'] = page_authority
+                        bingDictionary['DA'] = domain_authority
+                        bingDictionary['links'] = links
+                    except:
+                        pass
+                    try:
+                        response = requests.get(bingDictionary['root_domain']).text
+                    except:
+                        pass
+                        #response = requests.get(bingDictionary['root_domain'], verify=False).text
+                    soup = BeautifulSoup(response)
+                    phoneRegex = re.compile(r'''
+                                        # 415-555-0000, 555-9999, (415) 555-0000, 555-000 ext 12345, ext. 12345 x12345
+                                        (
+                                        ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
+                                        (/s|-)                              #first seperator
+                                        \d\d\d                              #first 3 digits
+                                        -                                   #second seperator
+                                        \d\d\d\d                            #last 4 digits
+                                        (((ext(\.)?\s) |x)                  #extension word-part (optional)
+                                        (\d{2,5}))?                         #extension number-part (optional)
+                                        )                                     
+                                        ''', re.VERBOSE)
+                    RSS_ARR = []
+                    extractedPhone = phoneRegex.findall(str(soup))
+                    all_phone_numbers_array = []
+                    for phone_numbers in extractedPhone:
+                        all_phone_numbers_array.append(phone_numbers[0])
+                    bingDictionary['phone_numbers'] = all_phone_numbers_array
+                    email_arrz = []
+                    domain = bingDictionary['root_domain']
+                    seed_url = "http://{}/".format(domain)
+                    maxpages = 30
+                    crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+                    emails_arr = emails_found[-1]
+                    for emails in emails_arr:
+                        email_validator = lepl.apps.rfc3696.Email()
+                        if not email_validator(emails):
+                            print 'no valid'
+                            pass
+                        else:
+                            print "EMAILS HERE", emails
+                            email_arrz.append(emails)
+                           # email_arr.append(emails.encode('ascii','ignore'))
+                    bingDictionary['emails'] = email_arrz
+                    token = get_access_token()
+                    first_items  = emails_found[0]['facebook_page_url']
+                    print "WHAT"
+                    try:
+                        split_first = first_items.split('.com/')
+                        facebook_group_name = split_first[-1].replace('/','')
+                        response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
+                        jsonLoads = json.loads(response)
+                        arr = jsonLoads['data']
+                        first_item_in_query = arr[0]['id']
+                        response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
+                        bingDictionary['facebook_page_likes'] = response['fan_count']
+                        print bingDictionary['facebook_page_likes']
+                    except:
+                        raise
+                       # pass
+                    bingDictionary['emails'] = email_arrz
+                    bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
+                    bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
+                    bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
+                    bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
+                    bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
+                    bingDictionary['contact_url'] = emails_found[0]['contact_url']
+                    formatDomain = str(domain).replace(
+                                        'http://', '').replace('https://', '')
+                    fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
+                    response = requests.get('http://104.131.43.184/whois/'+str(fixedDomain)).text
+                    try:
+                        loadAsJson = json.loads(response)
+                    except:
+                        pass
+                    miniArray = []
+                    whoisDictionary = {}
+                    try:
+                        whoisDictionary['domain_name'] = loadAsJson['domain_name']
+                    except:
+                        whoisDictionary['domain_name'] = "None"
+                    try:
+                        whoisDictionary['whois_full_name'] = loadAsJson['registrant']['name']
+                    except:
+                        whoisDictionary['whois_full_name'] = "None"
+                    try:
+                        whoisDictionary['whois_city_name'] = loadAsJson['registrant']['city_name']
+                    except:
+                        whoisDictionary['whois_city_name'] = "None"
+                    try:
+                        whoisDictionary['whois_country_code'] = loadAsJson['registrant']['country_code']
+                    except:
+                        whoisDictionary['whois_country_code'] = "None"
+                    try:
+                        whoisDictionary['whois_email_address'] = loadAsJson['registrant']['email']
+                    except:
+                        whoisDictionary['whois_email_address']="None"
+                    try:
+                        whoisDictionary['whois_phone_number'] = loadAsJson['registrant']['phone_number']
+                    except:
+                        whoisDictionary['whois_phone_number'] = "None"
+                    miniArray.append(whoisDictionary)
+                    bingDictionary['whoisData'] = miniArray
+                    rearr.append(bingDictionary)
+
+            return jsonify(results=rearr)
+            
+
+        except:
+            raise
 @app.route('/outreach/backend/<query>')
 def backendWorker(query):
     with app.app_context():
@@ -1319,6 +1270,9 @@ def backendWorker(query):
         db.session.add(user)
         db.session.commit()
         return "Added to queue!"
+
+
+
 
 @app.route('/outreach/celery/<query>')
 def individualWorker(query):

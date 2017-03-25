@@ -3,50 +3,10 @@
         {
             "name": "Online Loans Radically Simple | E-LOAN", 
             "shortTitle": "Online Loans Radically Simple", 
-            "url": "http://www.eloan.com/", 
-            "displayUrl": "www.eloan.com", 
+            "url": "https://www.eloan.com/", 
+            "displayUrl": "https://www.eloan.com", 
             "snippet": "E-LOAN is a leading online provider of mortgages, refinancing, personal loans, auto loans, savings and other investment products. Find a Loan Today!", 
             "siteNanme": "E-Loan"
-        }, 
-        {
-            "snippet": "EXPRESS APPLICATION and the highest payday loan approval rate online. It only takes a few minutes to get personal loans for people with bad credit.", 
-            "name": "Bad Credit Loans - HIGHEST APPROVAL - Payday Loans Online", 
-            "shortTitle": "Bad Credit Loans - Personal Loans", 
-            "url": "http://www.badcreditloancenter.com/mobile/", 
-            "displayUrl": "www.badcreditloancenter.com", 
-            "thumbnailId": "OIP.M5527964adcd42721293ce4973ee49d31o0", 
-            "thumbnailUrl": "https://www.bing.com/th?id=OIP.M5527964adcd42721293ce4973ee49d31o0", 
-            "siteNanme": "Bad Credit Loan Center"
-        }, 
-        {
-            "name": "GovLoans.gov | Find the Right Loan for You", 
-            "shortTitle": "Find The Right Loan For You", 
-            "url": "https://www.govloans.gov/", 
-            "displayUrl": "https://www.govloans.gov", 
-            "snippet": "What is GovLoans.gov? Your gateway to government loan information Informs citizens of loans they may be eligible for Provides information on loan terms and ...", 
-            "siteNanme": "GovLoans.gov"
-        }, 
-        {
-            "url": "https://www.creditloan.com/", 
-            "snippet": "Find the best loans, mortgages, credit cards and more - regardless of credit level. Apply online today and get the help you need, securely and confidentially.", 
-            "name": "Get a Loan - Compare Credit Cards - Find a Mortgage ...", 
-            "shortTitle": "Loans - Compare Credit Cards", 
-            "displayUrl": "https://www.creditloan.com"
-        }, 
-        {
-            "url": "https://www.creditkarma.com/shop/personal-loans", 
-            "snippet": "A personal loan might be right for you if you want to fund a big expense or if you want to consolidate debt. Personal loans may come with lower interest ...", 
-            "name": "Personal Loans | Credit Karma", 
-            "shortTitle": "Personal Loans", 
-            "displayUrl": "https://www.creditkarma.com/shop/personal-loans"
-        }, 
-        {
-            "name": "LightStream - Loans for Practically Anything", 
-            "shortTitle": "Loans For Practically Anything", 
-            "url": "https://www.lightstream.com/", 
-            "displayUrl": "https://www.lightstream.com", 
-            "snippet": "LightStream offers unsecured loans online for all their personal needs. On approval, money can be wired the next day to purchase anything including refinancing an ...", 
-            "siteNanme": "LightStream"
         }, 
         {
             "name": "Online Personal Loans on Your Terms - NetCredit", 
@@ -65,22 +25,56 @@
             "siteNanme": "LendingTree"
         }, 
         {
-            "name": "Personal Loans \u2013 Wells Fargo", 
-            "shortTitle": "Personal", 
-            "url": "https://www.wellsfargo.com/personal-credit/personal-loan", 
-            "displayUrl": "https://www.wellsfargo.com/personal-credit/personal-loan", 
-            "snippet": "Take control of your financial future with a Wells Fargo Personal Loan Fixed rate, fixed term, and fixed monthly payments to help manage your monthly budget.", 
-            "siteNanme": "Wells Fargo"
+            "name": "Personal Loans | Credit Karma", 
+            "shortTitle": "Personal Loans", 
+            "url": "https://www.creditkarma.com/shop/personal-loans", 
+            "displayUrl": "https://www.creditkarma.com/shop/personal-loans", 
+            "snippet": "Credit Karma offers free credit scores, reports and insights. Get the info you need to take control of your credit.", 
+            "siteNanme": "Credit Karma"
+        }, 
+        {
+            "snippet": "EXPRESS APPLICATION and the highest payday loan approval rate online. It only takes a few minutes to get personal loans for people with bad credit.", 
+            "name": "Bad Credit Loans - HIGHEST APPROVAL - Payday Loans Online", 
+            "shortTitle": "Bad Credit Loans - Personal Loans", 
+            "url": "http://www.badcreditloancenter.com/mobile/", 
+            "displayUrl": "www.badcreditloancenter.com", 
+            "thumbnailId": "OIP.M5527964adcd42721293ce4973ee49d31o0", 
+            "thumbnailUrl": "https://www.bing.com/th?id=OIP.M5527964adcd42721293ce4973ee49d31o0", 
+            "siteNanme": "Bad Credit Loan Center"
+        }, 
+        {
+            "name": "LightStream - Loans for Practically Anything", 
+            "shortTitle": "Loans For Practically Anything", 
+            "url": "https://www.lightstream.com/", 
+            "displayUrl": "https://www.lightstream.com", 
+            "snippet": "LightStream offers unsecured loans online for all their personal needs. On approval, money can be wired the next day to purchase anything including refinancing an ...", 
+            "siteNanme": "LightStream"
+        }, 
+        {
+            "name": "Bad Credit Loans & Personal Loans - Approved in Minutes", 
+            "shortTitle": "Bad Credit Loans & Personal Loans", 
+            "url": "https://www.directlendingsolutions.com/", 
+            "displayUrl": "https://www.directlendingsolutions.com", 
+            "snippet": "Need a loan but have bad credit? Apply for up to $5,000 in unsecured loans or debt consolidation and get an instant credit decision.", 
+            "siteNanme": "Direct Lending Solutions"
+        }, 
+        {
+            "url": "https://www.creditloan.com/", 
+            "snippet": "Find the best loans, mortgages, credit cards and more - regardless of credit level. Apply online today and get the help you need, securely and confidentially.", 
+            "name": "Get a Loan - Compare Credit Cards - Find a Mortgage ...", 
+            "shortTitle": "Loans - Compare Credit Cards", 
+            "displayUrl": "https://www.creditloan.com"
+        }, 
+        {
+            "name": "GovLoans.gov | Find the Right Loan for You", 
+            "shortTitle": "Find The Right Loan For You", 
+            "url": "https://www.govloans.gov/", 
+            "displayUrl": "https://www.govloans.gov", 
+            "snippet": "What is GovLoans.gov? Your gateway to government loan information Informs citizens of loans they may be eligible for Provides information on loan terms and ...", 
+            "siteNanme": "GovLoans.gov"
         }
     ], 
     [
-        {
-            "url": "https://www.speedycash.com/", 
-            "snippet": "Have an emergency expense? Fall short on cash? Apply for a cash loan with Speedy Cash to get cash as soon as today! Call, click or come in to apply", 
-            "name": "Speedy Cash Loans from $50 - $26,000", 
-            "shortTitle": "Installment Loans & Title Loans", 
-            "displayUrl": "https://www.speedycash.com"
-        }, 
         {
             "name": "Payday Loans Online - Online Cash Advance", 
             "shortTitle": "Check City - Online Payday Advance", 
@@ -90,27 +84,12 @@
             "siteNanme": "Check City"
         }, 
         {
-            "name": "Personal Loans | TD Bank", 
-            "shortTitle": "Personal Loans", 
-            "url": "http://www.tdbank.com/personal/personal_loans.html", 
-            "displayUrl": "www.tdbank.com/personal/personal_loans.html", 
-            "snippet": "Get the personal loan you need for the things you want. From boat and car loans to unsecured loans, we have financing solutions designed for the way you live.", 
-            "siteNanme": "TD Bank, N.A."
-        }, 
-        {
-            "url": "https://www.suntrust.com/loans", 
-            "snippet": "SunTrust Personal Loans and Lines of Credit that fit your borrowing needs. Get the personal loan you need for the things you want. Apply today!", 
-            "name": "Personal Loans | SunTrust Loans", 
-            "shortTitle": "Loans", 
-            "displayUrl": "https://www.suntrust.com/loans"
-        }, 
-        {
-            "name": "FHA Loans - HUD/U.S.", 
-            "shortTitle": "Loans - HUD/U.S", 
-            "url": "http://portal.hud.gov/hudportal/HUD?src=/buying/loans", 
-            "displayUrl": "portal.hud.gov/hudportal/HUD?src=/buying/loans", 
-            "snippet": "FHA loans have been helping people become homeowners since 1934. How do we do it? The Federal Housing Administration (FHA) - which is part of HUD - insures the loan ...", 
-            "siteNanme": "U.S. Department of Housing and Urban Development"
+            "name": "Speedy Cash Loans from $50 - $26,000", 
+            "shortTitle": "Installment Loans & Title Loans", 
+            "url": "https://www.speedycash.com/", 
+            "displayUrl": "https://www.speedycash.com", 
+            "snippet": "Have an emergency expense? Fall short on cash? Apply for a cash loan with Speedy Cash to get cash as soon as today! Call, click or come in to apply", 
+            "siteNanme": "SpeedyCash.com"
         }, 
         {
             "name": "Short Term Loans up to $1,000 - Installment Loans up to", 
@@ -121,6 +100,14 @@
             "siteNanme": "First Amerigo"
         }, 
         {
+            "name": "Personal Loans \u2013 Wells Fargo", 
+            "shortTitle": "Personal", 
+            "url": "https://www.wellsfargo.com/personal-credit/personal-loan", 
+            "displayUrl": "https://www.wellsfargo.com/personal-credit/personal-loan", 
+            "snippet": "Benefits of a personal loan. Competitive fixed rate, fixed term, and fixed monthly payment; No origination fee or pre-payment penalty; Relationship discounts for ...", 
+            "siteNanme": "Wells Fargo"
+        }, 
+        {
             "name": "Advance America - Payday Loans, Cash Advances, Title Loans ...", 
             "shortTitle": "Advance America - Installment Loans", 
             "url": "https://www.advanceamerica.net/", 
@@ -129,35 +116,20 @@
             "siteNanme": "Advance America Cash Advance"
         }, 
         {
-            "name": "Fast Personal Loans - LendingTree", 
-            "shortTitle": "Personal Loans", 
-            "url": "https://www.lendingtree.com/personal-loans-index", 
-            "displayUrl": "https://www.lendingtree.com/personal-loans", 
-            "snippet": "Get a personal loan from $1,000 - $35,000 in as quick as 24 hours. Compare offers from multiple personal loan lenders and save big on interest with LendingTree!", 
-            "siteNanme": "LendingTree"
+            "name": "Personal Loans Online - Fast Cash Personal Loan - Bad ...", 
+            "shortTitle": "Bad Credit OK! - Mmpersonalloans", 
+            "url": "http://www.mmpersonalloans.com/", 
+            "displayUrl": "www.mmpersonalloans.com", 
+            "snippet": "We can help with personal loans wired the same day! There is no need to feel so stressed. Even having a bad credit does not disqualify you from getting a loan ...", 
+            "siteNanme": "mmpersonalloans"
         }, 
         {
-            "url": "https://www.creditloan.com/personal-loans/", 
-            "snippet": "Personal loans from $250 to $5,000. Low fixed rates, easy online application and quick approval! Apply today at CreditLoan.com\u00ae", 
-            "name": "Personal Loans - Apply for a Personal Loan - CreditLoan.com\u00ae", 
-            "shortTitle": "Personal Loans", 
-            "displayUrl": "https://www.creditloan.com/personal-loans"
-        }, 
-        {
-            "name": "Loan - Wikipedia", 
-            "shortTitle": "Loan", 
-            "url": "https://en.wikipedia.org/wiki/Loan", 
-            "displayUrl": "https://en.wikipedia.org/wiki/Loan", 
-            "snippet": "Loans can also be subcategorized according to whether the debtor is an individual person (consumer) or a business. Common personal loans include mortgage loans, car ...", 
-            "isVerticalDeeplink": false
-        }, 
-        {
-            "name": "Personal Loans: Get a Personal Loan Online | Lending Club", 
-            "shortTitle": "Personal Loans", 
-            "url": "https://www.lendingclub.com/public/personal-loans.action", 
-            "displayUrl": "https://www.lendingclub.com/public/personal-loans.action", 
-            "snippet": "Personal loans for up to $40,000. Apply online in minutes; Get funded in as little as a few days; Make fixed monthly payments", 
-            "siteNanme": "Lending Club"
+            "name": "Chase Bank - Credit Card, Mortgage, Auto, Banking Services", 
+            "shortTitle": "Chase Bank - Chase Manhattan Bank", 
+            "url": "https://m.chase.com/", 
+            "displayUrl": "https://m.chase.com", 
+            "snippet": "Chase Bank provides credit cards, mortgages, commercial banking, auto loans, investing & retirement planning, checking and business banking.", 
+            "siteNanme": "Chase"
         }, 
         {
             "name": "Capital One Credit Cards, Bank, and Loans - Personal and ...", 
@@ -168,22 +140,55 @@
             "siteNanme": "Capital One"
         }, 
         {
-            "name": "Personal Loans Online - Fast Cash Personal Loan - Bad ...", 
-            "shortTitle": "Bad Credit OK! - Mmpersonalloans", 
-            "url": "http://www.mmpersonalloans.com/", 
-            "displayUrl": "www.mmpersonalloans.com", 
-            "snippet": "We can help with personal loans wired the same day! There is no need to feel so stressed. Even having a bad credit does not disqualify you from getting a loan ...", 
-            "siteNanme": "mmpersonalloans"
+            "name": "Personal Loans for Good & Bad Credit - $1k - $35k in 24 Hours", 
+            "shortTitle": "Personal Loans", 
+            "url": "https://www.lendingtree.com/personal-loans-index", 
+            "displayUrl": "https://www.lendingtree.com/personal-loans", 
+            "snippet": "Get a personal loan from $1,000 - $35,000 in as quick as 24 hours. Compare offers from multiple personal loan lenders and save big on interest with LendingTree!", 
+            "siteNanme": "LendingTree"
+        }, 
+        {
+            "name": "Loan - Wikipedia", 
+            "shortTitle": "Loan", 
+            "url": "https://en.m.wikipedia.org/wiki/Loan", 
+            "displayUrl": "https://en.m.wikipedia.org/wiki/Loan", 
+            "snippet": "Loans can also be subcategorized according to whether the debtor is an individual person (consumer) or a business. Common personal loans include mortgage loans, car ...", 
+            "isVerticalDeeplink": false, 
+            "siteNanme": "Wikipedia"
+        }, 
+        {
+            "name": "Personal Loans: Get a Personal Loan Online | Lending Club", 
+            "shortTitle": "Personal Loans", 
+            "url": "https://www.lendingclub.com/public/personal-loans.action", 
+            "displayUrl": "https://www.lendingclub.com/public/personal-loans.action", 
+            "snippet": "Personal loans for up to $40,000. Apply online in minutes; Get funded in as little as a few days; Make fixed monthly payments", 
+            "siteNanme": "Lending Club"
+        }, 
+        {
+            "name": "Loans - Apply for a personal loan from Tesco Bank", 
+            "shortTitle": "Loans", 
+            "url": "http://www.tescobank.com/loans/", 
+            "displayUrl": "www.tescobank.com/loans", 
+            "snippet": "You could use a personal loan from Tesco Bank to buy a new car, make some home improvements or organise your finances into one fixed monthly payment.", 
+            "siteNanme": "Tesco Bank"
+        }, 
+        {
+            "name": "Bad Credit Loans - Apply for a Bad Credit Loan ...", 
+            "shortTitle": "Apply For a Bad Credit Loan", 
+            "url": "https://bad.creditloan.com/", 
+            "displayUrl": "https://bad.creditloan.com", 
+            "snippet": "Need a loan, but your credit is bad? That's no problem! Apply now for loans from $250 to $5,000!", 
+            "siteNanme": "CreditLoan.com"
         }
     ], 
     [
         {
-            "name": "Direct Loans - StudentLoans.gov", 
-            "shortTitle": "Direct Loan Entrance Counseling", 
-            "url": "https://www.studentloans.gov/myDirectLoan/index.action", 
-            "displayUrl": "https://studentloans.gov", 
-            "snippet": "U.S. Department of Education site explaining how to view Federal student loan documents, entrance counseling and how to sign promissory notes. Includes tools for ...", 
-            "siteNanme": "StudentLoans.gov"
+            "name": "Speedy Cash Loans from $50 - $26,000", 
+            "shortTitle": "Installment Loans & Title Loans", 
+            "url": "https://www.speedycash.com/", 
+            "displayUrl": "https://www.speedycash.com", 
+            "snippet": "Have an emergency expense? Fall short on cash? Apply for a cash loan with Speedy Cash to get cash as soon as today! Call, click or come in to apply", 
+            "siteNanme": "SpeedyCash.com"
         }, 
         {
             "name": "Liberty Unsecured Loans - Unsecured Loans", 
@@ -194,12 +199,12 @@
             "siteNanme": "Liberty Unsecured"
         }, 
         {
-            "name": "Personal Loans | TD Bank", 
-            "shortTitle": "Personal Loans", 
-            "url": "http://www.tdbank.com/personal/personal_loans.html", 
-            "displayUrl": "www.tdbank.com/personal/personal_loans.html", 
-            "snippet": "Get the personal loan you need for the things you want. From boat and car loans to unsecured loans, we have financing solutions designed for the way you live.", 
-            "siteNanme": "TD Bank, N.A."
+            "name": "Quicken Loans | Home Mortgage Loans | Over Two Million ...", 
+            "shortTitle": "Over Two Million Home Loans Closed!", 
+            "url": "https://www.quickenloans.com/", 
+            "displayUrl": "https://www.quickenloans.com", 
+            "snippet": "Quicken Loans is America\u2019s #1 online lender, helping over 2 million families finance their homes. Compare loan options and apply online with Rocket Mortgage.", 
+            "siteNanme": "Quicken Loans"
         }, 
         {
             "name": "Loans.net\u00ae | Personal Loans & Bad Credit | Easy Fast Secured", 
@@ -210,50 +215,11 @@
             "siteNanme": "Loans.net"
         }, 
         {
-            "name": "Personal Loans Online - Fast Cash Personal Loan - Bad ...", 
-            "shortTitle": "Bad Credit OK! - Mmpersonalloans", 
-            "url": "http://www.mmpersonalloans.com/", 
-            "displayUrl": "www.mmpersonalloans.com", 
-            "snippet": "We can help with personal loans wired the same day! There is no need to feel so stressed. Even having a bad credit does not disqualify you from getting a loan ...", 
-            "siteNanme": "mmpersonalloans"
-        }, 
-        {
-            "name": "Mortgages | USA.gov", 
-            "shortTitle": "Mortgages", 
-            "url": "https://www.usa.gov/mortgages", 
-            "displayUrl": "https://www.usa.gov/mortgages", 
-            "snippet": "Predatory Loans; Reverse Mortgages; Mortgage Refinancing. Refinancing refers to satisfying a debt by making another loan on new terms.", 
-            "siteNanme": "USA.gov"
-        }, 
-        {
-            "url": "https://www.creditloan.com/credit-cards/", 
-            "snippet": "THE OPERATOR OF THIS WEBSITE IS NOT A LENDER, does not broker loans to lenders and does not make/fund any product offerings, loans or credit decisions.", 
-            "name": "Credit Cards - CreditLoan.com\u00ae", 
-            "shortTitle": "Credit Cards", 
-            "displayUrl": "https://www.creditloan.com/credit-cards"
-        }, 
-        {
-            "name": "Check `n Go: Online Payday Loans & Installment Loans", 
-            "shortTitle": "Check `n Go: Online Payday Loans & Installment Loans", 
-            "url": "https://www.checkngo.com/", 
-            "displayUrl": "https://www.checkngo.com", 
-            "snippet": "Check `n Go is a leader in the consumer financial industry, providing instant cash advances. Let Check `n Go help you meet all your financial needs today!", 
-            "siteNanme": "Check 'n Go"
-        }, 
-        {
-            "url": "https://www.confused.com/loans", 
-            "snippet": "Quickly compare loans from a range of top UK personal loan providers with Confused.com and get that extra bit of cash for your new car or home improvement", 
-            "name": "Personal loans - Compare cheap loans - Confused.com", 
-            "shortTitle": "Loans", 
-            "displayUrl": "https://www.confused.com/loans"
-        }, 
-        {
-            "name": "Quicken Loans | Home Mortgage Loans | Over Two Million ...", 
-            "shortTitle": "Over Two Million Home Loans Closed!", 
-            "url": "https://www.quickenloans.com/", 
-            "displayUrl": "https://www.quickenloans.com", 
-            "snippet": "Quicken Loans is America\u2019s #1 online lender, helping over 2 million families finance their homes. Compare loan options and apply online with Rocket Mortgage.", 
-            "siteNanme": "Quicken Loans"
+            "url": "https://studentaid.ed.gov/", 
+            "snippet": "The official home page for the federal student aid programs administered by the US Department of Education.", 
+            "name": "Federal Student Aid", 
+            "shortTitle": "Federal Student Aid", 
+            "displayUrl": "https://studentaid.ed.gov"
         }, 
         {
             "name": "Personal Loans - Unsecured Personal Loan - Bad Credit OK ...", 
@@ -264,59 +230,11 @@
             "siteNanme": "Credit.com"
         }, 
         {
-            "name": "Subsidized and Unsubsidized Loans", 
-            "shortTitle": "Subsidized Loans", 
-            "url": "https://studentaid.ed.gov/types/loans/subsidized-unsubsidized", 
-            "displayUrl": "https://studentaid.ed.gov/types/loans/subsidized-unsubsidized", 
-            "snippet": "Direct Subsidized Loans and Direct Unsubsidized Loans are low-interest loans for eligible students to help cover the cost of college or career school.", 
-            "siteNanme": "Federal Student Aid"
-        }, 
-        {
-            "url": "https://studentaid.ed.gov/", 
-            "snippet": "The official home page for the federal student aid programs administered by the US Department of Education.", 
-            "name": "Federal Student Aid", 
-            "shortTitle": "Federal Student Aid", 
-            "displayUrl": "https://studentaid.ed.gov"
-        }
-    ], 
-    [
-        {
-            "name": "Liberty Unsecured Loans - Unsecured Loans", 
-            "shortTitle": "Unsecured Loans", 
-            "url": "https://www.libertyunsecured.com/", 
-            "displayUrl": "https://www.libertyunsecured.com", 
-            "snippet": "Unsecured loans every day. We offer a variety of Unsecured loans. Including but not limited to no doc signature loans. 72 hour approval. Call us now at 1-866-493-1938.", 
-            "siteNanme": "Liberty Unsecured"
-        }, 
-        {
-            "name": "Quicken Loans | Home Mortgage Loans | Over Two Million ...", 
-            "shortTitle": "Over Two Million Home Loans Closed!", 
-            "url": "https://www.quickenloans.com/", 
-            "displayUrl": "https://www.quickenloans.com", 
-            "snippet": "Quicken Loans is America\u2019s #1 online lender, helping over 2 million families finance their homes. Compare loan options and apply online with Rocket Mortgage.", 
-            "siteNanme": "Quicken Loans"
-        }, 
-        {
-            "name": "Loans.net\u00ae | Personal Loans & Bad Credit | Easy Fast Secured", 
-            "shortTitle": "Easy Fast Secured - Loans.Net", 
-            "url": "http://www.loans.net/", 
-            "displayUrl": "www.loans.net", 
-            "snippet": "Loans.net\u00ae online financing for personal, business, mortgages and bad credit loans. Top lenders for fast service and the best interest rates.", 
-            "siteNanme": "Loans.net"
-        }, 
-        {
-            "url": "https://www.wellsfargo.com/student/", 
-            "snippet": "Undergraduate and graduate loans, as well as repayment options and banking services for students.", 
-            "name": "Student Loans - Wells Fargo", 
-            "shortTitle": "Student", 
-            "displayUrl": "https://www.wellsfargo.com/student"
-        }, 
-        {
-            "url": "http://personalloans247.loan/", 
-            "snippet": "Personal Loans. Easy and safe way to get cash loan when you need it. Use our 256-secured application to get approved in one hour.", 
-            "name": "Personal Loans | Quick Loans | Payday Loans", 
-            "shortTitle": "Personalloans247.Loan", 
-            "displayUrl": "personalloans247.loan"
+            "url": "https://www.creditloan.com/credit-cards/", 
+            "snippet": "THE OPERATOR OF THIS WEBSITE IS NOT A LENDER, does not broker loans to lenders and does not make/fund any product offerings, loans or credit decisions.", 
+            "name": "Credit Cards - CreditLoan.com\u00ae", 
+            "shortTitle": "Credit Cards", 
+            "displayUrl": "https://www.creditloan.com/credit-cards"
         }, 
         {
             "name": "Loan.com - Your guide to Personal loans, Car Loans ...", 
@@ -327,18 +245,105 @@
             "siteNanme": "Loan.com"
         }, 
         {
-            "url": "https://www.wellsfargo.com/personal-credit/", 
-            "snippet": "Take control of your financial life with a personal loan or personal line of credit. Calculate your interest rate and apply online.", 
-            "name": "Personal Lines and Loans - Wells Fargo", 
-            "shortTitle": "Personal", 
-            "displayUrl": "https://www.wellsfargo.com/personal-credit"
+            "name": "Loan Calculator - Bankrate.com", 
+            "shortTitle": "Mortgage Calculator", 
+            "url": "http://www.bankrate.com/calculators/mortgages/loan-calculator.aspx", 
+            "displayUrl": "www.bankrate.com/calculators/mortgages/loan-calculator.aspx", 
+            "snippet": "Loan Calculator. This loan calculator will help you determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below ...", 
+            "siteNanme": "Bankrate"
         }, 
         {
-            "url": "https://www.usda.gov/wps/portal/usda/usdahome?navid=GRANTS_LOANS", 
-            "snippet": "Farm Loans. FSA makes direct and guaranteed farm ownership and operating loans to family-size farmers and ranchers who cannot obtain commercial credit from a bank ...", 
-            "name": "Grants and Loans | USDA", 
-            "shortTitle": "USDA Grants", 
-            "displayUrl": "https://www.usda.gov/wps/portal/usda/usdahome?navid=GRANTS_LOANS"
+            "name": "Subsidized and Unsubsidized Loans", 
+            "shortTitle": "Subsidized", 
+            "url": "https://studentaid.ed.gov/types/loans/subsidized-unsubsidized", 
+            "displayUrl": "https://studentaid.ed.gov/types/loans/subsidized-unsubsidized", 
+            "snippet": "Direct Subsidized Loans and Direct Unsubsidized Loans are low-interest loans for eligible students to help cover the cost of college or career school.", 
+            "siteNanme": "Federal Student Aid"
+        }, 
+        {
+            "name": "Direct Loans - StudentLoans.gov", 
+            "shortTitle": "Direct Loan Entrance Counseling", 
+            "url": "https://www.studentloans.gov/myDirectLoan/index.action", 
+            "displayUrl": "https://studentloans.gov", 
+            "snippet": "U.S. Department of Education site explaining how to view Federal student loan documents, entrance counseling and how to sign promissory notes. Includes tools for ...", 
+            "siteNanme": "StudentLoans.gov"
+        }, 
+        {
+            "url": "https://www.sba.gov/", 
+            "snippet": "We support America's small businesses. The SBA connects entrepreneurs with lenders and funding to help them plan, start and grow their business.", 
+            "name": "Small Business Administration", 
+            "shortTitle": "Sba - Small Business Administration", 
+            "displayUrl": "https://www.sba.gov"
+        }, 
+        {
+            "url": "https://www.confused.com/loans", 
+            "snippet": "Quickly compare loans from a range of top UK personal loan providers with Confused.com and get that extra bit of cash for your new car or home improvement", 
+            "name": "Personal loans - Compare cheap loans - Confused.com", 
+            "shortTitle": "Loans", 
+            "displayUrl": "https://www.confused.com/loans"
+        }
+    ], 
+    [
+        {
+            "url": "http://www.marietta.edu/loans", 
+            "snippet": "A loan is a form of financial aid that must be repaid, with interest. Few students can afford to pay for college without some form of education financing.", 
+            "name": "Loans | Marietta College", 
+            "shortTitle": "Loans", 
+            "displayUrl": "www.marietta.edu/loans"
+        }, 
+        {
+            "url": "https://www.suntrust.com/loans", 
+            "snippet": "SunTrust Personal Loans and Lines of Credit that fit your borrowing needs. Get the personal loan you need for the things you want. Apply today!", 
+            "name": "Personal Loans | SunTrust Loans", 
+            "shortTitle": "Loans", 
+            "displayUrl": "https://www.suntrust.com/loans"
+        }, 
+        {
+            "name": "Liberty Unsecured Loans - Unsecured Loans", 
+            "shortTitle": "Unsecured Loans", 
+            "url": "https://www.libertyunsecured.com/", 
+            "displayUrl": "https://www.libertyunsecured.com", 
+            "snippet": "Unsecured loans every day. We offer a variety of Unsecured loans. Including but not limited to no doc signature loans. 72 hour approval. Call us now at 1-866-493-1938.", 
+            "siteNanme": "Liberty Unsecured"
+        }, 
+        {
+            "name": "Loans.net\u00ae | Personal Loans & Bad Credit | Easy Fast Secured", 
+            "shortTitle": "Easy Fast Secured - Loans.Net", 
+            "url": "http://www.loans.net/", 
+            "displayUrl": "www.loans.net", 
+            "snippet": "Loans.net\u00ae online financing for personal, business, mortgages and bad credit loans. Top lenders for fast service and the best interest rates.", 
+            "siteNanme": "Loans.net"
+        }, 
+        {
+            "name": "Personal Lines and Loans - Wells Fargo", 
+            "shortTitle": "Personal", 
+            "url": "https://www.wellsfargo.com/personal-credit/", 
+            "displayUrl": "https://www.wellsfargo.com/personal-credit", 
+            "snippet": "Take control of your financial life with a personal loan or personal line of credit. Calculate your interest rate and apply online.", 
+            "siteNanme": "Wells Fargo"
+        }, 
+        {
+            "name": "Personal Loans from SoFi | Low Rates, Fixed Monthly Payments", 
+            "shortTitle": "Personal Loans", 
+            "url": "https://www.sofi.com/personal-loans/", 
+            "displayUrl": "https://www.sofi.com/personal-loans", 
+            "snippet": "SoFi offers personal loans at low fixed rates starting at 5.70% APR on $5k-$100k, with no hidden fees. Apply instantly online for your personal loan.", 
+            "siteNanme": "SoFi"
+        }, 
+        {
+            "url": "https://www.thinkfnb.com/loans/", 
+            "snippet": "CONSUMER LOANS. FNB has a variety of loans flexible enough to meet your needs. FNB offers fixed interest rates, varying term lengths, quick credit approval, and much ...", 
+            "name": "Loans | FNB", 
+            "shortTitle": "Loans", 
+            "displayUrl": "https://www.thinkfnb.com/loans"
+        }, 
+        {
+            "name": "Best Personal Loans - Compare and Apply For Loans Online", 
+            "shortTitle": "Personal Loans", 
+            "url": "https://www.bankrate.com/funnel/personal-loans/", 
+            "displayUrl": "https://www.bankrate.com/funnel/personal-loans", 
+            "snippet": "Today's personal loan rates - compare and apply for personal loans. It's fast and easy to compare loan rates from reputable banks and lenders.", 
+            "siteNanme": "Bankrate"
         }, 
         {
             "name": "FinAid | Loans", 
@@ -349,38 +354,13 @@
             "siteNanme": "FinAid"
         }, 
         {
-            "name": "Make Payments and View Mortgage Account: CitiMortgage", 
-            "shortTitle": "Make Payments And View Mortgage", 
-            "url": "https://www.citimortgage.com/", 
-            "displayUrl": "https://www.citimortgage.com", 
-            "snippet": "On CitiMortgage.com, you can view your statements, set up auto-pay, see your mortgage details, and get mortgage assistance.", 
-            "siteNanme": "Citimortgage, Inc."
+            "name": "Mortgages | USA.gov", 
+            "shortTitle": "Mortgages", 
+            "url": "https://www.usa.gov/mortgages", 
+            "displayUrl": "https://www.usa.gov/mortgages", 
+            "snippet": "Predatory Loans; Reverse Mortgages; Mortgage Refinancing. Refinancing refers to satisfying a debt by making another loan on new terms.", 
+            "siteNanme": "USA.gov"
         }, 
-        {
-            "url": "https://www.sba.gov/", 
-            "snippet": "Loans & Grants; Contracting; Learning Center; Local Assistance; About Us; SBA Near You. Small Business Events. Starting & Managing. Starting a Business; How to Start ...", 
-            "name": "Small Business Administration", 
-            "shortTitle": "Sba - Small Business Administration", 
-            "displayUrl": "https://www.sba.gov"
-        }, 
-        {
-            "name": "AmericaOneUnsecured.com", 
-            "shortTitle": "Unsecured Loans - Personal Loans", 
-            "url": "http://www.americaoneunsecured.com/", 
-            "displayUrl": "www.americaoneunsecured.com", 
-            "snippet": "Borrow money online with America One Unsecured and make your life a little easier. Instant applications for unsecured personal and business loans \u2013 available ...", 
-            "siteNanme": "Americaoneunsecured.com"
-        }, 
-        {
-            "name": "Best Personal Loans - Compare and Apply For Loans Online", 
-            "shortTitle": "Personal Loans", 
-            "url": "https://www.bankrate.com/funnel/personal-loans/", 
-            "displayUrl": "https://www.bankrate.com/funnel/personal-loans", 
-            "snippet": "Today's personal loan rates - compare and apply for personal loans. It's fast and easy to compare loan rates from reputable banks and lenders.", 
-            "siteNanme": "Bankrate"
-        }
-    ], 
-    [
         {
             "name": "OneMain Financial", 
             "shortTitle": "Helping You Confidently Tackle Life's", 
@@ -390,20 +370,52 @@
             "siteNanme": "OneMain Financial"
         }, 
         {
-            "name": "SBA Loan Programs | The U.S. Small Business ... - SBA.gov", 
-            "shortTitle": "SBA Loan Programs", 
-            "url": "https://www.sba.gov/loans-grants/see-what-sba-offers/sba-loan-programs", 
-            "displayUrl": "https://www.sba.gov/loans-grants/see-what-sba-offers/sba-loan-programs", 
-            "snippet": "Loan Programs. From starting up or expanding your business to recovering from disasters, SBA loan programs are available to help your business succeed.", 
-            "siteNanme": "Small Business Administration"
-        }, 
-        {
             "name": "AmericaOneUnsecured.com", 
             "shortTitle": "Unsecured Loans - Personal Loans", 
             "url": "http://www.americaoneunsecured.com/", 
             "displayUrl": "www.americaoneunsecured.com", 
             "snippet": "Borrow money online with America One Unsecured and make your life a little easier. Instant applications for unsecured personal and business loans \u2013 available ...", 
             "siteNanme": "Americaoneunsecured.com"
+        }, 
+        {
+            "name": "Personal & Bad Credit Loans in AZ", 
+            "shortTitle": "Personal Loans", 
+            "url": "http://cashtime.com/personal-loans", 
+            "displayUrl": "cashtime.com/personal-loans", 
+            "snippet": "Personal Loans AZ. What is a personal loan? Personal Loans in Arizona are fast loans designed specifically for those who own their vehicle, but do not own it free and ...", 
+            "siteNanme": "Cash Time Title Loans, Inc."
+        }
+    ], 
+    [
+        {
+            "url": "https://www.eloan.com/auto", 
+            "snippet": "E-LOAN advertises products and services that are provided by RoadLoans.com, whose privacy policies may be different from that of E-LOAN. We encourage you to review ...", 
+            "name": "Auto Loans - E-LOAN", 
+            "shortTitle": "Auto", 
+            "displayUrl": "https://www.eloan.com/auto"
+        }, 
+        {
+            "name": "Private Student Loans \u2013 College Loans For Students \u2013 Wells ...", 
+            "shortTitle": "Student", 
+            "url": "https://www.wellsfargo.com/student/", 
+            "displayUrl": "https://www.wellsfargo.com/student", 
+            "snippet": "Undergraduate and graduate loans, as well as repayment options and banking services for students.", 
+            "siteNanme": "Wells Fargo"
+        }, 
+        {
+            "url": "https://www.tdbank.com/personal/personal_loans.html", 
+            "snippet": "Get the personal loan you need for the things you want. From boat and car loans to unsecured loans, we have financing solutions designed for the way you live.", 
+            "name": "Personal Loans | TD Bank", 
+            "shortTitle": "Personal Loans", 
+            "displayUrl": "https://www.tdbank.com/personal/personal_loans.html"
+        }, 
+        {
+            "name": "Online Installment Loans ~ Not Payday Loans | Spotloan", 
+            "shortTitle": "Get up to $800 on The Spot!", 
+            "url": "https://www.spotloan.com/", 
+            "displayUrl": "https://www.spotloan.com", 
+            "snippet": "Spotloan is a better way to borrow extra cash. It\u2019s not a payday loan. It\u2019s an installment loan, which means you pay down the principal with each on time payment.", 
+            "siteNanme": "Spotloan"
         }, 
         {
             "name": "Capital One offers auto loans and home loans", 
@@ -414,12 +426,20 @@
             "siteNanme": "Capital One"
         }, 
         {
-            "name": "Mortgages | Home Mortgage Loans | Wells Fargo", 
-            "shortTitle": "Mortgage", 
-            "url": "https://www.wellsfargo.com/mortgage/", 
-            "displayUrl": "https://www.wellsfargo.com/mortgage", 
-            "snippet": "Official page for Wells Fargo home mortgage loans. First-time homebuyer? Our home mortgage consultants can help you get started with a free consultation.", 
-            "siteNanme": "Wells Fargo Home Mortgage"
+            "name": "FinAid | Calculators | Loan Calculator", 
+            "shortTitle": "Loan Payment Calculator", 
+            "url": "http://www.finaid.org/calculators/loanpayments.phtml", 
+            "displayUrl": "www.finaid.org/calculators/loanpayments.phtml", 
+            "snippet": "This loan calculator can be used with Federal education loans (Stafford, Perkins and PLUS) and most private student loans.", 
+            "siteNanme": "FinAid"
+        }, 
+        {
+            "name": "Loans - Illinois Lending", 
+            "shortTitle": "Loans", 
+            "url": "https://illinoislending.com/loans/", 
+            "displayUrl": "https://illinoislending.com/loans", 
+            "snippet": "Checkbook & Installment loans. Installment loans can be repaid through payroll deduction. Checkbook loans are repaid by debiting your personal checking account.", 
+            "siteNanme": "Illinois Lending"
         }, 
         {
             "name": "Loans - First Financial Bank", 
@@ -430,29 +450,19 @@
             "siteNanme": "First Financial Bank"
         }, 
         {
-            "name": "Bank Loans | Personal Loans | Bank of the West", 
-            "shortTitle": "Personal Loans", 
-            "url": "https://www.bankofthewest.com/personal-banking/loans.html", 
-            "displayUrl": "https://www.bankofthewest.com/personal-banking/loans.html", 
-            "snippet": "Our variety of bank loans and competitive interest rates can make your dreams a reality. Choose between RV, boat, car, personal and home loans.", 
-            "siteNanme": "Bank of the West"
+            "url": "https://www.usa.gov/benefits-grants-loans", 
+            "snippet": "Government Benefits, Grants, and Loans. Learn about government programs that provide financial help for individuals and organizations. Affordable Housing", 
+            "name": "Government Benefits, Grants, and Loans | USA.gov", 
+            "shortTitle": "Grants", 
+            "displayUrl": "https://www.usa.gov/benefits-grants-loans"
         }, 
         {
-            "name": "Installment Loans & Consumer Loans | Sun Loan Company", 
-            "shortTitle": "Services", 
-            "url": "https://www.sunloan.com/services/loans", 
-            "displayUrl": "https://www.sunloan.com/services", 
-            "snippet": "Installment Loans . Our installment loans are easy and affordable. Our friendly staff will work with you to setup a monthly payment plan that works for you.", 
-            "siteNanme": "Sun Loan Company"
-        }, 
-        {
-            "snippet": "Home Loans and Today's Rates from Bank of America Find competitive home loan rates and get the knowledge you need to help you make informed decisions. home loan, home ...", 
-            "name": "Home Loans and Today's Rates from Bank of America", 
-            "shortTitle": "Mortgage", 
-            "url": "https://www.bankofamerica.com/mortgage/", 
-            "displayUrl": "https://www.bankofamerica.com/mortgage", 
-            "thumbnailId": "OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd", 
-            "thumbnailUrl": "https://www.bing.com/th?id=OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd"
+            "name": "Make Payments and View Mortgage Account: CitiMortgage", 
+            "shortTitle": "Make Payments And View Mortgage", 
+            "url": "https://www.citimortgage.com/", 
+            "displayUrl": "https://www.citimortgage.com", 
+            "snippet": "On CitiMortgage.com, you can view your statements, set up auto-pay, see your mortgage details, and get mortgage assistance.", 
+            "siteNanme": "Citimortgage, Inc."
         }, 
         {
             "url": "https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans", 
@@ -462,18 +472,12 @@
             "displayUrl": "https://www.irs.gov/.../retirement-plans-faqs-regarding-loans"
         }, 
         {
-            "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
-            "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
-            "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
+            "name": "Bank Loans | Personal Loans | Bank of the West", 
             "shortTitle": "Personal Loans", 
-            "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
-        }, 
-        {
-            "url": "https://www.eloan.com/auto", 
-            "snippet": "E-LOAN advertises products and services that are provided by RoadLoans.com, whose privacy policies may be different from that of E-LOAN. We encourage you to review ...", 
-            "name": "Auto Loans - E-LOAN", 
-            "shortTitle": "Auto Loans", 
-            "displayUrl": "https://www.eloan.com/auto"
+            "url": "https://www.bankofthewest.com/personal-banking/loans.html", 
+            "displayUrl": "https://www.bankofthewest.com/personal-banking/loans.html", 
+            "snippet": "Our variety of bank loans and competitive interest rates can make your dreams a reality. Choose between RV, boat, car, personal and home loans.", 
+            "siteNanme": "Bank of the West"
         }, 
         {
             "name": "Cash Advance\u00ae - Official Cash Advance Since 1997", 
@@ -486,12 +490,27 @@
     ], 
     [
         {
-            "name": "Credit Issues | USA.gov", 
-            "shortTitle": "Credit", 
-            "url": "https://www.usa.gov/credit", 
-            "displayUrl": "https://www.usa.gov/credit", 
-            "snippet": "Home Equity Loans. A home equity loan is a form of credit where your home is used as collateral to borrow money. It's typically used to pay for major expenses ...", 
-            "siteNanme": "USA.gov"
+            "snippet": "Home Loans and Today's Rates from Bank of America Find competitive home loan rates and get the knowledge you need to help you make informed decisions. home loan, home ...", 
+            "name": "Home Loans and Today's Rates from Bank of America", 
+            "shortTitle": "Mortgage", 
+            "url": "https://www.bankofamerica.com/mortgage/", 
+            "displayUrl": "https://www.bankofamerica.com/mortgage", 
+            "thumbnailId": "OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd", 
+            "thumbnailUrl": "https://www.bing.com/th?id=OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd"
+        }, 
+        {
+            "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
+            "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
+            "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
+            "shortTitle": "Personal Loans", 
+            "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
+        }, 
+        {
+            "url": "http://www.loanspaydayok.com/", 
+            "snippet": "Online Payday loans up to $1000. A short, 3 minute application, and instant decision! Bad credit OK. Installment loans up to $3K still available - apply now.", 
+            "name": "Online Payday Loans | Payday Advance | Personal Loans For ...", 
+            "shortTitle": "Personal Loans For", 
+            "displayUrl": "www.loanspaydayok.com"
         }, 
         {
             "name": "Business Banking | Savings | Checking | Loans | Zions Bank", 
@@ -502,44 +521,12 @@
             "siteNanme": "Zions Bank"
         }, 
         {
-            "name": "Loans - Illinois Lending", 
-            "shortTitle": "Loans", 
-            "url": "https://illinoislending.com/loans/", 
-            "displayUrl": "https://illinoislending.com/loans", 
-            "snippet": "Checkbook & Installment loans. Installment loans can be repaid through payroll deduction. Checkbook loans are repaid by debiting your personal checking account.", 
-            "siteNanme": "Illinois Lending"
-        }, 
-        {
-            "name": "Home Loans Home - Veterans Benefits Administration Home", 
-            "shortTitle": "Home Loans Home", 
-            "url": "http://www.benefits.va.gov/homeloans/", 
-            "displayUrl": "www.benefits.va.gov/homeloans", 
-            "snippet": "About Home Loans. VA helps Servicemembers, Veterans, and eligible surviving spouses become homeowners. As part of our mission to serve you, we provide a home loan ...", 
-            "siteNanme": "Veterans Benefits Administration"
-        }, 
-        {
-            "name": "Great Rates. Great Benefits l SoFi", 
-            "shortTitle": "Great Rates. Great Benefits l SoFi", 
-            "url": "https://www.sofi.com/", 
-            "displayUrl": "https://www.sofi.com", 
-            "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
-            "siteNanme": "SoFi"
-        }, 
-        {
-            "name": "Mortgage Loan Rates & Advice Since 1995 | MortgageLoan", 
-            "shortTitle": "Mortgage Calculator \u00a9 ML", 
-            "url": "https://www.mortgageloan.com/", 
-            "displayUrl": "https://www.mortgageloan.com", 
-            "snippet": "Mortgage Loans, Mortgage Rates & Beyond MortgageLoan.com is a groundbreaking news and information service for consumers seeking information about home mortgages and ...", 
-            "siteNanme": "MortgageLoan.com"
-        }, 
-        {
-            "name": "Military Loans - Fast & Easy to Apply - Pioneer Military ...", 
-            "shortTitle": "Fast & Easy to Apply - Military Loans", 
-            "url": "https://www.pioneermilitaryloans.com/", 
-            "displayUrl": "https://www.pioneermilitaryloans.com", 
-            "snippet": "Pioneer Military Loans helps military get $500 - $10,000 with fixed payments. Click here to apply in minutes.", 
-            "siteNanme": "Pioneer Military Loans"
+            "name": "Online Installment Loans ~ Not Payday Loans | Spotloan", 
+            "shortTitle": "Get up to $800 on The Spot!", 
+            "url": "https://www.spotloan.com/", 
+            "displayUrl": "https://www.spotloan.com", 
+            "snippet": "Spotloan is a better way to borrow extra cash. It\u2019s not a payday loan. It\u2019s an installment loan, which means you pay down the principal with each on time payment.", 
+            "siteNanme": "Spotloan"
         }, 
         {
             "name": "Halifax UK | Loans | Get a Quote, Loan Guides & Apply Online", 
@@ -550,43 +537,59 @@
             "siteNanme": "Halifax"
         }, 
         {
-            "name": "How to Repay Your Loans | Federal Student Aid", 
-            "shortTitle": "Repaying Student Loans", 
-            "url": "https://studentaid.ed.gov/repay-loans", 
-            "displayUrl": "https://studentaid.ed.gov/repay", 
-            "snippet": "Manage repayment of your federal student loans. Learn about making payments, repayment plans, servicers, consolidation, deferment, forgiveness, and default.", 
-            "siteNanme": "Federal Student Aid"
+            "name": "Military Loans - Fast & Easy to Apply - Pioneer Military ...", 
+            "shortTitle": "Fast & Easy to Apply - Military Loans", 
+            "url": "https://www.pioneermilitaryloans.com/", 
+            "displayUrl": "https://www.pioneermilitaryloans.com", 
+            "snippet": "Pioneer Military Loans helps military get $500 - $10,000 with fixed payments. Click here to apply in minutes.", 
+            "siteNanme": "Pioneer Military Loans"
         }, 
         {
-            "name": "Apply for Installment Loan | Sun Loan Company", 
-            "shortTitle": "Apply For Installment Loan", 
-            "url": "https://www.sunloan.com/", 
-            "displayUrl": "https://www.sunloan.com", 
-            "snippet": "We offer our customers the most convenient installment loans, quick loans, and monthly payment loans. See how Sun Loan Company can provide you easy loans today.", 
-            "siteNanme": "Sun Loan"
+            "name": "Loans - Woodforest National Bank", 
+            "shortTitle": "Loans", 
+            "url": "http://www.woodforest.com/Personal-Banking/Products/Loans", 
+            "displayUrl": "www.woodforest.com/Personal-Banking/Products/Loans", 
+            "snippet": "Woodforest National Bank would like to help finance your needs. We offer a variety of competitive consumer loan products including:", 
+            "siteNanme": "Woodforest National Bank"
         }, 
         {
-            "url": "https://www.usa.gov/benefits-grants-loans", 
-            "snippet": "Government Benefits, Grants, and Loans. Learn about government programs that provide financial help for individuals and organizations. Affordable Housing", 
-            "name": "Government Benefits, Grants, and Loans | USA.gov", 
-            "shortTitle": "Grants", 
-            "displayUrl": "https://www.usa.gov/benefits-grants-loans"
+            "name": "Mortgage Loan Rates & Advice Since 1995 | MortgageLoan", 
+            "shortTitle": "Mortgage Calculator \u00a9 ML", 
+            "url": "https://www.mortgageloan.com/", 
+            "displayUrl": "https://www.mortgageloan.com", 
+            "snippet": "Mortgage Loans, Mortgage Rates & Beyond MortgageLoan.com is a groundbreaking news and information service for consumers seeking information about home mortgages and ...", 
+            "siteNanme": "MortgageLoan.com"
         }, 
         {
-            "name": "Small Business Loans and Business Credit Insights from On ...", 
-            "shortTitle": "Business Loans And Small Business Loans ... - On Deck Capital", 
-            "url": "https://www.ondeck.com/", 
-            "displayUrl": "https://www.ondeck.com", 
-            "snippet": "OnDeck is the largest online small business lender in the U.S. issuing over $5 billion dollars in loans and trusted by over 50,000 small businesses providing them ...", 
-            "siteNanme": "OnDeck"
+            "name": "Managing Debt Learning Center Articles - Credit.com", 
+            "shortTitle": "Debt Consolidation", 
+            "url": "https://www.credit.com/debt/", 
+            "displayUrl": "https://www.credit.com/debt", 
+            "snippet": "4 Things You Need to Know About Home Equity Loans; How to Refinance Your Home Loan With Bad Credit; Paying Off Your Student Loans: Forgiveness Programs & Beyond; Blog;", 
+            "siteNanme": "Credit.com"
         }, 
         {
-            "name": "SunTrust Bank | Personal, Mortgage & Small Business Banking", 
-            "shortTitle": "Mortgage & Small Business Banking", 
-            "url": "https://m.suntrust.com/b/", 
-            "displayUrl": "https://m.suntrust.com/b", 
-            "snippet": "Banking services and products from SunTrust Bank including checking and savings accounts, credit cards, mortgages, wealth management and retirement, business and ...", 
-            "siteNanme": "SunTrust"
+            "url": "https://www.nerdwallet.com/personal-loans", 
+            "snippet": "See average personal loan rates and compare unsecured personal loans from $1,000 to $100,000. See online loans for borrowers with credit scores from 580 to 700 or higher.", 
+            "name": "Personal Loans for Good, Average and Bad Credit", 
+            "shortTitle": "Personal Loans", 
+            "displayUrl": "https://www.nerdwallet.com/personal-loans"
+        }, 
+        {
+            "name": "Great Rates. Great Benefits l SoFi", 
+            "shortTitle": "Great Rates. Great Benefits l SoFi", 
+            "url": "https://www.sofi.com/", 
+            "displayUrl": "https://www.sofi.com", 
+            "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
+            "siteNanme": "SoFi"
+        }, 
+        {
+            "name": "Home Loans Home - Veterans Benefits Administration Home", 
+            "shortTitle": "Home Loans Home", 
+            "url": "http://www.benefits.va.gov/homeloans/", 
+            "displayUrl": "www.benefits.va.gov/homeloans", 
+            "snippet": "About Home Loans. VA helps Servicemembers, Veterans, and eligible surviving spouses become homeowners. As part of our mission to serve you, we provide a home loan ...", 
+            "siteNanme": "Veterans Benefits Administration"
         }
     ]
 ]
