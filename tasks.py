@@ -810,8 +810,8 @@ def taskResults(task_id):
 
 
 
-@celery.task()
-#@app.route('/outreach/query/<site>')
+#@celery.task()
+@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -900,11 +900,21 @@ def site(site):
                         second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                         bingDictionary['contact_url'] = second_replace
                         try:
-                            response = requests.get(bingDictionary['contact_url']).text
-                            soup = BeautifulSoup(response)
-                            emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
-                            for each_emails in emails:
-                                email_arrz.append(each_emails)
+                            if "http:" in bingDictionary['contact_url']:
+                                response = requests.get(bingDictionary['contact_url']).text
+                                soup = BeautifulSoup(response)
+                                emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+                                for each_emails in emails:
+                                    print "EACH EMAILS HERE", each_emails
+                                    email_arrz.append(each_emails)
+                            else:
+                                response = requests.get('https://'+bingDictionary['contact_url']).text
+                                soup = BeautifulSoup(response)
+                                emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+                                for each_emails in emails:
+                                    print "EACH EMAILS HERE", each_emails
+                                    email_arrz.append(each_emails)
+
                         except:
                             pass
 
@@ -1053,8 +1063,8 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
-            return rearr
-            #return jsonify(results=rearr)
+           # return rearr
+            return jsonify(results=rearr)
 
     except:
         raise

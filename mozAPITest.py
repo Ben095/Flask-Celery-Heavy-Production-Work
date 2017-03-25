@@ -5,7 +5,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re 
-response = requests.get('http://www.makeoverforall.com/contact').text
+response = requests.get('www.makeoverforall.com/contact').text
 soup = BeautifulSoup(response)
 emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
 print emails
