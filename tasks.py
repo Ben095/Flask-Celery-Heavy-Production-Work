@@ -1128,17 +1128,19 @@ def site(site):
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
             first_items  = emails_found[0]['facebook_page_url']
-            split_first = first_items.split('.com/')
+            try:
+                split_first = first_items.split('.com/')
+                facebook_group_name = split_first[-1].replace('/','')
+                response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
+                jsonLoads = json.loads(response)
+                arr = jsonLoads['data']
+                first_item_in_query = arr[0]['id']
+                response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
+                bingDictionary['facebook_page_likes'] = response['fan_count']
+            except:
+                pass
 
-            facebook_group_name = split_first[-1].replace('/','')
-            response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
-            jsonLoads = json.loads(response)
-            arr = jsonLoads['data']
-            print arr
-            first_item_in_query = arr[0]['id']
-            response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
-            print response
-            bingDictionary['facebook_page_likes'] = response['fan_count']
+
             bingDictionary['emails'] = email_arrz
             bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
             bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
