@@ -10,14 +10,14 @@
 # print f2(5,10)
 
 
-def f4(n):
-	if n == 50:
-		return 50
-	else:
-		#print n
-		return f4(n+1)
+# def f4(n):
+# 	if n == 50:
+# 		return 50
+# 	else:
+# 		#print n
+# 		return f4(n+1)
 
-print f4(20)
+# print f4(20)
 # def simple(n):
 # 	if n == 6:
 # 		return 6

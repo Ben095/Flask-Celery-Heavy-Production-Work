@@ -1,0 +1,26 @@
+[
+    {
+        "DA": 44.69878514664835,
+        "MozRank": 4.464351592572612,
+        "PA": 21.50119939356165,
+        "backURL": "http://www.hsbc.com.ph/1/2/personal/loans/personal-loan",
+        "links": 30,
+        "root_domain": "http://www.hsbc.com.ph/"
+    },
+    {
+        "DA": 44.69878514664835,
+        "MozRank": 5.223418828516526,
+        "PA": 37.504052719221335,
+        "backURL": "https://www.hsbc.com.ph/1/2/personal/loans",
+        "links": 371,
+        "root_domain": "https://www.hsbc.com.ph/"
+    },
+    {
+        "DA": 79.3480647086557,
+        "MozRank": 4.107028719717231,
+        "PA": 35.706429393252115,
+        "backURL": "https://www.sc.com/ph/personal-banking/loans/ez-loan/en/",
+        "links": 4,
+        "root_domain": "https://www.sc.com/"
+    }
+]

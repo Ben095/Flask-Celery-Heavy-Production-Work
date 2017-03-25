@@ -21,7 +21,7 @@ from flask_httpauth import HTTPBasicAuth
 from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
-
+from youtubescraper import*
 from flask import make_response
 from flask_restful import reqparse, abort, Api, Resource, fields, marshal_with
 import requests
@@ -117,7 +117,7 @@ def get_all_emails(page_contents):
 
 
 
-def crawl_site(seed, domain, max_pages=10):
+def crawl_site(seed, domain, max_pages=30):
     to_crawl = deque([seed])
    # crawled = []
     crawled = set()
@@ -129,7 +129,7 @@ def crawl_site(seed, domain, max_pages=10):
     while len(to_crawl) and (len(crawled) < max_pages):
         url = to_crawl.popleft()
         crawled.add(url)
-        
+        print max_pages
         bingDictionary['facebook_page_url'] = None
         bingDictionary['facebook_page_likes'] = None
         bingDictionary['contact_url'] = None
@@ -139,7 +139,9 @@ def crawl_site(seed, domain, max_pages=10):
         bingDictionary['google_plus_url'] = None
         bingDictionary['RSS_URL'] = None
         content = get_page(url)
+        #print content
         jacker = get_page(url)
+        print jacker
         soup = BeautifulSoup(jacker)
         for link in soup.find_all("link", {"type" : "application/rss+xml"}):
             href = link.get('href')
@@ -621,6 +623,14 @@ def celeryTaskResult(task_id):
     else:
         return "Task is not yet ready!"
 
+@app.route('/youtube/<task_id>/result')
+def celeryTaskResult(task_id):
+    res = AsyncResult(task_id)
+    if "True" in str(res.ready()):
+        result_arr = res.get()
+        return jsonify(results=result_arr)
+    else:
+        return "Task is not yet ready!"
 
 @app.route('/outreach/<task_id>/result')
 def taskResults(task_id):
@@ -938,7 +948,7 @@ def site(site):
                 response = requests.get('http://'+site).text.encode('ascii','ignore')
                 #print response
             except:
-                raise
+                pass
                 #pass
                 #response = requests.get(bingDictionary['root_domain'], verify=False).text
             soup = BeautifulSoup(response)
@@ -1015,7 +1025,6 @@ def site(site):
             rearr.append(bingDictionary)
            # return rearr
             return rearr
-            
 
     except:
         raise
@@ -1210,7 +1219,7 @@ def OutReacherDesk(query):
                         bingDictionary['facebook_page_likes'] = response['fan_count']
                         print bingDictionary['facebook_page_likes']
                     except:
-                        raise
+                        pass
                        # pass
                     bingDictionary['emails'] = email_arrz
                     bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
@@ -1273,6 +1282,38 @@ def backendWorker(query):
         db.session.commit()
         return "Added to queue!"
 
+@celery.task()
+#@app.route('/outreach/youtube/<keyword>')
+def youtube(keyword):
+    includeWithLinks = True
+    solveCaptcha = False
+    scraper = solve(keyword, solveCaptcha, includeWithLinks, 100, 500)
+    finalArr = []
+    for finalOutput in scraper:
+        internalDictionary = {}
+        internalDictionary['has_link'] = finalOutput['video'][0]
+        internalDictionary['video_name'] = finalOutput['video'][1]
+        internalDictionary['video_link'] = finalOutput['video'][2]
+        internalDictionary['views_count'] = finalOutput['video'][3]
+        internalDictionary['channel_name'] = finalOutput['channel'][0]
+        internalDictionary['channel_link'] = finalOutput['channel'][1]
+        internalDictionary['business_emails'] = finalOutput['links'][0]
+        internalDictionary['links'] = finalOutput['links'][1:-1]
+        finalArr.append(internalDictionary)
+
+    return finalArr
+
+
+@app.route('/outreach/youtube/<keyword>')
+def YoutubeWorker(keyword):
+    with app.app_context():
+        convert_to_str = str(keyword)
+        youtube = youtube.delay(convert_to_str)
+        task_id = youtube.task_id
+        user = Result(task_id=task_id, username='Jack', search_name=convert_to_str)
+        db.session.add(user)
+        db.session.commit()
+        return "Youtube added to queue"
 
 
 
@@ -1287,6 +1328,7 @@ def individualWorker(query):
         db.session.commit()
         return "Added to queue"
     
+
 
 if __name__ == '__main__':
     app.run()

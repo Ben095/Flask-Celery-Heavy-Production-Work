@@ -1,134 +1,142 @@
 {
     "_type": "SearchResponse", 
-    "traceId": "82B09E6B439F41189CED3B8FB78172CF", 
-    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=2606705577EA43CA995A816F7B425110&CID=35D5C856ADB16DF61E34C206ACE26C52&ID=", 
+    "traceId": "3471F01693304A35A8552382A6110F2A", 
+    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=E3AA93C407484515928C8CF17D95E320&CID=07F712D23EC26428024D18823F9165F4&ID=", 
     "answers": [
         {
-            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=growthgrind.com&first=93", 
             "_type": "AppLink/WebResponse", 
             "answerType": "Web", 
             "webResults": [
                 {
-                    "snippet": "Home Loans and Today's Rates from Bank of America Find competitive home loan rates and get the knowledge you need to help you make informed decisions. home loan, home ...", 
-                    "name": "Home Loans and Today's Rates from Bank of America", 
-                    "shortTitle": "Mortgage", 
-                    "url": "https://www.bankofamerica.com/mortgage/", 
-                    "displayUrl": "https://www.bankofamerica.com/mortgage", 
-                    "thumbnailId": "OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd", 
-                    "thumbnailUrl": "https://www.bing.com/th?id=OIP.Psil6L5RmM2YFLMZ5gG-LgEsCd"
+                    "url": "http://www.archive.xray-mag.com/content/coral-reef-growth-grind-halt", 
+                    "snippet": "Coral reef growth grind to a halt. Submitted by Anonymous on Thu, 12/02/2009 - 21:44. Australia; Corals;", 
+                    "name": "Coral reef growth grind to a halt | X-Ray Magazine", 
+                    "shortTitle": "Coral Reef Growth Grind to a Halt", 
+                    "displayUrl": "www.archive.xray-mag.com/content/coral-reef-growth-grind-halt"
                 }, 
                 {
-                    "url": "https://www.icicibank.com/Personal-Banking/loans/loans.page", 
-                    "snippet": "Looking for a loan? ICICI Bank offers a wide range of loans based on your requirement - home loans, personal loans, car loans, etc.", 
-                    "name": "Loan | ICICI Bank Loans - Home Loans, Personal Loans, Car ...", 
-                    "shortTitle": "Personal Loans", 
-                    "displayUrl": "https://www.icicibank.com/Personal-Banking/loans/loans.page"
+                    "url": "http://www.msn.com/en-gb/money/other/brexit-fears-could-see-uk-growth-grind-to-a-halt/ar-BBsFuAK", 
+                    "snippet": "Uncertainty ahead of the EU referendum could see UK growth grind almost to a halt after figures showed service sector activity rose at its weakest pace for more than ...", 
+                    "name": "Brexit fears could see UK growth grind to a halt - msn.com", 
+                    "shortTitle": "Brexit Fears Could See UK Growth Grind to a Halt - Msn.Com", 
+                    "displayUrl": "www.msn.com/en-gb/money/other/...uk-growth-grind-to-a-halt/ar-BBsFuAK"
                 }, 
                 {
-                    "url": "http://www.loanspaydayok.com/", 
-                    "snippet": "Online Payday loans up to $1000. A short, 3 minute application, and instant decision! Bad credit OK. Installment loans up to $3K still available - apply now.", 
-                    "name": "Online Payday Loans | Payday Advance | Personal Loans For ...", 
-                    "shortTitle": "Personal Loans For", 
-                    "displayUrl": "www.loanspaydayok.com"
+                    "name": "Nlyss - Rite Now (Truth Be Told Ep) by Official N'lyss ...", 
+                    "shortTitle": "Nlyss - Rite Now (Truth Be Told Ep)", 
+                    "url": "https://soundcloud.com/official-nlyss/nlyss-rite-now-truth-be-told-ep", 
+                    "displayUrl": "https://soundcloud.com/official-nlyss/nlyss-rite-now-truth-be-told-ep", 
+                    "snippet": "Stream Nlyss - Rite Now (Truth Be Told Ep) by Official N'lyss from desktop or your mobile device", 
+                    "siteNanme": "SoundCloud"
                 }, 
                 {
-                    "name": "Business Banking | Savings | Checking | Loans | Zions Bank", 
-                    "shortTitle": "Business Banking - Checking | Loans", 
-                    "url": "https://m.zionsbank.com/res/zfnb_pb/en/smartwap3/index.vhtml?expand=true#mfaAuthenticate_Scr", 
-                    "displayUrl": "https://www.zionsbank.com", 
-                    "snippet": "Zions First National Bank offers business banking and personal banking with savings, checking, loans and more through Utah, Idaho, Wyoming and the nation.", 
-                    "siteNanme": "Zions Bank"
+                    "url": "http://www.federatedinvestors.com/FII/marketcommentary/detail.do?cid=141103&mobile=true", 
+                    "snippet": "Keep living with subpar growth. Grind out a little earnings here and there. Keep surviving. An uninspiring, no hope, just hang-on existence. Then, suddenly, ...", 
+                    "name": "Federated - 2017 Outlook: Wall of Hope", 
+                    "shortTitle": "2017 Outlook: Wall of Hope", 
+                    "displayUrl": "www.federatedinvestors.com/FII/marketcommentary/detail.do?cid=..."
                 }, 
                 {
-                    "name": "Online Installment Loans ~ Not Payday Loans | Spotloan", 
-                    "shortTitle": "Get up to $800 on The Spot!", 
-                    "url": "https://www.spotloan.com/", 
-                    "displayUrl": "https://www.spotloan.com", 
-                    "snippet": "Spotloan is a better way to borrow extra cash. It\u2019s not a payday loan. It\u2019s an installment loan, which means you pay down the principal with each on time payment.", 
-                    "siteNanme": "Spotloan"
+                    "url": "http://www.cnbc.com/2016/06/27/free-trade-aint-dead-but-a-new-approach-is-needed.html", 
+                    "snippet": "... is evolving to meet political demands for trade \"fairness\" in the greying developed world as productivity and income growth grind to a halt. ...", 
+                    "name": "Free trade ain't dead but a new approach is needed", 
+                    "shortTitle": "Free Trade Ain\u2019t Dead But a New Approach is ... - Cnbc.Com", 
+                    "displayUrl": "www.cnbc.com/2016/06/27/free-trade-aint-dead-but-a-new-approach-is..."
                 }, 
                 {
-                    "name": "Halifax UK | Loans | Get a Quote, Loan Guides & Apply Online", 
-                    "shortTitle": "Loans", 
-                    "url": "https://www.halifax.co.uk/loans/", 
-                    "displayUrl": "https://www.halifax.co.uk/loans", 
-                    "snippet": "If you\u2019re a Halifax customer, you could apply for a Halifax Online Loan or Clarity Loan online. Find a loan to suit your needs.", 
-                    "siteNanme": "Halifax"
+                    "snippet": "Will stock prices plummet? Will economic growth grind to a halt? Will we all be poor? No. For a real world example of this, let's take a look at Japan, ...", 
+                    "name": "Five Strategies For Surviving Tough Times | Investopedia", 
+                    "shortTitle": "Tough Financial Times", 
+                    "url": "http://www.investopedia.com/articles/pf/08/survive-tough-times.asp", 
+                    "displayUrl": "www.investopedia.com/articles/pf/08/survive-tough-times.asp", 
+                    "thumbnailId": "OIP.OKQZ3b2febEsbPujNZxMNwEsDI", 
+                    "thumbnailUrl": "https://www.bing.com/th?id=OIP.OKQZ3b2febEsbPujNZxMNwEsDI", 
+                    "siteNanme": "Investopedia"
                 }, 
                 {
-                    "name": "Military Loans - Fast & Easy to Apply - Pioneer Military ...", 
-                    "shortTitle": "Fast & Easy to Apply - Military Loans", 
-                    "url": "https://www.pioneermilitaryloans.com/", 
-                    "displayUrl": "https://www.pioneermilitaryloans.com", 
-                    "snippet": "Pioneer Military Loans helps military get $500 - $10,000 with fixed payments. Click here to apply in minutes.", 
-                    "siteNanme": "Pioneer Military Loans"
+                    "url": "http://www.caeyebrowthreading.com/?p=1&page=2", 
+                    "snippet": "... is high in sulfur which improves the blood circulation and production of collagen tissues required for proper eyebrow growth. Grind 1 small onion and extract the ...", 
+                    "name": "Get fuller Thicker Brows \u2013 Page 2 - caeyebrowthreading.com", 
+                    "shortTitle": "Get Fuller Thicker Brows \u2013 Page 2", 
+                    "displayUrl": "www.caeyebrowthreading.com/?p=1&page=2"
                 }, 
                 {
-                    "name": "Loans - Woodforest National Bank", 
-                    "shortTitle": "Loans", 
-                    "url": "http://www.woodforest.com/Personal-Banking/Products/Loans", 
-                    "displayUrl": "www.woodforest.com/Personal-Banking/Products/Loans", 
-                    "snippet": "Woodforest National Bank would like to help finance your needs. We offer a variety of competitive consumer loan products including:", 
-                    "siteNanme": "Woodforest National Bank"
+                    "name": "Six Basics for General Managers - Harvard Business Review", 
+                    "shortTitle": "Six Basics For General Managers", 
+                    "url": "https://hbr.org/1989/07/six-basics-for-general-managers", 
+                    "displayUrl": "https://hbr.org/1989/07/six-basics-for-general-managers", 
+                    "snippet": "Six Basics for General Managers View more ... innovative businesses require different managers than companies in slow-growth, grind-it-out businesses where the ...", 
+                    "siteNanme": "Harvard Business Review"
                 }, 
                 {
-                    "name": "Mortgage Loan Rates & Advice Since 1995 | MortgageLoan", 
-                    "shortTitle": "Mortgage Calculator \u00a9 ML", 
-                    "url": "https://www.mortgageloan.com/", 
-                    "displayUrl": "https://www.mortgageloan.com", 
-                    "snippet": "Mortgage Loans, Mortgage Rates & Beyond MortgageLoan.com is a groundbreaking news and information service for consumers seeking information about home mortgages and ...", 
-                    "siteNanme": "MortgageLoan.com"
+                    "name": "Jack (@jackfitzgerald) | Twitter", 
+                    "shortTitle": "Jack (@Jackfitzgerald)", 
+                    "url": "https://mobile.twitter.com/jackfitzgerald", 
+                    "displayUrl": "https://mobile.twitter.com/jackfitzgerald", 
+                    "snippet": "growthgrind.com Joined March 2009. 3 Photos and videos Photos and videos Tweets. Tweets Tweets & replies Media @jackfitzgerald is blocked. Are ...", 
+                    "formattedFacts": [
+                        {
+                            "items": [
+                                {
+                                    "text": "401"
+                                }
+                            ], 
+                            "label": "FOLLOWERS"
+                        }, 
+                        {
+                            "items": [
+                                {
+                                    "text": "174"
+                                }
+                            ], 
+                            "label": "TWEETS"
+                        }
+                    ], 
+                    "siteNanme": "Twitter"
                 }, 
                 {
-                    "name": "Managing Debt Learning Center Articles - Credit.com", 
-                    "shortTitle": "Debt Consolidation", 
-                    "url": "https://www.credit.com/debt/", 
-                    "displayUrl": "https://www.credit.com/debt", 
-                    "snippet": "4 Things You Need to Know About Home Equity Loans; How to Refinance Your Home Loan With Bad Credit; Paying Off Your Student Loans: Forgiveness Programs & Beyond; Blog;", 
-                    "siteNanme": "Credit.com"
+                    "url": "http://www.grindtv.com/transworld-business/news/monster-energys-eric-johnson-on-mxs-growth/", 
+                    "snippet": "Monster Energy's Communication Director Eric Johnson talks about how motocross can be profitable for boardsport retailers to invest in.", 
+                    "name": "Monster Energy's Eric Johnson On MX's Growth | GrindTV.com", 
+                    "shortTitle": "Monster Energy\u2019s Eric Johnson On MX\u2019s Growth - GrindTV.Com", 
+                    "displayUrl": "www.grindtv.com/transworld-business/news/monster-energys-eric..."
                 }, 
                 {
-                    "url": "https://www.nerdwallet.com/personal-loans", 
-                    "snippet": "See average personal loan rates and compare unsecured personal loans from $1,000 to $100,000. See online loans for borrowers with credit scores from 580 to 700 or higher.", 
-                    "name": "Personal Loans for Good, Average and Bad Credit", 
-                    "shortTitle": "Personal Loans", 
-                    "displayUrl": "https://www.nerdwallet.com/personal-loans"
+                    "url": "http://www.grindtv.com/transworld-business/news/vf-corp-q1-revenue-jumps-6-5-supported-vans-double-digit-growth/", 
+                    "snippet": "VF Corp Q1 revenue was up 6.5%, supported by Vans standout double digit growth\u2014the highest sales of any brand under its parent company's umbrella.", 
+                    "name": "VF Corp Q1 Revenue Jumps 6.5% Supported By Vans Double ...", 
+                    "shortTitle": "VF Corp Q1 Revenue Jumps 6.5% Supported By ... - Grindtv.Com", 
+                    "displayUrl": "www.grindtv.com/transworld-business/news/vf-corp-q1-revenue-jumps..."
                 }, 
                 {
-                    "name": "Great Rates. Great Benefits l SoFi", 
-                    "shortTitle": "Great Rates. Great Benefits l SoFi", 
-                    "url": "https://www.sofi.com/", 
-                    "displayUrl": "https://www.sofi.com", 
-                    "snippet": "SoFi is a modern finance company. We partner with members to offer great service and low rates for student loan refinancing, mortgages and personal loans.", 
-                    "siteNanme": "SoFi"
+                    "snippet": "Feature To ITC or not to ITC: What happens if solar's federal tax incentives aren't extended The potential loss of solar capacity is ...", 
+                    "name": "To ITC or not to ITC: What happens if solar's federal tax ...", 
+                    "shortTitle": "What Happens if Solar\u2019s Federal Tax", 
+                    "url": "http://www.utilitydive.com/news/to-itc-or-not-to-itc-what-happens-if-solars-federal-tax-incentives-arent/406304/", 
+                    "displayUrl": "www.utilitydive.com/...to...solars-federal-tax-incentives-arent/406304", 
+                    "thumbnailId": "OIP.GVn9O27YXc_m3rDOt-p_OQEsDU", 
+                    "thumbnailUrl": "https://www.bing.com/th?id=OIP.GVn9O27YXc_m3rDOt-p_OQEsDU", 
+                    "siteNanme": "Utility Dive"
                 }, 
                 {
-                    "name": "Home Loans Home - Veterans Benefits Administration Home", 
-                    "shortTitle": "Home Loans Home", 
-                    "url": "http://www.benefits.va.gov/homeloans/", 
-                    "displayUrl": "www.benefits.va.gov/homeloans", 
-                    "snippet": "About Home Loans. VA helps Servicemembers, Veterans, and eligible surviving spouses become homeowners. As part of our mission to serve you, we provide a home loan ...", 
-                    "siteNanme": "Veterans Benefits Administration"
-                }
-            ]
-        }, 
-        {
-            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=loans&first=93", 
-            "_type": "AppLink/WebResponse", 
-            "answerType": "Web", 
-            "webResults": [
+                    "url": "http://www.grindtv.com/transworld-business/features/good-doers-meets-good-doers-aosa-image-and-the-aosa-project/", 
+                    "snippet": "Michael Hill started his printing business, AoSA Image, the same way a lot of action sports brands start, by building stuff in his parents\u2019 garage. Hill wanted to ...", 
+                    "name": "The Design Desk: AoSA's Sustainable Designs Lead To Huge ...", 
+                    "shortTitle": "AoSA\u2019s Sustainable", 
+                    "displayUrl": "www.grindtv.com/transworld-business/features/good-doers-meets-good..."
+                }, 
                 {
-                    "name": "Title Loans Online, Car Title Loans | 1800 LoanMart", 
-                    "shortTitle": "1800 LoanMart - Auto Title Loans", 
-                    "url": "https://www.800loanmart.com/", 
-                    "displayUrl": "https://www.800loanmart.com", 
-                    "snippet": "800LoanMart is the trusted car title loan industry leader with over 150,000 customers served since 2002 by our dedicated team. Loanmart is there for you 7 days a week.", 
-                    "siteNanme": "LoanMart"
+                    "url": "https://www.ft.com/content/e6385580-bd55-11e2-a735-00144feab7de", 
+                    "snippet": "Deere faces profit growth grind in 2013. Wednesday, 13 February, 2013. Global farming set to boost Deere. Wednesday, 21 November, 2012. Fast FT.", 
+                    "name": "John Deere cuts sales forecasts as global pressures bite", 
+                    "shortTitle": "John Deere Cuts Sales Forecasts as Global Pressures Bite", 
+                    "displayUrl": "https://www.ft.com/content/e6385580-bd55-11e2-a735-00144feab7de"
                 }
             ]
         }
     ], 
     "version": "4.0", 
-    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=2606705577EA43CA995A816F7B425110&CID=35D5C856ADB16DF61E34C206ACE26C52&Type=Event.CPT&DATA=0", 
-    "impressionGuid": "2606705577EA43CA995A816F7B425110"
+    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=E3AA93C407484515928C8CF17D95E320&CID=07F712D23EC26428024D18823F9165F4&Type=Event.CPT&DATA=0", 
+    "impressionGuid": "E3AA93C407484515928C8CF17D95E320"
 }

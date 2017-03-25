@@ -1,0 +1,24 @@
+
+{% block body %}
+<h1> Query Google </h1>
+<br>
+<form class="form-signin" role="form" method="post" action="">
+	{{ form.QueryGoogle(placeholder="Query") }}
+	{{ form.hidden_tag()}}
+	    <span class="error">
+	      {% if form.QueryGoogle.errors %}
+	        {% for error in form.QueryGoogle.errors %}
+	          {{ error }}
+	        {% endfor %}
+	      {% endif %}
+	    </span>
+ 	</p>
+ 	<button class="btn btn-success" type="submit">Search Google!</button>
+ </form>
+ {% for items in arr %} 
+ 	<li> {{items}} </li>
+ 	<li> Title : {{items['meta_title']}} </li>
+ 	<li> URL : {{items['full_url']}} </li>
+ 	<li> Description : {{items['description']}} </li>
+ {% endfor %}
+{% endblock %}

@@ -1,0 +1,148 @@
+{
+    "_type": "SearchResponse", 
+    "traceId": "DCAFF03CDF1244AA96688B9EEEEF75B3", 
+    "pingUrlBase": "https://c.bingapis.com/api/ping?IG=D8785735BFD44B609A3DE9046CDE9E1B&CID=16DC002CADE06816043909FAACA56950&ID=", 
+    "answers": [
+        {
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=ben&first=114", 
+            "_type": "AppLink/WebResponse", 
+            "answerType": "Web", 
+            "webResults": [
+                {
+                    "name": "Michael Emerson - IMDb", 
+                    "shortTitle": "0256237", 
+                    "url": "http://m.imdb.com/name/nm0256237/", 
+                    "displayUrl": "m.imdb.com/name/nm0256237", 
+                    "snippet": "Michael Emerson, Actor: Person of Interest. ... Ben Linus 2006-2010 Lost (TV Series) Ben Linus / Benjamin 'Ben' Linus / Henry Gale - The End ...", 
+                    "isVerticalDeeplink": false, 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "IMDb"
+                }, 
+                {
+                    "name": "Watch The Bachelor TV Show - ABC.com", 
+                    "shortTitle": "ABC \u2013 The Bachelor", 
+                    "url": "http://abc.go.com/shows/the-bachelor", 
+                    "displayUrl": "abc.go.com/shows/the-bachelor", 
+                    "snippet": "Watch the official The Bachelor online at ABC.com. Get exclusive videos and free episodes.", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "The Bachelor"
+                }, 
+                {
+                    "name": "Ben 10 Wiki | Fandom powered by Wikia", 
+                    "shortTitle": "Ben 10 Planet", 
+                    "url": "http://ben10.wikia.com/wiki/Ben_10_Planet", 
+                    "displayUrl": "ben10.wikia.com", 
+                    "snippet": "Ben 10 Planet is the ultimate Ben 10 resource where anyone can edit and learn about the vast universe of Ben 10!", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Wikia"
+                }, 
+                {
+                    "name": "ben", 
+                    "shortTitle": "Home", 
+                    "url": "http://benjoyceart.com/", 
+                    "displayUrl": "benjoyceart.com", 
+                    "snippet": "Map art. Artwork inspired by maps. Love of Place.", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "ben"
+                }, 
+                {
+                    "name": "Panbo: The Marine Electronics Hub", 
+                    "shortTitle": "Panbo", 
+                    "url": "http://panbo.com/", 
+                    "displayUrl": "panbo.com", 
+                    "snippet": "Hey, those are all solid-state radomes showing on the 7-inch displays at Gizmo's lower helm, and you'd see a fourth one running on the flybridge.", 
+                    "siteNanme": "Panbo"
+                }, 
+                {
+                    "name": "Ben Kiruthi: Kenyan Destination Wedding Photographer", 
+                    "shortTitle": "Kenyan Destination Wedding", 
+                    "url": "http://benkiruthi.com/", 
+                    "displayUrl": "benkiruthi.com", 
+                    "snippet": "LOVE. everyone has their own definition of it, right? If there was one word for romantic, beautiful, intoxicating, overwhelming and\u2026 read more", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Ben Kiruthi Photography"
+                }, 
+                {
+                    "name": "Amazon.com: Ben 10", 
+                    "shortTitle": "Ben 10", 
+                    "url": "https://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3ABen%2010", 
+                    "displayUrl": "https://www.amazon.com/s?ie=UTF8&page=1&rh=i:aps,k:Ben 10", 
+                    "snippet": "Product Features... These are perfect for any Ben 10 fan and are great to play with, trade ...", 
+                    "isMobileFriendly": true
+                }, 
+                {
+                    "name": "Author Ben Mikaelsen", 
+                    "shortTitle": "Check Out Ben's", 
+                    "url": "http://www.benmikaelsen.com/", 
+                    "displayUrl": "www.benmikaelsen.com", 
+                    "snippet": "Award winning children's author, Ben Mikaelsen travels the world speaking and sharing his strong anti-bullying message. Touching Spirit Bear, along with his oth", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Author Ben Mikaelsen"
+                }, 
+                {
+                    "name": "Ben Bridge", 
+                    "shortTitle": "Ben Bridge Jeweler", 
+                    "url": "http://m.benbridge.com/shop/home.php", 
+                    "displayUrl": "www.benbridge.com", 
+                    "snippet": "Since 1912, Ben Bridge Jeweler has earned the reputation as the destination for world class watches, timeless styles and expert service.", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Ben Bridge Jeweler"
+                }, 
+                {
+                    "name": "Ben (Comic Series) - Walking Dead Wiki - Wikia", 
+                    "shortTitle": "Ben (Comic Series)", 
+                    "url": "http://walkingdead.wikia.com/wiki/Ben_(Comic_Series)", 
+                    "displayUrl": "walkingdead.wikia.com/wiki/Ben_(Comic_Series)", 
+                    "snippet": "Pre-Apocalypse Gainesville, Georgia. When Ben's parents, Allen and Donna, heard that a safe-zone is being established in Atlanta city, the family traveled for Atlanta.", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Walking Dead Wiki"
+                }, 
+                {
+                    "name": "State of Delaware - Statewide Benefits Office", 
+                    "shortTitle": "Delaware - Statewide Benefits Office", 
+                    "url": "http://ben.omb.delaware.gov/", 
+                    "displayUrl": "ben.omb.delaware.gov", 
+                    "snippet": "Welcome to the State of Delaware Office of Management and Budget - Statewide Benefits Office website.", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "Delaware"
+                }, 
+                {
+                    "name": "Ben name meaning - SheKnows", 
+                    "shortTitle": "Ben", 
+                    "url": "http://www.sheknows.com/baby-names/name/ben", 
+                    "displayUrl": "www.sheknows.com/baby-names/name/ben", 
+                    "snippet": "Ben The name Ben is a baby boy name. Meaning English Meaning: The name Ben is an English baby name. In English the meaning of the ...", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "SheKnows"
+                }, 
+                {
+                    "name": "Celebrating the Life of Ben Sauer", 
+                    "shortTitle": "Pray For Ben Sauer", 
+                    "url": "http://bensauer.blogspot.com/?m=1", 
+                    "displayUrl": "bensauer.blogspot.com/?m=1", 
+                    "snippet": "We thought a good way to celebrate Ben's life would be to release butterflies. Sixty Painted Ladies. We had been worried whether or not they would fly because of the ...", 
+                    "isMobileFriendly": true, 
+                    "siteNanme": "blogspot.com"
+                }
+            ]
+        }, 
+        {
+            "webSearchUrl": "https://www.bing.com/api/beta/v4/applink/otherpage/search?q=ben&first=114", 
+            "_type": "AppLink/WebResponse", 
+            "answerType": "Web", 
+            "webResults": [
+                {
+                    "name": "Ben-To - MyAnimeList.net", 
+                    "shortTitle": "Ben-To]", 
+                    "url": "https://myanimelist.net/anime/10396/Ben-To", 
+                    "displayUrl": "https://myanimelist.net/anime/10396/Ben-To", 
+                    "snippet": "Looking for information on Ben-To? Find out more with MyAnimeList, the world's most active online anime and manga community and database. April 6th, 2011\u2014that was ...", 
+                    "isMobileFriendly": true
+                }
+            ]
+        }
+    ], 
+    "version": "4.0", 
+    "pageLoadPingUrl": "https://c.bingapis.com/api/ping/pageload?IG=D8785735BFD44B609A3DE9046CDE9E1B&CID=16DC002CADE06816043909FAACA56950&Type=Event.CPT&DATA=0", 
+    "impressionGuid": "D8785735BFD44B609A3DE9046CDE9E1B"
+}
