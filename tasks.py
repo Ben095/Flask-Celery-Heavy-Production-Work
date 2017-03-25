@@ -624,13 +624,15 @@ def celeryTaskResult(task_id):
         return "Task is not yet ready!"
 
 @app.route('/youtube/<task_id>/result')
-def celeryTaskResult(task_id):
+def YoutubeceleryTaskResult(task_id):
     res = AsyncResult(task_id)
     if "True" in str(res.ready()):
         result_arr = res.get()
         return jsonify(results=result_arr)
     else:
         return "Task is not yet ready!"
+
+
 
 @app.route('/outreach/<task_id>/result')
 def taskResults(task_id):
