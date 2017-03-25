@@ -846,7 +846,7 @@ def site(site):
                 bingDictionary['DA'] = domain_authority
                 bingDictionary['links'] = links
             except:
-                raise
+                pass
             domain = site
             seed_url = "http://{}/".format(domain)
             maxpages = 20
