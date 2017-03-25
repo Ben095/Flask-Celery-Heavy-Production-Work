@@ -810,8 +810,8 @@ def taskResults(task_id):
 
 
 
-#@celery.task()
-@app.route('/outreach/query/<site>')
+@celery.task()
+#@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -1064,7 +1064,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
            # return rearr
-            return jsonify(results=rearr)
+            return rearr
 
     except:
         raise
