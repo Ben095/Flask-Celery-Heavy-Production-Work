@@ -850,11 +850,11 @@ def site(site):
             bingDictionary = {}
             moz_url = site.replace('www.','')
             print moz_url
+
             response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+moz_url)
             try:
                 json_loader = json.loads(response.text)
                 data_loads = json_loader['data']
-                #data_loads = json_loader['data']
                 authorities = data_loads['authority']
                 domain_authority = authorities['domain_authority']
                 page_authority = authorities['page_authority']
@@ -1098,7 +1098,6 @@ def OutReacherDesk(query):
             arr = ['1', '23', '37', '51', '65', '79']
             appendArr = []  
             biggerArr = []
-           # query = 'loans'
             for i in arr:
                 response = requests.get('https://c.bingapis.com/api/custom/opal/otherpage/search?q=' + str(
                     query) + '&first=' + str(i) + '&rnoreward=1', headers=headers).text
@@ -1109,12 +1108,8 @@ def OutReacherDesk(query):
                 actualItem = LoadAsJson['answers'][0]['webResults']
                 appendArr.append(actualItem)
             try:
-                #in(appendArr))
-    #MINOR CHANGE
                 for items in appendArr:
                     biggerArr.append(items)
-                #asshoel
-                #biggerArr.append(appendArr[0]+appendArr[1]+appendArr[2]+appendArr[4]+appendArr[5])
             except:
                 pass
             rearr = []
@@ -1198,7 +1193,6 @@ def OutReacherDesk(query):
                     try:
                         json_loader = json.loads(response1.text)
                         data_loads = json_loader['data']
-                        #data_loads = json_loader['data']
                         authorities = data_loads['authority']
                         domain_authority = authorities['domain_authority']
                         page_authority = authorities['page_authority']
@@ -1213,27 +1207,9 @@ def OutReacherDesk(query):
                     except:
                         pass
                         #response = requests.get(bingDictionary['root_domain'], verify=False).text
-                    soup = BeautifulSoup(response)
-                    phoneRegex = re.compile(r'''
-                                        # 415-555-0000, 555-9999, (415) 555-0000, 555-000 ext 12345, ext. 12345 x12345
-                                        (
-                                        ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
-                                        (/s|-)                              #first seperator
-                                        \d\d\d                              #first 3 digits
-                                        -                                   #second seperator
-                                        \d\d\d\d                            #last 4 digits
-                                        (((ext(\.)?\s) |x)                  #extension word-part (optional)
-                                        (\d{2,5}))?                         #extension number-part (optional)
-                                        )                                     
-                                        ''', re.VERBOSE)
-                    RSS_ARR = []
-                    extractedPhone = phoneRegex.findall(str(soup))
-                    all_phone_numbers_array = []
-                    for phone_numbers in extractedPhone:
-                        all_phone_numbers_array.append(phone_numbers[0])
-                    bingDictionary['phone_numbers'] = all_phone_numbers_array
                     email_arrz = []
                     domain = bingDictionary['root_domain']
+
                     seed_url = "http://{}/".format(domain)
                     maxpages = 30
                     crawled, emails_found = crawl_site(seed_url, domain, maxpages)
@@ -1246,11 +1222,9 @@ def OutReacherDesk(query):
                         else:
                             print "EMAILS HERE", emails
                             email_arrz.append(emails)
-                           # email_arr.append(emails.encode('ascii','ignore'))
                     bingDictionary['emails'] = email_arrz
                     token = get_access_token()
                     first_items  = emails_found[0]['facebook_page_url']
-                    print "WHAT"
                     try:
                         split_first = first_items.split('.com/')
                         facebook_group_name = split_first[-1].replace('/','')
@@ -1263,13 +1237,12 @@ def OutReacherDesk(query):
                         print bingDictionary['facebook_page_likes']
                     except:
                         pass
-                       # pass
-                    bingDictionary['emails'] = email_arrz
                     bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
                     bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
                     bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
                     bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
                     bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
+                    bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
                     bingDictionary['contact_url'] = emails_found[0]['contact_url']
                     formatDomain = str(domain).replace(
                                         'http://', '').replace('https://', '')
