@@ -803,13 +803,14 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    url = each_items['contact_url']
-                    if "//" in url:
-                        split_url = url.split('http')
-                        actual_url = split_url[-1].replace('://','').replace('swww','www')
-                        first_replace = actual_url.replace('//','/')
-                        second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
-                        worksheet.write_string(row, col+26, str(second_replace))
+                    worksheet.write_string(row, col+26, str(each_items['contact_url']))
+                    # url = each_items['contact_url']
+                    # if "//" in url:
+                    #     split_url = url.split('http')
+                    #     actual_url = split_url[-1].replace('://','').replace('swww','www')
+                    #     first_replace = actual_url.replace('//','/')
+                    #     second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
+                    #     worksheet.write_string(row, col+26, str(second_replace))
 
                     
                 except:
@@ -1129,6 +1130,22 @@ def OutReacherDesk(query):
                     bingDictionary['prospect_url'] = eachQueryString[
                         'displayUrl']
                     try:
+                        defined = d.next()
+                        client = Mozscape(str(defined[0]),str(defined[1]))
+
+                        mozscape_dictionary = {}
+                        metrics = client.urlMetrics(str(bingDictionary['prospect_url']))
+                        bingDictionary['PA'] = metrics['upa']
+                        bingDictionary['DA'] = metrics['pda']
+                        bingDictionary['MozRank'] = metrics['ut']
+                        bingDictionary['Links'] = metrics['uid']
+                    except: 
+                        bingDictionary['PA'] = 0
+                        bingDictionary['DA'] = 0
+                        bingDictionary['MozRank'] = 0
+                        bingDictionary['Links'] = 0
+                        
+                    try:
                         if "https://" in str(bingDictionary['prospect_url']):
                             response = requests.get('http://graph.facebook.com/?id='+str(eachQueryString['displayUrl']))
                             print 'Facebookgraph takes time'
@@ -1189,30 +1206,21 @@ def OutReacherDesk(query):
                     url = urlparse(eachQueryString['url'])
                     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=url)
                     bingDictionary['root_domain'] = domain
-                    response1 = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+bingDictionary['root_domain'])
-                    try:
-                        json_loader = json.loads(response1.text)
-                        data_loads = json_loader['data']
-                        authorities = data_loads['authority']
-                        domain_authority = authorities['domain_authority']
-                        page_authority = authorities['page_authority']
-                        links = data_loads['page']['inbound_links']
-                        bingDictionary['PA'] = page_authority
-                        bingDictionary['DA'] = domain_authority
-                        bingDictionary['links'] = links
-                    except:
-                        pass
                     try:
                         response = requests.get(bingDictionary['root_domain']).text
                     except:
                         pass
                         #response = requests.get(bingDictionary['root_domain'], verify=False).text
                     email_arrz = []
-                    domain = bingDictionary['root_domain']
+                   # domain = bingDictionary['root_domain']
 
                     seed_url = "http://{}/".format(domain)
                     maxpages = 30
+                    domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
+                    seed_url = "http://{}/".format(domain)
+                    print domain, seed_url
                     crawled, emails_found = crawl_site(seed_url, domain, maxpages)
+
                     emails_arr = emails_found[-1]
                     for emails in emails_arr:
                         email_validator = lepl.apps.rfc3696.Email()
@@ -1244,6 +1252,19 @@ def OutReacherDesk(query):
                     bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
                     bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
                     bingDictionary['contact_url'] = emails_found[0]['contact_url']
+                    url = emails_found[0]['contact_url']
+                    try:
+                        if "//" in url:
+                            split_url = url.split('http')
+                            actual_url = split_url[-1].replace('://','').replace('swww','www')
+                            first_replace = actual_url.replace('//','/')
+                            second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
+                            bingDictionary['contact_url'] = second_replace
+                        else:
+                            bingDictionary['contact_url'] = site + str(emails_found[0]['contact_url'])
+                    except:
+                        bingDictionary['contact_url'] = emails_found[0]['contact_url']
+                        pass
                     formatDomain = str(domain).replace(
                                         'http://', '').replace('https://', '')
                     fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
