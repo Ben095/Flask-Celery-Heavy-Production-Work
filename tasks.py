@@ -866,7 +866,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 10
+            maxpages = 30
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -1235,7 +1235,7 @@ def OutReacherDesk(query):
                     email_arrz = []
                     domain = bingDictionary['root_domain']
                     seed_url = "http://{}/".format(domain)
-                    maxpages = 10
+                    maxpages = 30
                     crawled, emails_found = crawl_site(seed_url, domain, maxpages)
                     emails_arr = emails_found[-1]
                     for emails in emails_arr:
