@@ -830,8 +830,8 @@ def taskResults(task_id):
             return "Query is not yet done processing please wait! status" + str(res.ready())
 
 
-#@celery.task()
-@app.route('/outreach/query/<site>')
+@celery.task()
+#@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -1084,8 +1084,8 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
-            #return rearr
-            return jsonify(results=rearr)
+            return rearr
+           # return jsonify(results=rearr)
 
     except:
         raise
