@@ -830,8 +830,8 @@ def taskResults(task_id):
             return "Query is not yet done processing please wait! status" + str(res.ready())
 
 
-@celery.task()
-#@app.route('/outreach/query/<site>')
+#@celery.task()
+@app.route('/outreach/query/<site>')
 def site(site):
     try:
             #domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
@@ -908,7 +908,7 @@ def site(site):
                 print facebook_group_name
                 response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
                 jsonLoads = json.loads(response)
-                print jsonLoads
+               # print jsonLoads
                 arr = jsonLoads['data']
                 first_item_in_query = arr[0]['id']
                 response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
@@ -1084,8 +1084,8 @@ def site(site):
             miniArray.append(whoisDictionary)
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
-            return rearr
-            #return jsonify(results=rearr)
+            #return rearr
+            return jsonify(results=rearr)
 
     except:
         raise
