@@ -1140,7 +1140,7 @@ def OutReacherDesk(query):
                         bingDictionary['MozRank'] = metrics['ut']
                         bingDictionary['Links'] = metrics['uid']
                     except: 
-                        moz_url = site.replace('www.','')
+                        #moz_url = site.replace('www.','')
                         response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+str(bingDictionary['prospect_url']))
                         try:
                             json_loader = json.loads(response.text)
