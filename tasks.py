@@ -908,14 +908,14 @@ def site(site):
                 print facebook_group_name
                 response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
                 jsonLoads = json.loads(response)
-               # print jsonLoads
                 arr = jsonLoads['data']
                 first_item_in_query = arr[0]['id']
                 response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
                 print response
+                print "FACEBOOK DONT WORK!!!"
                 bingDictionary['facebook_page_likes'] = response['fan_count']
             except:
-                pass
+                bingDictionary['facebook_page_likes'] = 0
                 #pass
 
 
