@@ -5,6 +5,7 @@ import json
 #ASDASDASDASDASD
 # ASDASDASDASDS
 # from py_bing_search import PyBingWebSearch
+import random
 from urlparse import urlparse
 import sys
 import urllib2
@@ -123,7 +124,7 @@ def crawl_site(seed, domain, max_pages=60):
     crawled = set()
     #emails_found = set()
     emails_found = []
-    all_hrefs_arr = []
+    #all_hrefs_arr = []
     RSS_ARR = []
     bingDictionary = {}
     bingDictionary['facebook_page_url'] = None
@@ -165,34 +166,35 @@ def crawl_site(seed, domain, max_pages=60):
         for phone_numbers in extractedPhone:
             all_phone_numbers_array.append(phone_numbers[0])
         bingDictionary['phone_numbers'] = all_phone_numbers_array  
-        try:
-            a_link = soup.findAll('a')
-            for hrefs in a_link:
-                all_hrefs_arr.append(hrefs['href'])
-          #  print all_hrefs_arr
-        except:
-            pass
-        #
+        # try:
+        #     a_link = soup.findAll('a')
+        #     for hrefs in a_link:
+        #         all_hrefs_arr.append(hrefs['href'])
+        #   #  print all_hrefs_arr
+        # except:
+        #     pass
+        all_hrefs_arr = soup.findAll('a')
+
         try:
             for first_items in all_hrefs_arr:
-                if "facebook.com" in first_items:
-                    bingDictionary['facebook_page_url'] = first_items
+                if "facebook.com" in str(first_items):
+                    bingDictionary['facebook_page_url'] = first_items['href']
                    # emails_found.append(bingDictionary)
         except:
             pass
       
         try:
             for contact_urls in all_hrefs_arr:
-                if "contact" in contact_urls:
-                    bingDictionary['contact_url'] =  contact_urls
+                if "contact" in str(contact_urls):
+                    bingDictionary['contact_url'] =  contact_urls['href']
         except:
             pass
 
         try:
             for second_items in all_hrefs_arr:
-                if "twitter.com" in second_items:
+                if "twitter.com" in str(second_items):
                     try:
-                        bingDictionary['twitter_page_url'] = second_items
+                        bingDictionary['twitter_page_url'] = second_items['href']
                     except:
                         pass
 
@@ -864,6 +866,20 @@ def site(site):
                 bingDictionary['DA'] = domain_authority
                 bingDictionary['links'] = links
             except:
+                try:
+                    key, value = random.choice(list(m_dictionary.items()))
+                    client = Mozscape(str(key),str(value))
+                    mozscape_dictionary = {}
+                    metrics = client.urlMetrics(str(site))
+                    bingDictionary['PA'] = metrics['upa']
+                    bingDictionary['DA'] = metrics['pda']
+                   # bingDictionary['MozRank'] = metrics['ut']
+                    bingDictionary['Links'] = metrics['uid']
+                except:
+                    bingDictionary['PA'] = 0
+                    bingDictionary['DA'] = 0
+                    bingDictionary['Links'] = 0
+
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
@@ -918,7 +934,8 @@ def site(site):
                     second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                     bingDictionary['contact_url'] = second_replace
                 else:
-                    bingDictionary['contact_url'] = site + str(emails_found[0]['contact_url'])
+                    final_contact = site + str(emails_found[0]['contact_url'])
+                    bingDictionary['contact_url'] = final_contact.replace('//','/')
             except:
                 bingDictionary['contact_url'] = emails_found[0]['contact_url']
                 pass
