@@ -198,7 +198,7 @@ def crawl_site(seed, domain, max_pages=60):
                     except:
                         pass
 
-                    response = requests.get(second_items).text
+                    response = requests.get(second_items['href']).text
                     soup = BeautifulSoup(response)
                     twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
                     bingDictionary['twitter_followers'] = twitter_followers
