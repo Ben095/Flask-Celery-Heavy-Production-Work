@@ -709,7 +709,7 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+3,str(each_items['RSS_URL'][0]))
+                    worksheet.write_string(row,col+3,str(each_items['RSS_URL']))
                 except:
                     pass
                 try:
@@ -1252,6 +1252,7 @@ def OutReacherDesk(query):
                     bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
                     bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
                     bingDictionary['contact_url'] = emails_found[0]['contact_url']
+                    bingDictionary['RSS_URL'] = emails_found[0]['RSS_URL']
                     url = emails_found[0]['contact_url']
                     try:
                         if "//" in url:
@@ -1261,10 +1262,10 @@ def OutReacherDesk(query):
                             second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                             bingDictionary['contact_url'] = second_replace
                         else:
-                            bingDictionary['contact_url'] = site + str(emails_found[0]['contact_url'])
+                            bingDictionary['contact_url'] = domain + str(emails_found[0]['contact_url'])
                     except:
                         bingDictionary['contact_url'] = emails_found[0]['contact_url']
-                        pass
+                       # pass
                     formatDomain = str(domain).replace(
                                         'http://', '').replace('https://', '')
                     fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
