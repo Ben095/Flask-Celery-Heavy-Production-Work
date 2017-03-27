@@ -584,10 +584,11 @@ def InstagramMain(name):
 
 def get_access_token():
     result = Token.query.all()[-1].fb_token
+    print "old token", result
     response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+result).text
     new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
-    store_token = Token(fb_token=new_access_token)
-    db.session.add(store_token)
+    store_token = Token(fb_token=str(new_access_token))
+    db.session.add(str(store_token))
     db.session.commit()
     return str(new_access_token)
 
@@ -883,7 +884,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 30
+            maxpages = 2
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -897,9 +898,10 @@ def site(site):
                     email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
-            print token
-
-            print "EMAIL ARRAY", email_arrz
+            #print token
+           # token ='EAAZAoe8xotnUBANtmHgyfiD2aMBIYbOsiQbgzZAFZ CK5gMdMgXOyAZBZAWLSIq1EPyoILZANxRRqz4vvB8QnhvuJlaRSTiSpuSU31wuBygOaWZAAA5d0OFTm1ZC1UIwuTYv9dZCJj5VMZAjN dyANwLiB1j9vIXZBGSD3CYZD'
+           # token = 'EAAZAoe8xotnUBAD0h1csxNeglioJUCglIZB0WByze5cx7XtcuOAZA3wtI7xYlI5YESrFeHqzwUZCwKUScHIhb6WZB2FzPKFvdCYhZCBTiAV94E1IzZC2wee7uQBAmO6fwN3FHZBSqjykb1XiFJt5pDrV4myA11NXiwkZD'
+            #print "EMAIL ARRAY", email_arrz
             first_items  = emails_found[0]['facebook_page_url']
             print "HI"
             try:
@@ -908,13 +910,16 @@ def site(site):
                 print facebook_group_name
                 response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
                 jsonLoads = json.loads(response)
+                print jsonLoads
                 arr = jsonLoads['data']
+               # print
                 first_item_in_query = arr[0]['id']
                 response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
                 print response
                 print "FACEBOOK DONT WORK!!!"
                 bingDictionary['facebook_page_likes'] = response['fan_count']
             except:
+                #raise
                 bingDictionary['facebook_page_likes'] = 0
                 #pass
 
@@ -1085,7 +1090,7 @@ def site(site):
             bingDictionary['whoisData'] = miniArray
             rearr.append(bingDictionary)
             return rearr
-           # return jsonify(results=rearr)
+            #return jsonify(results=rearr)
 
     except:
         raise
