@@ -737,7 +737,7 @@ def taskResults(task_id):
                 except:
                     pass
                 try:
-                    worksheet.write_string(row,col+10,str(each_items['phone_numbers'][0]))
+                    worksheet.write_string(row,col+10,str(each_items['phone_numbers']))
                 except:
                     pass
                 try:
@@ -1140,10 +1140,23 @@ def OutReacherDesk(query):
                         bingDictionary['MozRank'] = metrics['ut']
                         bingDictionary['Links'] = metrics['uid']
                     except: 
-                        bingDictionary['PA'] = 0
-                        bingDictionary['DA'] = 0
-                        bingDictionary['MozRank'] = 0
-                        bingDictionary['Links'] = 0
+                        moz_url = site.replace('www.','')
+                        response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+str(bingDictionary['prospect_url']))
+                        try:
+                            json_loader = json.loads(response.text)
+                            data_loads = json_loader['data']
+                            authorities = data_loads['authority']
+                            domain_authority = authorities['domain_authority']
+                            page_authority = authorities['page_authority']
+                            links = data_loads['page']['inbound_links']
+                            bingDictionary['PA'] = page_authority
+                            bingDictionary['DA'] = domain_authority
+                            bingDictionary['Links'] = links
+                        except:
+                            bingDictionary['PA'] = 0
+                            bingDictionary['DA'] = 0
+                            bingDictionary['Links'] = 0
+                        
                         
                     try:
                         if "https://" in str(bingDictionary['prospect_url']):
@@ -1262,7 +1275,9 @@ def OutReacherDesk(query):
                             second_replace = first_replace.replace('https:/', 'https://').replace('http:/','http://')
                             bingDictionary['contact_url'] = second_replace
                         else:
-                            bingDictionary['contact_url'] = domain + str(emails_found[0]['contact_url'])
+                            ##ix_domain = domain.replace('//','/')
+                            #second_replacement = fix_domain.replace('https:/','https://')
+                            bingDictionary['contact_url'] = domain.replace('//','/') + str(emails_found[0]['contact_url'])
                     except:
                         bingDictionary['contact_url'] = emails_found[0]['contact_url']
                        # pass
