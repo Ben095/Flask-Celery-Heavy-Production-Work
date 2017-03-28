@@ -3,14 +3,33 @@ from bs4 import BeautifulSoup
 import random
 import json
 
-token = 'EAAZAoe8xotnUBAD0h1csxNeglioJUCglIZB0WByze5cx7XtcuOAZA3wtI7xYlI5YESrFeHqzwUZCwKUScHIhb6WZB2FzPKFvdCYhZCBTiAV94E1IzZC2wee7uQBAmO6fwN3FHZBSqjykb1XiFJt5pDrV4myA11NXiwkZD'
-first_items  = 'https://www.facebook.com/sproutsolutionsph/'
-#token = 'EAAZAoe8xotnUBA KZAfR2UT7SFKzME4UmPh66aBNjAJCktmlHKpXAzzm2fn79QsNuHHOlUwJqO9dfWVJiWNLbuM2JZC v0WaGbOIsXOMQQIhFjywZB72mwpUDKRAISV24WHmN0gEFo0ZBLhwfyijvkU2hGqDyiupbkZD'
-#token ='EAAZAoe8xotnUBANtmHgyfiD2aMBIYbOsiQbgzZAFZ CK5gMdMgXOyAZBZAWLSIq1EPyoILZANxRRqz4vvB8QnhvuJlaRSTiSpuSU31wuBygOaWZAAA5d0OFTm1ZC1UIwuTYv9dZCJj5VMZAjN dyANwLiB1j9vIXZBGSD3CYZD'
-bingDictionary = {}
-response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+token).text
-new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
-print new_access_token
+social_email = 'https://www.prynt.co'
+response = requests.get(social_email).text
+soup = BeautifulSoup(response)
+#social_email = 'https://www.facebook.com/<group_name>'
+title = soup.find("meta",  property="og:title")
+print str(title).split('" property')[0].replace('<meta content="','')
+# if 3 == social_email.count('/'):
+# 	print "YES"
+# if social_email.startswith('//'):
+# 	print social_email.replace('//','https://www.')
+
+# response = requests.get('http://loansolutions.ph/').text
+# if "remarketing" in response:
+# 	print "yrue"
+
+# token = 'EAAZAoe8xotnUBADck4NSbeci4WtDEF8oIaMNzpOTBlMdyvFcdseEuOOqSPlAogiqObbMNXOmKdYllNOxaqOhwlew2OMbbIaQQYuBps SIgcC938zsplGMPAZCWtGu2y8UJnMMYMZBudnO3RGQj3tlVYmS9HY1noZD'
+# #token = 'EAAZAoe8xotnUBACKEcMajDZBRTHOdxZBKAXDiBMGCfSaUaCK3HoCMQMwUt a15GEBzcZCCZC8p1MqzFGWjmozGyfZANKWzmiZCB3C576s7WLMjIBLtTtzXh9ZAtodXRfwYlpCneZBFgAJreQQGJf30Td9S4CZCVD2C xOx8ZD'
+# #token = 'EAAZAoe8xotnUBAD0h1csxNeglioJUCglIZB0WByze5cx7XtcuOAZA3wtI7xYlI5YESrFeHqzwUZCwKUScHIhb6WZB2FzPKFvdCYhZCBTiAV94E1IzZC2wee7uQBAmO6fwN3FHZBSqjykb1XiFJt5pDrV4myA11NXiwkZD'
+# first_items  = 'https://www.facebook.com/sproutsolutionsph/'
+# #token = 'EAAZAoe8xotnUBA KZAfR2UT7SFKzME4UmPh66aBNjAJCktmlHKpXAzzm2fn79QsNuHHOlUwJqO9dfWVJiWNLbuM2JZC v0WaGbOIsXOMQQIhFjywZB72mwpUDKRAISV24WHmN0gEFo0ZBLhwfyijvkU2hGqDyiupbkZD'
+# #token ='EAAZAoe8xotnUBANtmHgyfiD2aMBIYbOsiQbgzZAFZ CK5gMdMgXOyAZBZAWLSIq1EPyoILZANxRRqz4vvB8QnhvuJlaRSTiSpuSU31wuBygOaWZAAA5d0OFTm1ZC1UIwuTYv9dZCJj5VMZAjN dyANwLiB1j9vIXZBGSD3CYZD'
+# bingDictionary = {}
+# response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+token).json()
+# print response['access_token']
+# new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
+# convert_to_str = dict(new_access_token)
+# print convert_to_str
 #tore_token = Token(fb_token=new_access_token)
 # print "HI"
 # try:

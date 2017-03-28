@@ -136,7 +136,10 @@ def crawl_site(seed, domain, max_pages=60):
     bingDictionary['google_plus_url'] = None
     bingDictionary['RSS_URL'] = None
     all_phone_numbers_array = []
+    
     while len(to_crawl) and (len(crawled) < max_pages):
+        all_facebook_pages_arr = []
+        all_plus_google_arr = []
         url = to_crawl.popleft()
         crawled.add(url)
         print max_pages
@@ -174,15 +177,19 @@ def crawl_site(seed, domain, max_pages=60):
         # except:
         #     pass
         all_hrefs_arr = soup.findAll('a')
-
+        facebook_arr = []
+        twitter_arr = []
+        plus_arr = []
         try:
             for first_items in all_hrefs_arr:
                 if "facebook.com" in str(first_items):
-                    bingDictionary['facebook_page_url'] = first_items['href']
+                    facebook_arr.append(first_items['href'])
+                    #bingDictionary['facebook_page_url'] = first_items['href']
+                   # all_facebook_pages_arr.append(bingDictionary['facebook_page_url'])
                    # emails_found.append(bingDictionary)
         except:
             pass
-      
+        print bingDictionary['facebook_page_url']
         try:
             for contact_urls in all_hrefs_arr:
                 if "contact" in str(contact_urls):
@@ -194,14 +201,15 @@ def crawl_site(seed, domain, max_pages=60):
             for second_items in all_hrefs_arr:
                 if "twitter.com" in str(second_items):
                     try:
-                        bingDictionary['twitter_page_url'] = second_items['href']
+                        twitter_arr.append(second_items['href'])
+                        #bingDictionary['twitter_page_url'] = second_items['href']
                     except:
                         pass
 
-                    response = requests.get(second_items['href']).text
-                    soup = BeautifulSoup(response)
-                    twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
-                    bingDictionary['twitter_followers'] = twitter_followers
+                    # response = requests.get(second_items['href']).text
+                    # soup = BeautifulSoup(response)
+                    # twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
+                    # bingDictionary['twitter_followers'] = twitter_followers
                   #  emails_found.append(bingDictionary)
         except:
             pass
@@ -209,15 +217,51 @@ def crawl_site(seed, domain, max_pages=60):
         try:
             for third_items in all_hrefs_arr:
                 if "plus.google.com" in third_items:
-                    response = requests.get(third_items).text
-                    soup = BeautifulSoup(response)
-                    googleplus_followers = soup.find('div',attrs={'class':"C98T8d GseqId b12n5"}).text.split('-')[0].replace('followers','')
-                    bingDictionary['google_plus_followers'] = googleplus_followers
-                    bingDictionary['google_plus_url'] = third_items
+                    plus_arr.append(third_items['href'])
+                    # response = requests.get(third_items).text
+                    # soup = BeautifulSoup(response)
+                    # googleplus_followers = soup.find('div',attrs={'class':"C98T8d GseqId b12n5"}).text.split('-')[0].replace('followers','')
+                    # #bingDictionary['google_plus_followers'] = googleplus_followers
+                    # bingDictionary['google_plus_url'] = third_items
                     #emails.append(bingDictionary)
         except:
             pass
 
+        #for facebook_items in facebook_arr:
+        bingDictionary['facebook_page_url'] = facebook_arr
+        for each_url in facebook_arr:
+            if each_url.startswith('//'):
+                bingDictionary['facebook_page_url'] = each_url.replace('//','https://www.')
+            else:
+                if 3 == each_url.count('/'):
+                    bingDictionary['facebook_page_url'] = each_url
+                else:
+                    bingDictionary['facebook_page_url'] = None
+
+
+        for each_url in twitter_arr:
+            if each_url.startswith('//'):
+                bingDictionary['twitter_page_url'] = each_url.replace('//','https://www.')
+            else:
+                if 3 == each_url.count('/'):
+                    bingDictionary['twitter_page_url']  = each_url
+                else:
+                    bingDictionary['twitter_page_url'] = None
+                #bingDictionary['twitter_page_url'] = each_url
+
+        #bingDictionary['twitter_page_url'] = twitter_arr
+        for each_url in plus_arr:
+            if each_url.startswith('//'):
+                bingDictionary['google_plus_url'] = each_url.replace('//','https://www.')
+            else:
+                if 3 == each_url.count('/'):
+                    bingDictionary['google_plus_url'] = each_url
+                else:
+                    bingDictionary['google_plus_url']  = None
+
+                #bingDictionary['google_plus_url'] = each_url
+
+        #bingDictionary['google_plus_url'] = plus_arr
         emails_found.append(bingDictionary)
 
         if content:
@@ -585,12 +629,12 @@ def InstagramMain(name):
 def get_access_token():
     result = Token.query.all()[-1].fb_token
     print "old token", result
-    response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+result).text
-    new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
-    store_token = Token(fb_token=str(new_access_token))
-    db.session.add(str(store_token))
+    response = requests.get('https://graph.facebook.com/oauth/access_token?client_id=1803730779944565&client_secret=266970737eaf5570d2e789beeeb6af9c&grant_type=fb_exchange_token&fb_exchange_token='+result).json()
+    #new_access_token = response.split('access_token=')[-1].split('&expires=')[0]
+    store_token = Token(fb_token=str(response['access_token']))
+    db.session.add(store_token)
     db.session.commit()
-    return str(new_access_token)
+    return response['access_token']
 
 
 
@@ -884,7 +928,7 @@ def site(site):
                 pass
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 2
+            maxpages = 15
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
@@ -898,16 +942,18 @@ def site(site):
                     email_arrz.append(emails)
                    # email_arr.append(emails.encode('ascii','ignore'))
             token = get_access_token()
-            #print token
+            #token = tokenizer.fb_token
            # token ='EAAZAoe8xotnUBANtmHgyfiD2aMBIYbOsiQbgzZAFZ CK5gMdMgXOyAZBZAWLSIq1EPyoILZANxRRqz4vvB8QnhvuJlaRSTiSpuSU31wuBygOaWZAAA5d0OFTm1ZC1UIwuTYv9dZCJj5VMZAjN dyANwLiB1j9vIXZBGSD3CYZD'
            # token = 'EAAZAoe8xotnUBAD0h1csxNeglioJUCglIZB0WByze5cx7XtcuOAZA3wtI7xYlI5YESrFeHqzwUZCwKUScHIhb6WZB2FzPKFvdCYhZCBTiAV94E1IzZC2wee7uQBAmO6fwN3FHZBSqjykb1XiFJt5pDrV4myA11NXiwkZD'
             #print "EMAIL ARRAY", email_arrz
             first_items  = emails_found[0]['facebook_page_url']
+            print first_items
             print "HI"
             try:
                 split_first = first_items.split('.com/')
                 facebook_group_name = split_first[-1].replace('/','')
                 print facebook_group_name
+                print "cone url " , 'https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token
                 response = requests.get('https://graph.facebook.com/v2.8/search?q='+facebook_group_name+'&type=page&access_token='+token).text
                 jsonLoads = json.loads(response)
                 print jsonLoads
@@ -916,10 +962,9 @@ def site(site):
                 first_item_in_query = arr[0]['id']
                 response = requests.get('https://graph.facebook.com/v2.8/'+first_item_in_query+'/?fields=fan_count&access_token='+token).json()
                 print response
-                print "FACEBOOK DONT WORK!!!"
                 bingDictionary['facebook_page_likes'] = response['fan_count']
             except:
-                #raise
+                pass
                 bingDictionary['facebook_page_likes'] = 0
                 #pass
 
@@ -967,7 +1012,7 @@ def site(site):
                         email_arrz.append(each_emails)
             except:
                 pass
-            bingDictionary['emails'] = email_arrz
+            bingDictionary['emails'] = list(set(email_arrz))
 
             try:
                 if "https://" in str(site):
@@ -1033,20 +1078,9 @@ def site(site):
                 #pass
                 #response = requests.get(bingDictionary['root_domain'], verify=False).text
             soup = BeautifulSoup(response)
-            
-           # RSS_ARR = []
-            main_tags = soup.findAll('img')
-            meta_title_arr = []
-            for alt in main_tags:
-                alt = alt.get('alt')
-                if alt is None:
-                    pass
-                else:
-                    meta_title_arr.append(alt)
-            try:
-                bingDictionary['meta_title'] = meta_title_arr[0]
-            except:
-                bingDictionary['meta_title'] = None   
+            title = soup.find("meta",  property="og:title")
+            title_parser=str(title).split('" property')[0].replace('<meta content="','')
+            bingDictionary['meta_title'] = title_parser   
             formatDomain = str(site).replace(
                                 'http://', '').replace('https://', '')
             fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
@@ -1250,7 +1284,7 @@ def OutReacherDesk(query):
                    # domain = bingDictionary['root_domain']
 
                     seed_url = "http://{}/".format(domain)
-                    maxpages = 30
+                    maxpages = 15
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     seed_url = "http://{}/".format(domain)
                     print domain, seed_url
