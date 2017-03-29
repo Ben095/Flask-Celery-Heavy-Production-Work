@@ -930,7 +930,7 @@ def site(site):
               
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 2
+            maxpages = 30
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
