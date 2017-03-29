@@ -970,9 +970,17 @@ def site(site):
                 bingDictionary['facebook_page_likes'] = 0
                 #pass
 
+            twitter_followers = emails_found[0]['twitter_page_url']
+            try:
+                response = requests.get(twitter_followers).text
+                soup = BeautifulSoup(response)
+                twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
+                bingDictionary['twitter_followers'] = twitter_followers
+            except:
+                bingDictionary['twitter_followers'] = 0
 
             bingDictionary['facebook_page_url'] = emails_found[0]['facebook_page_url']
-            bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
+            #bingDictionary['twitter_followers'] = emails_found[0]['twitter_followers']
             bingDictionary['twitter_page_url'] = emails_found[0]['twitter_page_url']
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
