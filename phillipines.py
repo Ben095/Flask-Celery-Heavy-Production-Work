@@ -2,13 +2,74 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import json
+from mozscape import Mozscape
 
-social_email = 'https://www.prynt.co'
-response = requests.get(social_email).text
-soup = BeautifulSoup(response)
-#social_email = 'https://www.facebook.com/<group_name>'
-title = soup.find("meta",  property="og:title")
-print str(title).split('" property')[0].replace('<meta content="','')
+arr = []
+m_dictionary = {}
+m_dictionary['member-79ea116cb0'] = '43053334ef958fa5668a8afd8018195b'
+m_dictionary['member-89df24f83c'] = '0d08685d31a8f724047decff5e445861'
+m_dictionary['member-aad6e04a94'] = '8a08a4f2477b3eda0a7b3afa8eb6faaf'
+m_dictionary['member-1e51eae111'] = '4f1deaa49d0f4ec8f36778b80a58dba5'
+m_dictionary['member-c1d37816b1'] = '47501159d505413721caac9687818f68'
+m_dictionary['member-700eebf334'] = '0e7136b3468cd832f6dda555aa917661'
+m_dictionary['member-774cfbde7e'] = '481981b24f4a4f08d7c7dc9d5038428f'
+m_dictionary['member-34c9052fba'] = '999d2d727bfc11256421c42c529331de'
+m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
+m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
+bingDictionary = {}
+#oz_url = site.replace('www.','')
+moz_url = 'true-company.com'
+
+each_url = 'https://facebook.com/flattummytea'
+if 3 == each_url.count('/') or 4 == each_url.count('/'):
+    bingDictionary['facebook_page_url'] = each_url
+    print "EACH URL", each_url
+else:
+    print "NO 3"
+    bingDictionary['facebook_page_url'] = None
+
+#while True:
+	#try:
+#str_fb = 'https://www.facebook.com/mymakeupbrushset/'
+#print str_fb.count('/')
+# for key, value in m_dictionary.iteritems():
+# 	print key, value
+# 	try:
+# 		client = Mozscape(key, value)
+# 		metrics = client.urlMetrics(moz_url)
+# 		bingDictionary['PA'] = metrics['upa']
+# 		bingDictionary['DA'] = metrics['pda']
+# 		bingDictionary['Links'] = metrics['uid']
+# 		print bingDictionary
+# 	except:
+# 		continue
+		
+# for key, value in m_dictionary.iteritems():
+# 	print key, value
+# 	try:
+# 		client = Mozscape(str(key),str(value))
+#     	metrics = client.urlMetrics(str(moz_url))
+#     	bingDictionary['PA'] = metrics['upa']
+#     	bingDictionary['DA'] = metrics['pda']
+#     	bingDictionary['Links'] = metrics['uid']
+#     	print bingDictionary
+#     except:
+#     	continue
+
+# site = 'true-company.com'
+# try:
+#     key, value = random.choice(list(m_dictionary.items()))
+#     client = Mozscape(str(key),str(value))
+#     mozscape_dictionary = {}
+#     metrics = client.urlMetrics(str(site))
+#     bingDictionary['PA'] = metrics['upa']
+#     bingDictionary['DA'] = metrics['pda']
+#    # bingDictionary['MozRank'] = metrics['ut']
+#     bingDictionary['Links'] = metrics['uid']
+#     print bingDictionary
+# except:
+
+#   	raise
 # if 3 == social_email.count('/'):
 # 	print "YES"
 # if social_email.startswith('//'):

@@ -142,11 +142,11 @@ def crawl_site(seed, domain, max_pages=60):
         all_plus_google_arr = []
         url = to_crawl.popleft()
         crawled.add(url)
-        print max_pages
+        #print max_pages
         content = get_page(url)
         #print content
         jacker = get_page(url)
-        print jacker
+       # print jacker
         soup = BeautifulSoup(jacker)
         for link in soup.find_all("link", {"type" : "application/rss+xml"}):
             href = link.get('href')
@@ -189,7 +189,8 @@ def crawl_site(seed, domain, max_pages=60):
                    # emails_found.append(bingDictionary)
         except:
             pass
-        print bingDictionary['facebook_page_url']
+        print "FACEBOK ARR", facebook_arr
+        #print bingDictionary['facebook_page_url']
         try:
             for contact_urls in all_hrefs_arr:
                 if "contact" in str(contact_urls):
@@ -228,14 +229,17 @@ def crawl_site(seed, domain, max_pages=60):
             pass
 
         #for facebook_items in facebook_arr:
-        bingDictionary['facebook_page_url'] = facebook_arr
+        #bingDictionary['facebook_page_url'] = facebook_arr
         for each_url in facebook_arr:
             if each_url.startswith('//'):
                 bingDictionary['facebook_page_url'] = each_url.replace('//','https://www.')
             else:
-                if 3 == each_url.count('/'):
+                #print "AT ELSE "
+                if 3 == each_url.count('/') or 4 == each_url.count('/'):
                     bingDictionary['facebook_page_url'] = each_url
+                    print "EACH URL", each_url
                 else:
+                    print "NO 3"
                     bingDictionary['facebook_page_url'] = None
 
 
@@ -897,38 +901,36 @@ def site(site):
             m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
             bingDictionary = {}
             moz_url = site.replace('www.','')
-            print moz_url
+            # print moz_url
 
-            response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+moz_url)
-            try:
-                json_loader = json.loads(response.text)
-                data_loads = json_loader['data']
-                authorities = data_loads['authority']
-                domain_authority = authorities['domain_authority']
-                page_authority = authorities['page_authority']
-                links = data_loads['page']['inbound_links']
-                bingDictionary['PA'] = page_authority
-                bingDictionary['DA'] = domain_authority
-                bingDictionary['links'] = links
-            except:
+            # response = requests.get('https://moz.com/researchtools/ose/api/urlmetrics?site='+moz_url)
+            # try:
+            #     json_loader = json.loads(response.text)
+            #     data_loads = json_loader['data']
+            #     authorities = data_loads['authority']
+            #     domain_authority = authorities['domain_authority']
+            #     page_authority = authorities['page_authority']
+            #     links = data_loads['page']['inbound_links']
+            #     bingDictionary['PA'] = page_authority
+            #     bingDictionary['DA'] = domain_authority
+            #     bingDictionary['links'] = links
+            #except:
+
+            for key, value in m_dictionary.iteritems():
                 try:
-                    key, value = random.choice(list(m_dictionary.items()))
                     client = Mozscape(str(key),str(value))
                     mozscape_dictionary = {}
-                    metrics = client.urlMetrics(str(site))
+                    metrics = client.urlMetrics(str(moz_url))
                     bingDictionary['PA'] = metrics['upa']
                     bingDictionary['DA'] = metrics['pda']
-                   # bingDictionary['MozRank'] = metrics['ut']
                     bingDictionary['Links'] = metrics['uid']
                 except:
-                    bingDictionary['PA'] = 0
-                    bingDictionary['DA'] = 0
-                    bingDictionary['Links'] = 0
+                    continue
 
-                pass
+              
             domain = site
             seed_url = "http://{}/".format(domain)
-            maxpages = 15
+            maxpages = 2
             email_arrz = []
             crawled, emails_found = crawl_site(seed_url, domain, maxpages)
             emails_arr = emails_found[-1]
