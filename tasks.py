@@ -974,7 +974,8 @@ def site(site):
             try:
                 response = requests.get(twitter_followers).text
                 soup = BeautifulSoup(response)
-                twitter_followers = soup.find('span',attrs={'class':'ProfileNav-value'}).text
+                twitter_followers = soup.findAll('span',attrs={'class':'ProfileNav-value'})[2].text
+
                 bingDictionary['twitter_followers'] = twitter_followers
             except:
                 bingDictionary['twitter_followers'] = 0
