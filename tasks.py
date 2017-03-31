@@ -985,6 +985,7 @@ def site(site):
             bingDictionary['google_plus_url'] = emails_found[0]['google_plus_url']
             bingDictionary['googleplus_followers'] = emails_found[0]['googleplus_followers']
             bingDictionary['phone_numbers'] = emails_found[0]['phone_numbers']
+            bingDictionary['RSS_URL'] = emails_found[0]['RSS_URL']
             url = emails_found[0]['contact_url']
             try:
                 if "//" in url:
@@ -1088,9 +1089,11 @@ def site(site):
                 #pass
                 #response = requests.get(bingDictionary['root_domain'], verify=False).text
             soup = BeautifulSoup(response)
-            title = soup.find("meta",  property="og:title")
-            title_parser=str(title).split('" property')[0].replace('<meta content="','')
-            bingDictionary['meta_title'] = title_parser   
+            try:
+                title = soup.find('title').text
+                bingDictionary['meta_title'] = title 
+            except:
+                bingDictionary['meta_title'] = None  
             formatDomain = str(site).replace(
                                 'http://', '').replace('https://', '')
             fixedDomain = formatDomain.split('/')[0].replace('https://www.','').replace('http://www.','').replace('www.','')
@@ -1294,7 +1297,7 @@ def OutReacherDesk(query):
                    # domain = bingDictionary['root_domain']
 
                     seed_url = "http://{}/".format(domain)
-                    maxpages = 15
+                    maxpages = 30
                     domain = bingDictionary['root_domain'].replace('https://','').replace('http://','')
                     seed_url = "http://{}/".format(domain)
                     print domain, seed_url

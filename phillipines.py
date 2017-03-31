@@ -17,18 +17,46 @@ m_dictionary['member-34c9052fba'] = '999d2d727bfc11256421c42c529331de'
 m_dictionary['member-587eb1767c'] = '8c36e3b36b7d6d352fd943429d97837e'
 m_dictionary['member-5fa34d7383'] = '3986edd244ae54e1aa96c71404914578'
 bingDictionary = {}
-#oz_url = site.replace('www.','')
-moz_url = 'true-company.com'
+email_arrz = []
+bingDictionary['contact_url'] = 'www.depmakeup.com/pages/contact-us'
+try:
+	if "http:" in bingDictionary['contact_url']:
+	    response = requests.get(bingDictionary['contact_url']).text
+	    soup = BeautifulSoup(response)
+	    emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup), re.I)
+	    for each_emails in emails:
+	        print "EACH EMAILS HERE", each_emails
 
-each_url = 'https://facebook.com/flattummytea'
-if 3 == each_url.count('/') or 4 == each_url.count('/'):
-    bingDictionary['facebook_page_url'] = each_url
-    print "EACH URL", each_url
-else:
-    print "NO 3"
-    bingDictionary['facebook_page_url'] = None
+	        email_arrz.append(each_emails)
+	else:
+		#print "GOT HERE??"
 
-#while True:
+	    response = requests.get('http://'+bingDictionary['contact_url']).text
+	    soup = BeautifulSoup(response)
+	    print 'http://'+bingDictionary['contact_url']
+	    emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(soup))
+	    print emails
+	    for each_emails in emails:
+	        print "EACH EMAILS HERE", each_emails
+
+	        email_arrz.append(each_emails)
+
+except:
+    pass
+bingDictionary['emails'] = email_arrz
+print bingDictionary
+# #oz_url = site.replace('www.','')
+# moz_url = 'true-company.com'
+
+# each_url = 'https://facebook.com/flattummytea'
+# if 3 == each_url.count('/') or 4 == each_url.count('/'):
+#     bingDictionary['facebook_page_url'] = each_url
+#     print "EACH URL", each_url
+# else:
+#     print "NO 3"
+#     bingDictionary['facebook_page_url'] = None
+
+# #while True:
 	#try:
 #str_fb = 'https://www.facebook.com/mymakeupbrushset/'
 #print str_fb.count('/')
