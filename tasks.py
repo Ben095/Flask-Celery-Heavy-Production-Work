@@ -30,6 +30,9 @@ from mozscape import Mozscape
 from itertools import cycle
 import stripe
 from firebase import firebase
+import gender_guesser.detector as gender
+
+
 # from pyfcm import FCMNotification
 import json
 import time
@@ -70,6 +73,15 @@ import re
 from urlparse import urljoin, urlparse
 from collections import deque
 import argparse
+import os
+from flask import Flask, abort, request, jsonify, g, url_for
+from flask_httpauth import HTTPBasicAuth
+from passlib.apps import custom_app_context as pwd_context
+from itsdangerous import (TimedJSONWebSignatureSerializer
+                          as Serializer, BadSignature, SignatureExpired)
+
+from flask_restful import reqparse, abort, Api, Resource, fields, marshal_with
+import requests
 
 
 socket.setdefaulttimeout(10)
@@ -1439,6 +1451,104 @@ def YoutubeWorker(keyword):
         return "Youtube added to queue"
 
 
+@app.route('/dylan_work/<file_name>')
+def dylanWork(file_name):
+    output = StringIO.StringIO()
+    workbook = xlsxwriter.Workbook(output)
+   # workbook = xlsxwriter.Workbook('active_source.xlsx')
+    worksheet = workbook.add_worksheet()
+    worksheet.set_column(1, 1, 15)
+    bold = workbook.add_format({'bold': 1})
+    worksheet.write('A1', 'first name', bold)
+    worksheet.write('B1', 'last name', bold)
+    worksheet.write('C1', 'gender', bold)
+    worksheet.write('D1', 'orders', bold)
+    worksheet.write('E1', 'sites', bold)
+    worksheet.write('F1', 'Per Week', bold)
+    worksheet.write('G1', 'Days A week', bold)
+    row = 1
+    col = 0
+    arr = []
+    d = gender.Detector()
+    file1 = open(file_name)
+    source = file1.read()
+    soup = BeautifulSoup(source)
+    table = soup.find('table',attrs={'class':'table table-bordered table-hover'}).findAll('tr')
+    for items in table:
+            dictionary = {}
+            first_item = items.findAll('td',attrs={'class':'c_address'})
+            for first_indent in first_item:
+                try:
+                    name = first_indent.find('strong').text
+                    #print name.split(' ')[1]
+                    dictionary['first_name'] = name.split(' ')[0].encode('ascii','ignore')
+                    dictionary['last_name'] = name.split(' ')[1].encode('ascii','ignore')
+                    #print dictionary['last_name']
+                    convert_to_str = str(dictionary['first_name'].title())
+                    gender = d.get_gender(convert_to_str)
+                    dictionary['gender'] = gender
+                except:
+                    #raise
+                    dictionary['gender'] = None
+                    dictionary['first_name'] = None
+                    dictionary['last_name'] = None
+            try:
+                order = items.find('td',attrs={'class':'c_successful_orders'}).text.strip()
+                dictionary['order'] = order
+            except:
+                dictionary['order'] = None
+            try:
+                site = items.find('td',attrs={'class':'c_site'}).text.strip()
+                dictionary['site'] = site
+            except:
+                dictionary['site'] = None
+            try:
+                per_week = items.find('td',attrs={'class':'c_cost'}).text.strip()
+                dictionary['per_week'] = per_week.strip().replace('\t','')
+            except:
+                dictionary['per_week'] = None
+            try:
+                days_a_week = items.find('td',attrs={'class':'c_days'}).text.replace('\t','')
+                dictionary['days_a_week'] = days_a_week.strip()
+            except:
+                dictionary['days_a_week'] = None
+            arr.append(dictionary)
+
+    for self_user_info in arr:
+        try:
+            worksheet.write_string(row,col,str(self_user_info['first_name']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row,col+1,str(self_user_info['last_name']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row,col+2,str(self_user_info['gender']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row,col+3,str(self_user_info['order']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row, col+4, str(self_user_info['site']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row, col+5, str(self_user_info['per_week']))
+        except:
+            pass
+        try:
+            worksheet.write_string(row, col+6, str(self_user_info['days_a_week']))
+        except:
+            pass
+        row +=1
+        workbook.close()
+        output.seek(0)
+        response = make_response(output.read())
+        response.headers['Content-Disposition'] = "attachment; filename="+file_name+".csv"
+        return response
 
 @app.route('/outreach/celery/<query>')
 def individualWorker(query):
@@ -1451,6 +1561,10 @@ def individualWorker(query):
         db.session.commit()
         return "Added to queue"
     
+#### API RELATED STUFF #################@
+
+
+api.add_resource(UserRegister,'/api/user/register')
 
 
 if __name__ == '__main__':

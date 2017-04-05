@@ -24,3 +24,10 @@ class InstagramResult(db.Model):
 	id = db.Column(db.Integer,primary_key=True)
 	ig_name = db.Column(db.String(100))
 	task_id = db.Column(db.String(100))
+
+
+class Users(db.Model):
+	__tablename__ = 'Users'
+	id = db.Column(db.Integer,primary_key=True)
+	username = db.Column(db.String(500))
+	password = db.Column(db.String(500))
