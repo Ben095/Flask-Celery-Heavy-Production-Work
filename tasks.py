@@ -5,6 +5,9 @@ import json
 #ASDASDASDASDASD
 # ASDASDASDASDS
 # from py_bing_search import PyBingWebSearch
+from flask.ext.bcrypt import Bcrypt
+from itsdangerous import URLSafeTimedSerializer
+
 import random
 from urlparse import urlparse
 import sys
@@ -31,6 +34,7 @@ from itertools import cycle
 import stripe
 from firebase import firebase
 import gender_guesser.detector as gender
+from flask.ext.mail import Message
 
 
 # from pyfcm import FCMNotification
@@ -50,7 +54,7 @@ import logging
 import requests
 from requests.adapters import HTTPAdapter 
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
+#from requests.packages.urllib3.util.retry import Retry
 from celery import Celery
 from flask import Response
 from itertools import chain
@@ -82,7 +86,7 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
 
 from flask_restful import reqparse, abort, Api, Resource, fields, marshal_with
 import requests
-
+import datetime
 
 socket.setdefaulttimeout(10)
 def get_page(url):
@@ -334,6 +338,8 @@ log = logging.getLogger(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
 
 
 #from models import InstagramResult, Result, Token
@@ -447,7 +453,6 @@ def igFunction(name):
 
 
 @celery.task()
-#@app.route('/instagram/<name>')
 def InstagramMain(name):
     with app.app_context():
         try:
@@ -1562,9 +1567,29 @@ def individualWorker(query):
         return "Added to queue"
     
 #### API RELATED STUFF #################@
+from flask import Flask, jsonify, request
+from flask_restful import reqparse, abort, Api, Resource
+api = Api(app)
+
+class Register(Resource):
+    def post(self):
+        json_data = request.get_json(force=True)
+        username = json_data['username']
+        password = json_data['password']
+        user = Users(email=username,password=password, confirmed=False)
+        db.session.add(user)
+        db.session.commit()
+        #token = generate_confirmation_token(user.email)
+        #confirm_url = url_for('confirm_email', token=token, _external=True)
+
+        return "Registered user!"
 
 
-api.add_resource(UserRegister,'/api/user/register')
+api.add_resource(Register,'/api/user/register')
+
+
+
+
 
 
 if __name__ == '__main__':
